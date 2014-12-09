@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>816</width>
-    <height>472</height>
+    <width>818</width>
+    <height>535</height>
    </rect>
   </property>
   <property name="font">
@@ -80,11 +80,43 @@
             <rect>
              <x>0</x>
              <y>0</y>
-             <width>778</width>
-             <height>342</height>
+             <width>780</width>
+             <height>407</height>
             </rect>
            </property>
            <layout class="QVBoxLayout" name="verticalLayout_9">
+            <item>
+             <widget class="QGroupBox" name="icpms_config">
+              <property name="title">
+               <string>ICP-MS Configuration</string>
+              </property>
+              <layout class="QHBoxLayout" name="horizontalLayout">
+               <item>
+                <widget class="QLabel" name="label">
+                 <property name="text">
+                  <string>Model</string>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <widget class="QComboBox" name="model"/>
+               </item>
+               <item>
+                <spacer name="horizontalSpacer">
+                 <property name="orientation">
+                  <enum>Qt::Horizontal</enum>
+                 </property>
+                 <property name="sizeHint" stdset="0">
+                  <size>
+                   <width>40</width>
+                   <height>20</height>
+                  </size>
+                 </property>
+                </spacer>
+               </item>
+              </layout>
+             </widget>
+            </item>
             <item>
              <layout class="QHBoxLayout" name="internStdCorrection">
               <item>
@@ -552,8 +584,8 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>816</width>
-     <height>27</height>
+     <width>818</width>
+     <height>22</height>
     </rect>
    </property>
    <property name="autoFillBackground">

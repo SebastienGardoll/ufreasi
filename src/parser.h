@@ -34,6 +34,8 @@ class Data;
 class Parser{
 public:
     virtual QPair<int,QString> parse(QFile *file,class Data *data,class Processing *process) = 0; ///< Parsing Function
+    virtual int getId() = 0; ///< Returns a unique identification.
+    virtual QString getPrintableName() = 0; ///< Returns the parser's name for humain.
 };
 
 /**
@@ -43,6 +45,16 @@ public:
 class ParserInCSV: public Parser{
 public:
     QPair<int,QString> parse(QFile *file,Data *data,class Processing *process); ///< Parsing Function
+
+    inline int getId()
+    {
+      return 3 ;
+    }
+
+    inline QString getPrintableName()
+    {
+      return "HR Element ICP-MS" ;
+    }
 };
 
 /**
@@ -52,6 +64,16 @@ public:
 class ParserOutCSV: public Parser{
 public:
     QPair<int, QString> parse(QFile *file,Data *data,class Processing *process); ///< Parsing Function
+
+    inline int getId()
+    {
+      return  2 ;
+    }
+
+    inline QString getPrintableName()
+    {
+      return "HR Element ICP-MS" ;
+    }
 };
 
 /**
@@ -61,6 +83,16 @@ public:
 class ParserInSTDQC: public Parser{
 public:
     QPair<int, QString> parse(QFile *file,Data *data,class Processing *process); ///< Parsing Function
+
+    inline int getId()
+    {
+      return  1 ;
+    }
+
+    inline QString getPrintableName()
+    {
+      return "Standard parser" ;
+    }
 };
 
 #endif // PARSER_H
