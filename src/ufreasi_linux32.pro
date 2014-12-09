@@ -77,19 +77,3 @@ unix {
    INCLUDEPATH += /usr/include/qwt ../libraries/linux32/qwt-6.0.1/include
    DEPENDPATH += /usr/include/qwt
 }
-
-win32 {
-   RC_FILE += res/icone.rc
-   LIBS += -L C:/qwt-6.0.1/lib/ -lqwt
-   INCLUDEPATH += C:/qwt-6.0.1/include/
-   DEPENDPATH += C:/qwt-6.0.1/include/  
-}
-
-mac {
-   # For Mac OS X, QWT library must be installed as a framework file (qwt.framework) in
-   # the /Library/Frameworks directory in order to macdeployqt could find it
-   LIBS = -F/Library/Frameworks/qwt.framework -framework qwt -F/Volumes/Data/seb/QtSDK/Desktop/Qt/4.8.1/gcc/lib
-   INCLUDEPATH += /Library/Frameworks/qwt.framework/Headers/ /Volumes/Data/seb/QtSDK/Desktop/Qt/4.8.1/gcc/include
-   DEPENDPATH += /Library/Frameworks/qwt.framework/Headers/
-   ICON = res/chimie.icns
-}

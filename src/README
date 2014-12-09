@@ -4,18 +4,41 @@ uFREASI version 1.XX
 
 * prerequisites
 
-   _ QT SDK 4.8.1
-   _ QWT 6.0.1
+	_ Mac OSX 10.8:
+	   _ QT SDK 4.8.1. Don't install the macport version of QWT and QT SDK frameworks: they don't provide the .framework files.
+   	   _ QWT 6.0.1 static libraries availlable in the libraries directory.
+
+   	_ Mac OSX 10.9:
+	   _ QT SDK 4.8.6 (Qt SDK 5.x.x is not supported). Don't install the macport version of QWT and QT SDK frameworks: they don't provide the .framework files.
+   	   _ QWT 6.0.1 (to build static libraries see above).
    
 * Linux
 
-   _ install qt (standard directories). Qwt libraries are staticaly linked.
-   _ for 64 bits : qmake -project ufreasi_64.pro && make
-   _ for 32 bits : qmake -project ufreasi_32.pro && make
+   _ install QT SDK (standard directories). Qwt libraries are staticaly linked.
+   _ for 64 bits : qmake ufreasi_linux64.pro && make
+   _ for 32 bits : qmake ufreasi_linux32.pro && make
    
 * Mac OS X
 
-   _ install qwt.framework into /Library/Frameworks directory
-   _ qmake ufreasi_64.pro
-   _ make
+   _ 10.8:
+      _ install QT SDK 4.8.1
+      _ copy librairies/macosx/qwt-6.0.1/10.8/*.framework into /Library/Frameworks directory
+      _ qmake -spec macx-g++ ufreasi_mac64.pro
+      _ make
 
+   _ 10.9:
+      _ install QT SDK 4.8.6
+      _ copy librairies/macosx/qwt-6.0.1/10.9/*.framework into /Library/Frameworks directory
+      _ qmake -spec macx-g++ ufreasi_mac64.pro
+      _ make
+
+*** HOW TO PACKAGE ***
+
+* Mac OS X
+   _ macdeployqt ufreasi.app
+
+*** STATIC BUILD ***
+
+   _ QT 4.8.x : ./configure -prefix /infres/s3/gardoll/tmp/release -release -opensource -static -no-fast -svg -qt-libpng -qt-zlib -qt-libjpeg ; make -j 6 sub-src ; make install
+   _ QWT 6.0.1 (svn co svn://svn.code.sf.net/p/qwt/code/tags/qwt-6.0.1/):
+     _ modify qwbuild.pri: at line 35 write release instead of debug
