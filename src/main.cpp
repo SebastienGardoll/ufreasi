@@ -1,6 +1,6 @@
-/** 
+/**
  *  user-FRiendly Elemental dAta procesSIng (uFREASI)
- *  
+ *
  *  Copyright © 2012 Oualid Khelefi.
  *
  *  Authors : see AUTHORS.
@@ -29,16 +29,16 @@
  * Designed for a studies project at Telecom ParisTech in collaboration with Laboratoire de Geochimie des Eaux
  *
  * Designed by :
- * - KHELIFI Oualid - Telecom ParisTech - khelifi@enst.fr : As the initial analyst, conceptor and developper.
+ * - KHELIFI Oualid - Telecom ParisTech - khelifi@enst.fr : As the initial analyst, conceptor and developer.
  * - THARAUD Mickael - Laboratoire de Geochimie des Eaux - tharaud@ipgp.fr : as the ICP-MS expert and one of the stakeholders.
- * - GARDOLL Sébastien - Telecom ParisTech - sebastien.gardoll@telecom-paristech.fr : As the current analyst, conceptor and developper.
- * - SIVRY Yann - Laboratoire de Geochimie des Eaux - sivry@ipgp.fr : as one of the stakeholders.
+ * - GARDOLL Sébastien - Telecom ParisTech - sebastien.gardoll@telecom-paristech.fr : As the current analyst, conceptor and developer.
+ * - SIVRY Yann - Laboratoire de Geochimie des Eaux - sivry@ipgp.fr : as stakeholder delegate.
  */
 
 int main(int argc, char *argv[]){
     QApplication app(argc, argv);
     Application myApplication;
     myApplication.show();
-    
+
     return app.exec();
 }
