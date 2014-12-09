@@ -1,0 +1,18 @@
+<map id="Application::openFile" name="Application::openFile">
+<area shape="rect" id="node3" href="$a00002.html#a44b749f64ffa35e034f9503fdec4917e" title="Clears data contain." alt="" coords="525,36,624,70"/>
+<area shape="rect" id="node5" href="$a00002.html#ab93d5c2184e3e548e970506dddfcb9eb" title="Loads a specific parser used to proceed the Data." alt="" coords="268,576,409,610"/>
+<area shape="rect" id="node7" href="$a00002.html#a45e4e0eb52a1bcf3b2bdbd689fbd028a" title="Data::executeParsing" alt="" coords="252,632,425,666"/>
+<area shape="rect" id="node9" href="$a00002.html#a6fc1d983c7fa16eebd0d0b12cb505a30" title="Copies data contain from the given parameter." alt="" coords="273,200,404,234"/>
+<area shape="rect" id="node12" href="$a00002.html#acd1f2adc01b25ef7bded9b6d2b331278" title="Gets the Number of elements." alt="" coords="516,172,633,206"/>
+<area shape="rect" id="node14" href="$a00002.html#a84179b0c71fb3e69cfa177e92004ee79" title="Gets the Number of Solutions." alt="" coords="499,363,651,396"/>
+<area shape="rect" id="node16" href="$a00002.html#a7b1a07606090591e7fffb48be72bd734" title="Gets a solution identified by its Id." alt="" coords="503,256,647,290"/>
+<area shape="rect" id="node18" href="$a00013.html#a7e480d4e590046701d82e74491ff944a" title="Gets type of the solution." alt="" coords="501,419,648,452"/>
+<area shape="rect" id="node20" href="$a00010.html#a32858e1454e64b27cce64ef1d4fa2f39" title="Initializes Processing contain." alt="" coords="273,688,404,722"/>
+<area shape="rect" id="node23" href="$a00003.html#a30730fad4ea063bd1a253de59a279ecc" title="displays input data on the input Table" alt="" coords="233,88,444,122"/>
+<area shape="rect" id="node27" href="$a00003.html#a773c819165ab712b4fd073ddddcd8695" title="display output data on the output Table" alt="" coords="227,144,451,178"/>
+<area shape="rect" id="node31" href="$a00003.html#a5948e8f752a67b250665cee57abdadb2" title="Generates lists : of Elements, HR&#45;MR&#45;LR Elements and Blanks." alt="" coords="244,363,433,396"/>
+<area shape="rect" id="node37" href="$a00003.html#a5a779d21b88a5d08e8989d401acad7b8" title="Generates list of solutions." alt="" coords="227,419,451,452"/>
+<area shape="rect" id="node45" href="$a00002.html#a6ff99fcec4f0387958fff773969de591" title="Adds a calculated Blank Solution." alt="" coords="263,256,415,290"/>
+<area shape="rect" id="node50" href="$a00001.html#a4d6d25052b873ecee1553e83881a7fca" title="Slot to change Internal standards selection." alt="" coords="237,744,440,778"/>
+<area shape="rect" id="node52" href="$a00001.html#a9c0b6e60ede4b6f2c60abe874f351994" title="Slot of choosing Internal standard plot plot to diplay." alt="" coords="241,800,436,834"/>
+</map>

@@ -1,0 +1,21 @@
+*** HOW TO BUILD ***
+
+uFREASI version 1.XX
+
+* prerequisites
+
+   _ QT SDK 4.8.1
+   _ QWT 6.0.1
+   
+* Linux
+
+   _ install qt (standard directories). Qwt libraries are staticaly linked.
+   _ for 64 bits : qmake -project ufreasi_64.pro && make
+   _ for 32 bits : qmake -project ufreasi_32.pro && make
+   
+* Mac OS X
+
+   _ install qwt.framework into /Library/Frameworks directory
+   _ qmake ufreasi_64.pro
+   _ make
+

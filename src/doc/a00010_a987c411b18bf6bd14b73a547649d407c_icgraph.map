@@ -1,0 +1,5 @@
+<map id="Processing::avr" name="Processing::avr">
+<area shape="rect" id="node3" href="$a00010.html#a5fbd5c910da7cec1497168d1d217f1ed" title="Computes a calibration line." alt="" coords="192,5,395,38"/>
+<area shape="rect" id="node5" href="$a00010.html#ac6f31cca949dba1d4aa18b746311dd2f" title="Computes limits &#45; of detection (LOD), of Quantification (LOQ)" alt="" coords="187,61,400,94"/>
+<area shape="rect" id="node7" href="$a00010.html#ab0405d28406546aa473efb059588b045" title="Computes the average (first) and the standard deviation (second) of a vector." alt="" coords="227,117,360,150"/>
+</map>

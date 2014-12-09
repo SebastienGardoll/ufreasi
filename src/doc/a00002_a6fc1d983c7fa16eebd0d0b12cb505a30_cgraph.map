@@ -1,0 +1,23 @@
+<map id="Data::copyData" name="Data::copyData">
+<area shape="rect" id="node3" href="$a00002.html#a44b749f64ffa35e034f9503fdec4917e" title="Clears data contain." alt="" coords="241,5,340,38"/>
+<area shape="rect" id="node5" href="$a00002.html#acd1f2adc01b25ef7bded9b6d2b331278" title="Gets the Number of elements." alt="" coords="232,61,349,94"/>
+<area shape="rect" id="node7" href="$a00002.html#a386e9b359ac336356d6bdf0c1d7c4f37" title="Adds an element to the data set." alt="" coords="235,117,347,150"/>
+<area shape="rect" id="node9" href="$a00005.html#ab8c2c9824162b3a151e84cb2f2c5df6f" title="Gets the resolution (value of Resolution enumeration)" alt="" coords="444,143,596,177"/>
+<area shape="rect" id="node11" href="$a00002.html#a4baa9866aaea800c81e4502b9483e4ec" title="Gets an element identified by its Id." alt="" coords="237,223,344,257"/>
+<area shape="rect" id="node13" href="$a00005.html#a982ccc1c2f9f57d58ad5f98eedb53706" title="Gets the Name of the element." alt="" coords="205,279,376,313"/>
+<area shape="rect" id="node15" href="$a00005.html#ab91c2a260fba46158f20bf25c25958c5" title="Gets the Mass." alt="" coords="212,335,369,369"/>
+<area shape="rect" id="node18" href="$a00002.html#a84179b0c71fb3e69cfa177e92004ee79" title="Gets the Number of Solutions." alt="" coords="215,391,367,425"/>
+<area shape="rect" id="node20" href="$a00002.html#a7f13913683ead8b0702121ac494f1598" title="Add a solution to the data set." alt="" coords="216,447,365,481"/>
+<area shape="rect" id="node22" href="$a00013.html#a7e480d4e590046701d82e74491ff944a" title="Gets type of the solution." alt="" coords="447,474,593,507"/>
+<area shape="rect" id="node24" href="$a00002.html#a7b1a07606090591e7fffb48be72bd734" title="Gets a solution identified by its Id." alt="" coords="219,554,363,587"/>
+<area shape="rect" id="node26" href="$a00013.html#a08617ee6ca1993e92372e265829508f0" title="Gets the Name." alt="" coords="213,610,368,643"/>
+<area shape="rect" id="node28" href="$a00013.html#a50dfabf4a7bd3d4b5b638639e3927406" title="Gets the Number of Elements." alt="" coords="193,666,388,699"/>
+<area shape="rect" id="node31" href="$a00013.html#a6c810986de58b492514e08849cb0a498" title="Sets Intensity." alt="" coords="221,722,360,755"/>
+<area shape="rect" id="node33" href="$a00013.html#a6cb75c8a1aa020796506362920216816" title="Gets Intensity." alt="" coords="221,778,360,811"/>
+<area shape="rect" id="node35" href="$a00013.html#a000b5c9d708b22de23d918a3a3214635" title="Sets Intensity Standard Deviation." alt="" coords="209,834,372,867"/>
+<area shape="rect" id="node37" href="$a00013.html#a0fe4de8b637ba6637d653b91df95fcd0" title="Gets Intensity Standard Deviation." alt="" coords="209,890,372,923"/>
+<area shape="rect" id="node39" href="$a00013.html#adc74f58993747169c721739962ec2a5a" title="Sets Concentration." alt="" coords="205,946,376,979"/>
+<area shape="rect" id="node41" href="$a00013.html#af9f7e1dfafa0cd431387737664e3ac7e" title="Gets Concentration." alt="" coords="205,1002,376,1035"/>
+<area shape="rect" id="node43" href="$a00013.html#a60ca23e0e5593012162a2669841c952e" title="Sets Concentration Relative Standard Deviation (%)" alt="" coords="188,1058,393,1091"/>
+<area shape="rect" id="node45" href="$a00013.html#a1adae3ea7b071d2a311b62371b959633" title="Gets Concentration Relative Standard Deviation (%)" alt="" coords="188,1114,393,1147"/>
+</map>

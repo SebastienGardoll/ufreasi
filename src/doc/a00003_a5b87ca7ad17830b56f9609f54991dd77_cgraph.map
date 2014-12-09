@@ -1,0 +1,8 @@
+<map id="Displaying::plotEvol" name="Displaying::plotEvol">
+<area shape="rect" id="node3" href="$a00002.html#a4baa9866aaea800c81e4502b9483e4ec" title="Gets an element identified by its Id." alt="" coords="243,5,349,38"/>
+<area shape="rect" id="node5" href="$a00005.html#a82faf6c27cd36339a0a12cae9beb89af" title="Gets the complete Name of the istope, used to display the element to HCI." alt="" coords="219,61,373,94"/>
+<area shape="rect" id="node7" href="$a00002.html#a84179b0c71fb3e69cfa177e92004ee79" title="Gets the Number of Solutions." alt="" coords="220,117,372,150"/>
+<area shape="rect" id="node9" href="$a00002.html#a7b1a07606090591e7fffb48be72bd734" title="Gets a solution identified by its Id." alt="" coords="224,173,368,206"/>
+<area shape="rect" id="node11" href="$a00013.html#a08617ee6ca1993e92372e265829508f0" title="Gets the Name." alt="" coords="219,229,373,262"/>
+<area shape="rect" id="node13" href="$a00013.html#a6cb75c8a1aa020796506362920216816" title="Gets Intensity." alt="" coords="227,285,365,318"/>
+</map>

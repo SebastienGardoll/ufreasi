@@ -1,0 +1,11 @@
+<map id="ParserInSTDQC::parse" name="ParserInSTDQC::parse">
+<area shape="rect" id="node3" href="$a00002.html#a84179b0c71fb3e69cfa177e92004ee79" title="Gets the Number of Solutions." alt="" coords="267,5,419,38"/>
+<area shape="rect" id="node5" href="$a00002.html#a7b1a07606090591e7fffb48be72bd734" title="Gets a solution identified by its Id." alt="" coords="271,61,415,94"/>
+<area shape="rect" id="node7" href="$a00013.html#a7e480d4e590046701d82e74491ff944a" title="Gets type of the solution." alt="" coords="269,117,416,150"/>
+<area shape="rect" id="node9" href="$a00013.html#a08617ee6ca1993e92372e265829508f0" title="Gets the Name." alt="" coords="265,173,420,206"/>
+<area shape="rect" id="node11" href="$a00002.html#acd1f2adc01b25ef7bded9b6d2b331278" title="Gets the Number of elements." alt="" coords="284,229,401,262"/>
+<area shape="rect" id="node13" href="$a00002.html#a4baa9866aaea800c81e4502b9483e4ec" title="Gets an element identified by its Id." alt="" coords="289,285,396,318"/>
+<area shape="rect" id="node15" href="$a00005.html#a982ccc1c2f9f57d58ad5f98eedb53706" title="Gets the Name of the element." alt="" coords="257,341,428,374"/>
+<area shape="rect" id="node17" href="$a00013.html#adc74f58993747169c721739962ec2a5a" title="Sets Concentration." alt="" coords="257,397,428,430"/>
+<area shape="rect" id="node19" href="$a00013.html#a60ca23e0e5593012162a2669841c952e" title="Sets Concentration Relative Standard Deviation (%)" alt="" coords="240,453,445,486"/>
+</map>

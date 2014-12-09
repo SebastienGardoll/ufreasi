@@ -1,0 +1,19 @@
+<map id="Data::solutionSize" name="Data::solutionSize">
+<area shape="rect" id="node3" href="$a00001.html#a68965449404743bf1add056784d6cf81" title="Slot of clicking on proceed button." alt="" coords="505,223,639,257"/>
+<area shape="rect" id="node5" href="$a00001.html#ab7f9356b1eaa23c179500675d92a49d5" title="Slot of clicking on open data file button." alt="" coords="485,501,659,534"/>
+<area shape="rect" id="node7" href="$a00002.html#a6fc1d983c7fa16eebd0d0b12cb505a30" title="Copies data contain from the given parameter." alt="" coords="256,447,387,481"/>
+<area shape="rect" id="node11" href="$a00002.html#a6ff99fcec4f0387958fff773969de591" title="Adds a calculated Blank Solution." alt="" coords="245,391,397,425"/>
+<area shape="rect" id="node15" href="$a00002.html#a735dfe532fe9312409a554618267ae35" title="Return the id of first occurence of a solution with the given name or &#45;1." alt="" coords="231,167,412,201"/>
+<area shape="rect" id="node18" href="$a00003.html#a5948e8f752a67b250665cee57abdadb2" title="Generates lists : of Elements, HR&#45;MR&#45;LR Elements and Blanks." alt="" coords="227,554,416,587"/>
+<area shape="rect" id="node21" href="$a00003.html#a5a779d21b88a5d08e8989d401acad7b8" title="Generates list of solutions." alt="" coords="209,610,433,643"/>
+<area shape="rect" id="node24" href="$a00003.html#a836d9f49a3480b021e2c2fa22e05d6b1" title="Plots internal standard curve." alt="" coords="248,666,395,699"/>
+<area shape="rect" id="node26" href="$a00003.html#a5b87ca7ad17830b56f9609f54991dd77" title="Plots Evolution curve." alt="" coords="240,722,403,755"/>
+<area shape="rect" id="node28" href="$a00003.html#a2eb8d02c398ddd7708260ec230ceafcc" title="Plots Calibration curves." alt="" coords="227,223,416,257"/>
+<area shape="rect" id="node31" href="$a00009.html#aac066ac6d6c2c4d2391343af917c92b4" title="Parsing Function." alt="" coords="233,778,409,811"/>
+<area shape="rect" id="node33" href="$a00008.html#a8bdd62cece3dc339c2096c85044fad66" title="Parsing Function." alt="" coords="228,834,415,867"/>
+<area shape="rect" id="node35" href="$a00010.html#a409d37b18750104739ee43e169371a0b" title="Applies Blank Substraction." alt="" coords="219,279,424,313"/>
+<area shape="rect" id="node38" href="$a00010.html#aa96b9a34a756e39a01581416199328d3" title="Applies Internal Standard Correction." alt="" coords="224,335,419,369"/>
+<area shape="rect" id="node41" href="$a00010.html#ac0d956c3e8bdbc42a3b24975b25c6dfd" title="Computes concentrations on data container." alt="" coords="207,5,436,38"/>
+<area shape="rect" id="node44" href="$a00010.html#a092b32603577be8f4482f2d5d5f7ff30" title="Quality control after data processing." alt="" coords="237,61,405,94"/>
+<area shape="rect" id="node47" href="$a00010.html#a5fbd5c910da7cec1497168d1d217f1ed" title="Computes a calibration line." alt="" coords="220,890,423,923"/>
+</map>

@@ -1,0 +1,8 @@
+<map id="Processing::subtructBlank" name="Processing::subtructBlank">
+<area shape="rect" id="node3" href="$a00002.html#acd1f2adc01b25ef7bded9b6d2b331278" title="Gets the Number of elements." alt="" coords="279,5,396,38"/>
+<area shape="rect" id="node5" href="$a00002.html#a7b1a07606090591e7fffb48be72bd734" title="Gets a solution identified by its Id." alt="" coords="265,61,409,94"/>
+<area shape="rect" id="node7" href="$a00013.html#a6cb75c8a1aa020796506362920216816" title="Gets Intensity." alt="" coords="268,117,407,150"/>
+<area shape="rect" id="node9" href="$a00002.html#a84179b0c71fb3e69cfa177e92004ee79" title="Gets the Number of Solutions." alt="" coords="261,173,413,206"/>
+<area shape="rect" id="node11" href="$a00013.html#a7e480d4e590046701d82e74491ff944a" title="Gets type of the solution." alt="" coords="264,229,411,262"/>
+<area shape="rect" id="node13" href="$a00013.html#a6c810986de58b492514e08849cb0a498" title="Sets Intensity." alt="" coords="268,285,407,318"/>
+</map>

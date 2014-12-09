@@ -1,0 +1,9 @@
+<map id="Displaying::plotIS" name="Displaying::plotIS">
+<area shape="rect" id="node3" href="$a00002.html#a4baa9866aaea800c81e4502b9483e4ec" title="Gets an element identified by its Id." alt="" coords="227,5,333,38"/>
+<area shape="rect" id="node5" href="$a00005.html#a82faf6c27cd36339a0a12cae9beb89af" title="Gets the complete Name of the istope, used to display the element to HCI." alt="" coords="203,61,357,94"/>
+<area shape="rect" id="node7" href="$a00002.html#a84179b0c71fb3e69cfa177e92004ee79" title="Gets the Number of Solutions." alt="" coords="204,117,356,150"/>
+<area shape="rect" id="node9" href="$a00010.html#aeabb0a31dafb8c9bcb81749f9b18b469" title="Tests the validit of a number." alt="" coords="201,173,359,206"/>
+<area shape="rect" id="node11" href="$a00002.html#a7b1a07606090591e7fffb48be72bd734" title="Gets a solution identified by its Id." alt="" coords="208,229,352,262"/>
+<area shape="rect" id="node13" href="$a00013.html#a6cb75c8a1aa020796506362920216816" title="Gets Intensity." alt="" coords="211,285,349,318"/>
+<area shape="rect" id="node15" href="$a00010.html#ab0405d28406546aa473efb059588b045" title="Computes the average (first) and the standard deviation (second) of a vector." alt="" coords="213,341,347,374"/>
+</map>

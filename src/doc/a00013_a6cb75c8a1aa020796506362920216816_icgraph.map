@@ -1,0 +1,15 @@
+<map id="Solution::getCps" name="Solution::getCps">
+<area shape="rect" id="node3" href="$a00002.html#a6fc1d983c7fa16eebd0d0b12cb505a30" title="Copies data contain from the given parameter." alt="" coords="245,5,376,38"/>
+<area shape="rect" id="node5" href="$a00002.html#a6ff99fcec4f0387958fff773969de591" title="Adds a calculated Blank Solution." alt="" coords="235,61,387,94"/>
+<area shape="rect" id="node7" href="$a00003.html#a30730fad4ea063bd1a253de59a279ecc" title="displays input data on the input Table" alt="" coords="481,121,692,154"/>
+<area shape="rect" id="node9" href="$a00003.html#a773c819165ab712b4fd073ddddcd8695" title="display output data on the output Table" alt="" coords="475,182,699,215"/>
+<area shape="rect" id="node11" href="$a00003.html#a836d9f49a3480b021e2c2fa22e05d6b1" title="Plots internal standard curve." alt="" coords="237,325,384,358"/>
+<area shape="rect" id="node13" href="$a00003.html#a5b87ca7ad17830b56f9609f54991dd77" title="Plots Evolution curve." alt="" coords="229,381,392,414"/>
+<area shape="rect" id="node15" href="$a00003.html#a2eb8d02c398ddd7708260ec230ceafcc" title="Plots Calibration curves." alt="" coords="492,249,681,282"/>
+<area shape="rect" id="node17" href="$a00007.html#ad7b814e406fa54ff255b66488a9dde4a" title="Parsing Function." alt="" coords="229,437,392,470"/>
+<area shape="rect" id="node19" href="$a00010.html#a409d37b18750104739ee43e169371a0b" title="Applies Blank Substraction." alt="" coords="208,493,413,526"/>
+<area shape="rect" id="node21" href="$a00010.html#aa96b9a34a756e39a01581416199328d3" title="Applies Internal Standard Correction." alt="" coords="213,549,408,582"/>
+<area shape="rect" id="node23" href="$a00010.html#ac0d956c3e8bdbc42a3b24975b25c6dfd" title="Computes concentrations on data container." alt="" coords="196,605,425,638"/>
+<area shape="rect" id="node25" href="$a00010.html#a5fbd5c910da7cec1497168d1d217f1ed" title="Computes a calibration line." alt="" coords="209,661,412,694"/>
+<area shape="rect" id="node27" href="$a00013.html#ac0ca8e1256ac9b972eab1f02f11ab8ac" title="Gets Intensity Relative Standard Deviation (%)" alt="" coords="224,218,397,251"/>
+</map>

@@ -1,0 +1,18 @@
+<map id="Displaying::plotElement" name="Displaying::plotElement">
+<area shape="rect" id="node3" href="$a00002.html#a4baa9866aaea800c81e4502b9483e4ec" title="Gets an element identified by its Id." alt="" coords="296,5,403,38"/>
+<area shape="rect" id="node5" href="$a00005.html#a82faf6c27cd36339a0a12cae9beb89af" title="Gets the complete Name of the istope, used to display the element to HCI." alt="" coords="272,61,427,94"/>
+<area shape="rect" id="node7" href="$a00002.html#a84179b0c71fb3e69cfa177e92004ee79" title="Gets the Number of Solutions." alt="" coords="273,117,425,150"/>
+<area shape="rect" id="node9" href="$a00002.html#a7b1a07606090591e7fffb48be72bd734" title="Gets a solution identified by its Id." alt="" coords="277,173,421,206"/>
+<area shape="rect" id="node11" href="$a00013.html#a7e480d4e590046701d82e74491ff944a" title="Gets type of the solution." alt="" coords="276,229,423,262"/>
+<area shape="rect" id="node13" href="$a00013.html#a6cb75c8a1aa020796506362920216816" title="Gets Intensity." alt="" coords="503,337,641,370"/>
+<area shape="rect" id="node15" href="$a00013.html#af9f7e1dfafa0cd431387737664e3ac7e" title="Gets Concentration." alt="" coords="264,335,435,369"/>
+<area shape="rect" id="node17" href="$a00013.html#ac0ca8e1256ac9b972eab1f02f11ab8ac" title="Gets Intensity Relative Standard Deviation (%)" alt="" coords="263,391,436,425"/>
+<area shape="rect" id="node20" href="$a00013.html#a1adae3ea7b071d2a311b62371b959633" title="Gets Concentration Relative Standard Deviation (%)" alt="" coords="247,447,452,481"/>
+<area shape="rect" id="node22" href="$a00013.html#a08617ee6ca1993e92372e265829508f0" title="Gets the Name." alt="" coords="272,503,427,537"/>
+<area shape="rect" id="node24" href="$a00010.html#ad47f77284133874657553b30fa449f68" title="Computes the max of a vector." alt="" coords="280,559,419,593"/>
+<area shape="rect" id="node26" href="$a00010.html#ae5c1570b50e37113591f5cad1343f48b" title="Computes the min of a vector." alt="" coords="281,615,417,649"/>
+<area shape="rect" id="node28" href="$a00010.html#a1e247e39fde3f7e1123d0dbdd8275ef0" title="Gets calibration line corresponding to the Id element given." alt="" coords="268,671,431,705"/>
+<area shape="rect" id="node30" href="$a00010.html#af0524fbbdf92207a5c735e837d571f71" title="Gets calibration line Error corresponding to the by Id element given." alt="" coords="252,727,447,761"/>
+<area shape="rect" id="node32" href="$a00010.html#ae20ae3100fa8fd1578dbe6cbe179e6e5" title="Gets LOD corresponding to the Id element given." alt="" coords="267,783,432,817"/>
+<area shape="rect" id="node34" href="$a00010.html#a3c8e2bd5d31b4a61b8d1e54f219fa015" title="Gets LOQ corresponding to the Id element given." alt="" coords="267,839,432,873"/>
+</map>

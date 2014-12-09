@@ -1,0 +1,12 @@
+<map id="ParserOutCSV::parse" name="ParserOutCSV::parse">
+<area shape="rect" id="node3" href="$a00002.html#acd1f2adc01b25ef7bded9b6d2b331278" title="Gets the Number of elements." alt="" coords="275,5,392,38"/>
+<area shape="rect" id="node5" href="$a00002.html#a4baa9866aaea800c81e4502b9483e4ec" title="Gets an element identified by its Id." alt="" coords="280,61,387,94"/>
+<area shape="rect" id="node7" href="$a00005.html#a82faf6c27cd36339a0a12cae9beb89af" title="Gets the complete Name of the istope, used to display the element to HCI." alt="" coords="256,117,411,150"/>
+<area shape="rect" id="node9" href="$a00010.html#ae20ae3100fa8fd1578dbe6cbe179e6e5" title="Gets LOD corresponding to the Id element given." alt="" coords="251,173,416,206"/>
+<area shape="rect" id="node11" href="$a00010.html#a3c8e2bd5d31b4a61b8d1e54f219fa015" title="Gets LOQ corresponding to the Id element given." alt="" coords="251,229,416,262"/>
+<area shape="rect" id="node13" href="$a00002.html#a84179b0c71fb3e69cfa177e92004ee79" title="Gets the Number of Solutions." alt="" coords="257,285,409,318"/>
+<area shape="rect" id="node15" href="$a00002.html#a7b1a07606090591e7fffb48be72bd734" title="Gets a solution identified by its Id." alt="" coords="261,341,405,374"/>
+<area shape="rect" id="node17" href="$a00013.html#a08617ee6ca1993e92372e265829508f0" title="Gets the Name." alt="" coords="256,397,411,430"/>
+<area shape="rect" id="node19" href="$a00013.html#af9f7e1dfafa0cd431387737664e3ac7e" title="Gets Concentration." alt="" coords="248,453,419,486"/>
+<area shape="rect" id="node21" href="$a00013.html#a1adae3ea7b071d2a311b62371b959633" title="Gets Concentration Relative Standard Deviation (%)" alt="" coords="231,509,436,542"/>
+</map>

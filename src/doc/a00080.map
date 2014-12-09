@@ -1,0 +1,5 @@
+<map id="Parser" name="Parser">
+<area shape="rect" id="node3" href="$a00007.html" title="{ParserInCSV\n||+ parse()\l}" alt="" coords="5,153,120,250"/>
+<area shape="rect" id="node5" href="$a00008.html" title="{ParserInSTDQC\n||+ parse()\l}" alt="" coords="144,153,283,250"/>
+<area shape="rect" id="node7" href="$a00009.html" title="{ParserOutCSV\n||+ parse()\l}" alt="" coords="307,153,435,250"/>
+</map>

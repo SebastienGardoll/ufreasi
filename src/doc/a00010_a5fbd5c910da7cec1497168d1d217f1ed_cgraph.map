@@ -1,0 +1,10 @@
+<map id="Processing::computeLine" name="Processing::computeLine">
+<area shape="rect" id="node3" href="$a00002.html#a84179b0c71fb3e69cfa177e92004ee79" title="Gets the Number of Solutions." alt="" coords="265,5,417,38"/>
+<area shape="rect" id="node5" href="$a00002.html#a7b1a07606090591e7fffb48be72bd734" title="Gets a solution identified by its Id." alt="" coords="269,61,413,94"/>
+<area shape="rect" id="node7" href="$a00013.html#a7e480d4e590046701d82e74491ff944a" title="Gets type of the solution." alt="" coords="268,117,415,150"/>
+<area shape="rect" id="node9" href="$a00013.html#af9f7e1dfafa0cd431387737664e3ac7e" title="Gets Concentration." alt="" coords="256,173,427,206"/>
+<area shape="rect" id="node11" href="$a00013.html#a6cb75c8a1aa020796506362920216816" title="Gets Intensity." alt="" coords="272,229,411,262"/>
+<area shape="rect" id="node13" href="$a00013.html#a08617ee6ca1993e92372e265829508f0" title="Gets the Name." alt="" coords="264,285,419,318"/>
+<area shape="rect" id="node15" href="$a00010.html#a987c411b18bf6bd14b73a547649d407c" title="Computes the average of a vector." alt="" coords="276,341,407,374"/>
+<area shape="rect" id="node17" href="$a00010.html#aeabb0a31dafb8c9bcb81749f9b18b469" title="Tests the validit of a number." alt="" coords="263,397,420,430"/>
+</map>

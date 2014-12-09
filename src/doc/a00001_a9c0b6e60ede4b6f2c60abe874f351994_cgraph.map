@@ -1,0 +1,6 @@
+<map id="Application::onISChoice" name="Application::onISChoice">
+<area shape="rect" id="node3" href="$a00002.html#a417cbf208ccd4334f89ea5f46a2c133e" title="Gets the mapping from LR elements list to all elements list." alt="" coords="264,5,379,38"/>
+<area shape="rect" id="node5" href="$a00002.html#a95e9b3b50f8fff2e29c77ef61d28e115" title="Gets the mapping from MR elements list to all elements list." alt="" coords="261,61,381,94"/>
+<area shape="rect" id="node7" href="$a00002.html#a173a52935021e359de8b33ad8c2c0b6a" title="Gets the mapping from HR elements list to all elements list." alt="" coords="263,117,380,150"/>
+<area shape="rect" id="node9" href="$a00003.html#a836d9f49a3480b021e2c2fa22e05d6b1" title="Plots internal standard curve." alt="" coords="248,173,395,206"/>
+</map>

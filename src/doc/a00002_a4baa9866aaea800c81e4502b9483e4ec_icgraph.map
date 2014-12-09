@@ -1,0 +1,15 @@
+<map id="Data::getIso" name="Data::getIso">
+<area shape="rect" id="node3" href="$a00002.html#a6fc1d983c7fa16eebd0d0b12cb505a30" title="Copies data contain from the given parameter." alt="" coords="211,5,341,38"/>
+<area shape="rect" id="node5" href="$a00003.html#a30730fad4ea063bd1a253de59a279ecc" title="displays input data on the input Table" alt="" coords="171,61,381,94"/>
+<area shape="rect" id="node7" href="$a00003.html#a773c819165ab712b4fd073ddddcd8695" title="display output data on the output Table" alt="" coords="164,117,388,150"/>
+<area shape="rect" id="node9" href="$a00003.html#a5948e8f752a67b250665cee57abdadb2" title="Generates lists : of Elements, HR&#45;MR&#45;LR Elements and Blanks." alt="" coords="181,173,371,206"/>
+<area shape="rect" id="node11" href="$a00003.html#a836d9f49a3480b021e2c2fa22e05d6b1" title="Plots internal standard curve." alt="" coords="203,229,349,262"/>
+<area shape="rect" id="node13" href="$a00003.html#a5b87ca7ad17830b56f9609f54991dd77" title="Plots Evolution curve." alt="" coords="195,285,357,318"/>
+<area shape="rect" id="node15" href="$a00003.html#a2eb8d02c398ddd7708260ec230ceafcc" title="Plots Calibration curves." alt="" coords="181,341,371,374"/>
+<area shape="rect" id="node17" href="$a00007.html#ad7b814e406fa54ff255b66488a9dde4a" title="Parsing Function." alt="" coords="195,397,357,430"/>
+<area shape="rect" id="node19" href="$a00009.html#aac066ac6d6c2c4d2391343af917c92b4" title="Parsing Function." alt="" coords="188,453,364,486"/>
+<area shape="rect" id="node21" href="$a00008.html#a8bdd62cece3dc339c2096c85044fad66" title="Parsing Function." alt="" coords="183,509,369,542"/>
+<area shape="rect" id="node23" href="$a00010.html#aa96b9a34a756e39a01581416199328d3" title="Applies Internal Standard Correction." alt="" coords="179,565,373,598"/>
+<area shape="rect" id="node25" href="$a00010.html#ac0d956c3e8bdbc42a3b24975b25c6dfd" title="Computes concentrations on data container." alt="" coords="161,621,391,654"/>
+<area shape="rect" id="node27" href="$a00010.html#a092b32603577be8f4482f2d5d5f7ff30" title="Quality control after data processing." alt="" coords="192,677,360,710"/>
+</map>

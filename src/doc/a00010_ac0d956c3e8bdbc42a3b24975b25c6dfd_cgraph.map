@@ -1,0 +1,19 @@
+<map id="Processing::computeConcent" name="Processing::computeConcent">
+<area shape="rect" id="node3" href="$a00002.html#a84179b0c71fb3e69cfa177e92004ee79" title="Gets the Number of Solutions." alt="" coords="336,5,488,38"/>
+<area shape="rect" id="node5" href="$a00002.html#a7b1a07606090591e7fffb48be72bd734" title="Gets a solution identified by its Id." alt="" coords="340,61,484,94"/>
+<area shape="rect" id="node7" href="$a00013.html#a7e480d4e590046701d82e74491ff944a" title="Gets type of the solution." alt="" coords="339,117,485,150"/>
+<area shape="rect" id="node9" href="$a00010.html#aba81f76cd6cc8d50659adcab7580da7a" title="Processing::computeIsRSD_s" alt="" coords="295,173,529,206"/>
+<area shape="rect" id="node11" href="$a00013.html#a0fe4de8b637ba6637d653b91df95fcd0" title="Gets Intensity Standard Deviation." alt="" coords="331,229,493,262"/>
+<area shape="rect" id="node13" href="$a00013.html#a6cb75c8a1aa020796506362920216816" title="Gets Intensity." alt="" coords="343,285,481,318"/>
+<area shape="rect" id="node15" href="$a00010.html#a1f2aced69b89e42bc45785b086068bde" title="Processing::computeAlpha" alt="" coords="305,341,519,374"/>
+<area shape="rect" id="node17" href="$a00002.html#acd1f2adc01b25ef7bded9b6d2b331278" title="Gets the Number of elements." alt="" coords="353,397,471,430"/>
+<area shape="rect" id="node19" href="$a00002.html#a4baa9866aaea800c81e4502b9483e4ec" title="Gets an element identified by its Id." alt="" coords="359,453,465,486"/>
+<area shape="rect" id="node21" href="$a00005.html#ab8c2c9824162b3a151e84cb2f2c5df6f" title="Gets the resolution (value of Resolution enumeration)" alt="" coords="336,509,488,542"/>
+<area shape="rect" id="node23" href="$a00013.html#adc74f58993747169c721739962ec2a5a" title="Sets Concentration." alt="" coords="327,565,497,598"/>
+<area shape="rect" id="node25" href="$a00010.html#a90d685c4661d6ea8c50f2901d5c96e66" title="Processing::computeSlopeRsdS" alt="" coords="285,621,539,654"/>
+<area shape="rect" id="node27" href="$a00010.html#a8b631f1b4ad86fbe19702dd38774fc79" title="Processing::concentRSD\l_blank_IS_s" alt="" coords="312,677,512,731"/>
+<area shape="rect" id="node29" href="$a00010.html#a201b26b8cfd9ef76744c661c7b23a766" title="Processing::concentRSD\l_blank_s" alt="" coords="312,754,512,809"/>
+<area shape="rect" id="node31" href="$a00010.html#a9135a309a55a8456b0f16c3522bd98fd" title="Processing::concentRSD\l_y_intercept_IS_s" alt="" coords="312,831,512,886"/>
+<area shape="rect" id="node33" href="$a00010.html#ac856677cd16c468c2dacdb1d8d853926" title="Processing::concentRSD\l_y_intercept_s" alt="" coords="312,909,512,963"/>
+<area shape="rect" id="node35" href="$a00013.html#a60ca23e0e5593012162a2669841c952e" title="Sets Concentration Relative Standard Deviation (%)" alt="" coords="309,986,515,1019"/>
+</map>

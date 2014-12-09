@@ -1,0 +1,74 @@
+Release 1.23
+===================
+
+Changes
+-------
+
+Sébastien Gardoll
+
+1) Some renaming.
+2) Disable blank selection when y-intercept and soustract blank option are not selected.
+
+
+Release 1.22
+===================
+
+Changes
+-------
+
+Sébastien Gardoll
+
+1) error propagation tested.
+2) FRIENDS renamed into uFREASI
+
+
+Release 1.21a
+===================
+
+Changes
+-------
+
+Sébastien Gardoll
+
+1) error propagation implemented.
+
+
+
+Release 1.11
+===================
+
+Changes
+-------
+
+Sébastien Gardoll
+
+1) slop error implemented.
+2) y interception error.
+3) RSD display modifiyed for IS plot.
+4) enable zero standard if "y intercept" is enable.
+5) rename BLK_MOY into BLK_AVR.
+6) option order inverted for linear regression and IS.
+
+
+
+Release 1.10
+===================
+
+Changes
+-------
+
+Sébastien Gardoll
+
+1) y interception implemented.
+2) blank substraction affects both samples and standards.
+3) user can zoom calibration plot.
+4) average and standard deviation calculations for internal standard monitoring.
+5) fix some english wording.
+
+
+Bug Fixes
+---------
+
+Sébastien Gardoll
+
+1) Average blank calculations: internal standard correction taken into effect.

@@ -1,0 +1,10 @@
+<map id="Data::addBLKmoy" name="Data::addBLKmoy">
+<area shape="rect" id="node3" href="$a00002.html#a7f13913683ead8b0702121ac494f1598" title="Add a solution to the data set." alt="" coords="212,5,361,38"/>
+<area shape="rect" id="node5" href="$a00002.html#acd1f2adc01b25ef7bded9b6d2b331278" title="Gets the Number of elements." alt="" coords="228,61,345,94"/>
+<area shape="rect" id="node7" href="$a00002.html#a84179b0c71fb3e69cfa177e92004ee79" title="Gets the Number of Solutions." alt="" coords="211,117,363,150"/>
+<area shape="rect" id="node9" href="$a00002.html#a7b1a07606090591e7fffb48be72bd734" title="Gets a solution identified by its Id." alt="" coords="215,173,359,206"/>
+<area shape="rect" id="node11" href="$a00013.html#a6cb75c8a1aa020796506362920216816" title="Gets Intensity." alt="" coords="217,229,356,262"/>
+<area shape="rect" id="node13" href="$a00013.html#a0fe4de8b637ba6637d653b91df95fcd0" title="Gets Intensity Standard Deviation." alt="" coords="205,285,368,318"/>
+<area shape="rect" id="node15" href="$a00013.html#a6c810986de58b492514e08849cb0a498" title="Sets Intensity." alt="" coords="217,341,356,374"/>
+<area shape="rect" id="node17" href="$a00013.html#a000b5c9d708b22de23d918a3a3214635" title="Sets Intensity Standard Deviation." alt="" coords="205,397,368,430"/>
+</map>

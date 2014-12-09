@@ -1,0 +1,14 @@
+<map id="Solution::getType" name="Solution::getType">
+<area shape="rect" id="node3" href="$a00001.html#a68965449404743bf1add056784d6cf81" title="Slot of clicking on proceed button." alt="" coords="772,330,905,363"/>
+<area shape="rect" id="node5" href="$a00001.html#ab7f9356b1eaa23c179500675d92a49d5" title="Slot of clicking on open data file button." alt="" coords="752,90,925,123"/>
+<area shape="rect" id="node7" href="$a00002.html#a7f13913683ead8b0702121ac494f1598" title="Add a solution to the data set." alt="" coords="241,222,391,255"/>
+<area shape="rect" id="node10" href="$a00002.html#a6fc1d983c7fa16eebd0d0b12cb505a30" title="Copies data contain from the given parameter." alt="" coords="527,173,657,206"/>
+<area shape="rect" id="node15" href="$a00003.html#a5948e8f752a67b250665cee57abdadb2" title="Generates lists : of Elements, HR&#45;MR&#45;LR Elements and Blanks." alt="" coords="497,117,687,150"/>
+<area shape="rect" id="node18" href="$a00003.html#a5a779d21b88a5d08e8989d401acad7b8" title="Generates list of solutions." alt="" coords="480,10,704,43"/>
+<area shape="rect" id="node21" href="$a00003.html#a2eb8d02c398ddd7708260ec230ceafcc" title="Plots Calibration curves." alt="" coords="497,330,687,363"/>
+<area shape="rect" id="node24" href="$a00008.html#a8bdd62cece3dc339c2096c85044fad66" title="Parsing Function." alt="" coords="223,379,409,413"/>
+<area shape="rect" id="node26" href="$a00010.html#a409d37b18750104739ee43e169371a0b" title="Applies Blank Substraction." alt="" coords="489,393,695,426"/>
+<area shape="rect" id="node29" href="$a00010.html#ac0d956c3e8bdbc42a3b24975b25c6dfd" title="Computes concentrations on data container." alt="" coords="201,486,431,519"/>
+<area shape="rect" id="node32" href="$a00010.html#a092b32603577be8f4482f2d5d5f7ff30" title="Quality control after data processing." alt="" coords="232,542,400,575"/>
+<area shape="rect" id="node35" href="$a00010.html#a5fbd5c910da7cec1497168d1d217f1ed" title="Computes a calibration line." alt="" coords="215,598,417,631"/>
+</map>

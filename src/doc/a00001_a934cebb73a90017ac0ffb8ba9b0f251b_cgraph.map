@@ -1,0 +1,16 @@
+<map id="Application::createActions" name="Application::createActions">
+<area shape="rect" id="node3" href="$a00001.html#a56af8ea9b34be4e267227d7abaf21a3f" title="Slot of clicking on about button." alt="" coords="305,5,455,38"/>
+<area shape="rect" id="node5" href="$a00001.html#a09fe4d73dbe2cf416979ee1abc56ac1a" title="Slot of clicking on open QC&#45;STD file button." alt="" coords="279,61,481,94"/>
+<area shape="rect" id="node7" href="$a00001.html#ab7f9356b1eaa23c179500675d92a49d5" title="Slot of clicking on open data file button." alt="" coords="293,167,467,201"/>
+<area shape="rect" id="node9" href="$a00001.html#a4d6d25052b873ecee1553e83881a7fca" title="Slot to change Internal standards selection." alt="" coords="547,139,749,173"/>
+<area shape="rect" id="node11" href="$a00001.html#a9c0b6e60ede4b6f2c60abe874f351994" title="Slot of choosing Internal standard plot plot to diplay." alt="" coords="551,221,745,254"/>
+<area shape="rect" id="node13" href="$a00001.html#a61e6e071e10317692e3464a44fea9b4e" title="Slot of clicking on save plots button." alt="" coords="293,274,467,307"/>
+<area shape="rect" id="node15" href="$a00001.html#ac44667af46d1e4888f05cab6407ba541" title="Slot of clicking on save output button." alt="" coords="295,330,465,363"/>
+<area shape="rect" id="node17" href="$a00001.html#a68965449404743bf1add056784d6cf81" title="Slot of clicking on proceed button." alt="" coords="313,386,447,419"/>
+<area shape="rect" id="node20" href="$a00001.html#a046e614292cb3c01bf90568dbde70d0c" title="Slot of clicking on Solutions list in input data view." alt="" coords="268,442,492,475"/>
+<area shape="rect" id="node22" href="$a00001.html#a8123f70b34dd0f69ba8ba756e23c0ce0" title="Slot of clicking on Solutions list in output data view." alt="" coords="263,498,497,531"/>
+<area shape="rect" id="node24" href="$a00001.html#a4c314b290d0ecc615133d5bf6799b710" title="Slot of clicking on Elements list in Calibration curve view." alt="" coords="279,554,481,587"/>
+<area shape="rect" id="node26" href="$a00001.html#a782111e122dd130f507d3fcf4cf3799f" title="Slot of clicking on Elements list in Evolution curve view." alt="" coords="288,610,472,643"/>
+<area shape="rect" id="node30" href="$a00001.html#aed862c3c1e225b452efec5af99221025" title="Slot of choosing the evolution plot to diplay." alt="" coords="273,666,487,699"/>
+<area shape="rect" id="node32" href="$a00001.html#a6aeb1cc04b171c4578d36c49beb87844" title="Slot of tab change." alt="" coords="315,722,445,755"/>
+</map>

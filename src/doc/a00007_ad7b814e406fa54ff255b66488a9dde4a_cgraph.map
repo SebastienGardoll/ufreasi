@@ -1,0 +1,10 @@
+<map id="ParserInCSV::parse" name="ParserInCSV::parse">
+<area shape="rect" id="node3" href="$a00002.html#a7f13913683ead8b0702121ac494f1598" title="Add a solution to the data set." alt="" coords="225,5,375,38"/>
+<area shape="rect" id="node5" href="$a00002.html#a386e9b359ac336356d6bdf0c1d7c4f37" title="Adds an element to the data set." alt="" coords="244,61,356,94"/>
+<area shape="rect" id="node7" href="$a00002.html#a4baa9866aaea800c81e4502b9483e4ec" title="Gets an element identified by its Id." alt="" coords="247,117,353,150"/>
+<area shape="rect" id="node9" href="$a00005.html#a82faf6c27cd36339a0a12cae9beb89af" title="Gets the complete Name of the istope, used to display the element to HCI." alt="" coords="223,173,377,206"/>
+<area shape="rect" id="node11" href="$a00002.html#a7b1a07606090591e7fffb48be72bd734" title="Gets a solution identified by its Id." alt="" coords="228,229,372,262"/>
+<area shape="rect" id="node13" href="$a00013.html#a6c810986de58b492514e08849cb0a498" title="Sets Intensity." alt="" coords="231,285,369,318"/>
+<area shape="rect" id="node15" href="$a00013.html#a6cb75c8a1aa020796506362920216816" title="Gets Intensity." alt="" coords="231,341,369,374"/>
+<area shape="rect" id="node17" href="$a00013.html#a000b5c9d708b22de23d918a3a3214635" title="Sets Intensity Standard Deviation." alt="" coords="219,397,381,430"/>
+</map>

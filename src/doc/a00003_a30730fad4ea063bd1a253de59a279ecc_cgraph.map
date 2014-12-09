@@ -1,0 +1,10 @@
+<map id="Displaying::dispTableInput" name="Displaying::dispTableInput">
+<area shape="rect" id="node3" href="$a00002.html#acd1f2adc01b25ef7bded9b6d2b331278" title="Gets the Number of elements." alt="" coords="312,5,429,38"/>
+<area shape="rect" id="node5" href="$a00002.html#a4baa9866aaea800c81e4502b9483e4ec" title="Gets an element identified by its Id." alt="" coords="317,61,424,94"/>
+<area shape="rect" id="node7" href="$a00005.html#a82faf6c27cd36339a0a12cae9beb89af" title="Gets the complete Name of the istope, used to display the element to HCI." alt="" coords="293,117,448,150"/>
+<area shape="rect" id="node9" href="$a00002.html#a7b1a07606090591e7fffb48be72bd734" title="Gets a solution identified by its Id." alt="" coords="299,173,443,206"/>
+<area shape="rect" id="node11" href="$a00013.html#a6cb75c8a1aa020796506362920216816" title="Gets Intensity." alt="" coords="524,253,663,286"/>
+<area shape="rect" id="node13" href="$a00013.html#ac0ca8e1256ac9b972eab1f02f11ab8ac" title="Gets Intensity Relative Standard Deviation (%)" alt="" coords="284,279,457,313"/>
+<area shape="rect" id="node16" href="$a00013.html#af9f7e1dfafa0cd431387737664e3ac7e" title="Gets Concentration." alt="" coords="285,335,456,369"/>
+<area shape="rect" id="node18" href="$a00013.html#a1adae3ea7b071d2a311b62371b959633" title="Gets Concentration Relative Standard Deviation (%)" alt="" coords="268,391,473,425"/>
+</map>
