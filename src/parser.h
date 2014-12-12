@@ -39,10 +39,29 @@ public:
 };
 
 /**
-  * Parser for the input CSV data file, raw data comming from the ICP-MS
+  * Parser for the input CSV data file, raw data comming from the HR Element ICP-MS
   */
 
-class ParserInCSV: public Parser{
+class ParserInHRElementCSV: public Parser{
+public:
+    QPair<int,QString> parse(QFile *file,Data *data,class Processing *process); ///< Parsing Function
+
+    inline int getId()
+    {
+      return 2 ;
+    }
+
+    inline QString getPrintableName()
+    {
+      return "HR Element" ;
+    }
+};
+
+/**
+  * Parser for the input CSV data file, raw data comming from the Agilent ICP-MS
+  */
+
+class ParserInAgilentCSV: public Parser{
 public:
     QPair<int,QString> parse(QFile *file,Data *data,class Processing *process); ///< Parsing Function
 
@@ -53,7 +72,7 @@ public:
 
     inline QString getPrintableName()
     {
-      return "HR Element ICP-MS" ;
+      return "Agilent" ;
     }
 };
 
@@ -67,12 +86,12 @@ public:
 
     inline int getId()
     {
-      return  2 ;
+      return  1 ;
     }
 
     inline QString getPrintableName()
     {
-      return "HR Element ICP-MS" ;
+      return "Standard unparser" ;
     }
 };
 
@@ -86,12 +105,12 @@ public:
 
     inline int getId()
     {
-      return  1 ;
+      return  0 ;
     }
 
     inline QString getPrintableName()
     {
-      return "Standard parser" ;
+      return "Standard samples file parser" ;
     }
 };
 

@@ -46,7 +46,7 @@ Application::Application(QWidget *parent) : QMainWindow(parent), ui(new Ui::Appl
     //Instancier
     processing = new Processing();
 
-    myParserIN1 = new ParserInCSV();
+    myParserIN1 = new ParserInHRElementCSV();
     myParserOUT = new ParserOutCSV();
     myParserIN2 = new ParserInSTDQC();
 

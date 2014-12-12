@@ -28,7 +28,7 @@
   * \return Error code and a return Message to be displayed
   */
 
-QPair<int, QString> ParserInCSV::parse(QFile * file,Data * data, Processing *process) {
+QPair<int, QString> ParserInHRElementCSV::parse(QFile * file,Data * data, Processing *process) {
 
     //Parsing Strings **********************************************
 
