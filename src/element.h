@@ -27,9 +27,10 @@
 class Element{
 public:
     /// Enumeration of different possible resolutions
-    enum Resolution {HR,    ///< High resolution
-                     MR,    ///< Medium resolution
-                     LR     ///< Low resolution
+    enum Resolution {HR,       ///< High resolution
+                     MR,       ///< Medium resolution
+                     LR,       ///< Low resolution
+                     UNDEFINED ///< Undefined resolution
                     };
     Element(QString,int mass,Resolution);   ///< Element Class Constructor
 
