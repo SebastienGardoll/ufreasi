@@ -28,13 +28,13 @@
   * \return Error code and a return Message to be displayed
   */
 
+const QString Parser::ID_BLK("BLK_") ;
+const QString Parser::ID_STD("STD_") ;
+const QString Parser::ID_QC("QC_");
+
 QPair<int, QString> ParserInHRElementCSV::parse(QFile * file,Data * data, Processing *process) {
 
     //Parsing Strings **********************************************
-
-    QString idBLK("BLK_");
-    QString idSTD("STD_");
-    QString idQC("QC_");
 
     QString nameElt("[A-Z][a-z]?");
     QString massElt("\\d{1,3}");
@@ -93,11 +93,11 @@ QPair<int, QString> ParserInHRElementCSV::parse(QFile * file,Data * data, Proces
         //Add Solutions with apropriate type
         Solution::Type type;
 
-        if(echant.at(j).contains(QRegExp(idBLK))){
+        if(echant.at(j).contains(QRegExp(ID_BLK))){
             type = Solution::BLK;
-        }else if(echant.at(j).contains(QRegExp(idSTD))){
+        }else if(echant.at(j).contains(QRegExp(ID_STD))){
             type = Solution::STD;
-        }else if(echant.at(j).contains(QRegExp(idQC))){
+        }else if(echant.at(j).contains(QRegExp(ID_QC))){
             type = Solution::QC;
         }else{
             type = Solution::SMP;

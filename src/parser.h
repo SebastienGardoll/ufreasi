@@ -36,6 +36,10 @@ public:
     virtual QPair<int,QString> parse(QFile *file,class Data *data,class Processing *process) = 0; ///< Parsing Function
     virtual int getId() = 0; ///< Returns a unique identification.
     virtual QString getPrintableName() = 0; ///< Returns the parser's name for humain.
+
+    static const QString ID_BLK ;
+    static const QString ID_STD ;
+    static const QString ID_QC ;
 };
 
 /**
