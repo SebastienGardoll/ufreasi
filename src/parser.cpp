@@ -132,14 +132,16 @@ QPair<int, QString> ParserInAgilentCSV::parse(QFile * file,Data * data, Processi
     while(! in.atEnd())
     {
         int tokenIndex = 1 ;
-        int eltId = 0 ;
+        int eltId = -1 ;
         int solutionId = 0 ;
         QString eltName ;
         int eltMass = -1 ;
         double pulseValue = -1. ;
         double rsdValue = -1 ;
         Solution* currentSolution = NULL ;
+
         line = in.readLine() ;
+
         if(line.contains(eltRegEx))
         {
             solutionTokens = line.split(';');
@@ -164,7 +166,6 @@ QPair<int, QString> ParserInAgilentCSV::parse(QFile * file,Data * data, Processi
             eltId = data->addIso(Element(eltName, eltMass, Element::UNDEFINED)) ;
 
             // Parse solution data
-
             while(tokenIndex < solutionTokens.size())
             {
                 // Parse pulse value.
@@ -188,8 +189,11 @@ QPair<int, QString> ParserInAgilentCSV::parse(QFile * file,Data * data, Processi
                     // TODO report error.
                 }
 
-                // TODO: remove trailing %
-                // TODO: compute rsdValue
+                // Remove trailing %
+                solutionTokens[tokenIndex].remove(QChar('%'), Qt::CaseInsensitive);
+
+                // Compute rsdValue
+                rsdValue = solutionTokens.at(tokenIndex).toDouble() * pulseValue / 100. ;
 
                 tokenIndex++;
 
