@@ -39,6 +39,7 @@ QPair<int, QString> ParserInAgilentCSV::parse(QFile * file,Data * data, Processi
     QString namePattern("[A-Z][a-z]?");
     QString massPattern(" / \\d{1,3}");
     QString pulsePattern("\\d+.\\d+");
+    QString rsdPattern(pulsePattern + "%") ;
     QString undefinedPattern("<###> ");
     QString resolutionPattern("\\[#\\d\\]");
     QString smpTag("Sample:") ;
@@ -54,14 +55,10 @@ QPair<int, QString> ParserInAgilentCSV::parse(QFile * file,Data * data, Processi
     QStringList solutionNames ;
     QStringList solutionTokens ;
     QString line ;
-    int nbElt = 0 ;
-    int eltId = 0 ;
-    int solutionId = 0 ;
-    QString eltName ;
-    int eltMass = -1 ;
     QRegExp reg;
+    int nbElt = 0 ;
 
-    // Fetch solution names
+    // Parse solution names
 
     while(! in.atEnd())
     {
@@ -101,8 +98,32 @@ QPair<int, QString> ParserInAgilentCSV::parse(QFile * file,Data * data, Processi
         return  result;
     }
 
-    // Create solutions
-    // TODO instantiate and add them into data.
+    for(int i = 0 ; i < solutionNames.size() ; i++)
+    {
+        //Add Solutions with apropriate type
+        Solution::Type type;
+
+        if(solutionNames.at(i).contains(QRegExp(ID_BLK)))
+        {
+            type = Solution::BLK;
+        }
+        else if(solutionNames.at(i).contains(QRegExp(ID_STD)))
+        {
+            type = Solution::STD;
+        }
+        else if(solutionNames.at(i).contains(QRegExp(ID_QC)))
+        {
+            type = Solution::QC;
+        }
+        else
+        {
+            type = Solution::SMP;
+        }
+
+        data->addSolution(Solution(solutionNames.at(i),
+                                   nbElt,
+                                   type));
+    }
 
     //Parse Solutions
 
@@ -110,6 +131,14 @@ QPair<int, QString> ParserInAgilentCSV::parse(QFile * file,Data * data, Processi
 
     while(! in.atEnd())
     {
+        int tokenIndex = 1 ;
+        int eltId = 0 ;
+        int solutionId = 0 ;
+        QString eltName ;
+        int eltMass = -1 ;
+        double pulseValue = -1. ;
+        double rsdValue = -1 ;
+        Solution* currentSolution = NULL ;
         line = in.readLine() ;
         if(line.contains(eltRegEx))
         {
@@ -118,28 +147,64 @@ QPair<int, QString> ParserInAgilentCSV::parse(QFile * file,Data * data, Processi
 
             //Element Name
             reg.setPattern(namePattern);
-            if (reg.indexIn(solutionTokens[0]) != -1)
+            if (reg.indexIn(solutionTokens.at(0)) != -1)
             {
                 eltName = reg.cap();
             }
 
             //Element Mass
             reg.setPattern(massPattern);
-            if (reg.indexIn(solutionTokens[0]) != -1){
+            if (reg.indexIn(solutionTokens.at(0)) != -1){
                 reg.setPattern("\\d{1,3}");
                 reg.indexIn(reg.cap()) ;
                 eltMass = reg.cap().toInt();
             }
 
-            // TODO: create and add element into data
-            // keep element id
+            // Create element
+            eltId = data->addIso(Element(eltName, eltMass, Element::UNDEFINED)) ;
 
-            // Element::UNDEFINED) ;
+            // Parse solution data
 
-            // TODO: parse solution data
-            // iterate on solutionId solutionId++;
+            while(tokenIndex < solutionTokens.size())
+            {
+                // Parse pulse value.
+                if(! solutionTokens.at(tokenIndex).
+                                    contains(QRegExp("("      +
+                                             pulsePattern     +
+                                             ")|("            +
+                                             undefinedPattern +
+                                             ")")))
+                {
+                    // TODO: report error.
+                }
+
+                pulseValue = solutionTokens.at(tokenIndex).toDouble() ;
+                tokenIndex++;
+
+                // Parse rsd value.
+                if(! solutionTokens.at(tokenIndex).
+                                    contains(QRegExp(rsdPattern)))
+                {
+                    // TODO report error.
+                }
+
+                // TODO: remove trailing %
+                // TODO: compute rsdValue
+
+                tokenIndex++;
+
+                // TODO: check data vs nb elements
+
+                currentSolution = &data->getSolution(solutionId) ;
+                currentSolution->setCps(eltId, pulseValue);
+                currentSolution->setCpsSD(eltId, rsdValue);
+
+                solutionId++;
+            }
         }
     }
+
+    return result ;
 }
 
 QPair<int, QString> ParserInHRElementCSV::parse(QFile * file,Data * data, Processing *process) {
