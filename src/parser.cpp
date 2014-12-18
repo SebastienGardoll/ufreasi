@@ -1,6 +1,6 @@
-/** 
+/**
  *  user-FRiendly Elemental dAta procesSIng (uFREASI)
- *  
+ *
  *  Copyright © 2012 Oualid Khelefi.
  *
  *  Authors : see AUTHORS.
@@ -31,6 +31,116 @@
 const QString Parser::ID_BLK("BLK_") ;
 const QString Parser::ID_STD("STD_") ;
 const QString Parser::ID_QC("QC_");
+
+QPair<int, QString> ParserInAgilentCSV::parse(QFile * file,Data * data, Processing *process)
+{
+    // Patterns
+
+    QString namePattern("[A-Z][a-z]?");
+    QString massPattern(" / \\d{1,3}");
+    QString pulsePattern("\\d+.\\d+");
+    QString undefinedPattern("<###> ");
+    QString resolutionPattern("\\[#\\d\\]");
+    QString smpTag("Sample:") ;
+    QString eltPattern(namePattern + massPattern + resolutionPattern + ";");
+
+    // Regular expressions
+
+    QRegExp eltRegEx(eltPattern) ;
+    QRegExp sampleRegEx(smpTag) ;
+
+    QPair<int,QString> result ;
+    QTextStream in(file);
+    QStringList solutionNames ;
+    QStringList solutionTokens ;
+    QString line ;
+    int nbElt = 0 ;
+    int eltId = 0 ;
+    int solutionId = 0 ;
+    QString eltName ;
+    int eltMass = -1 ;
+    QRegExp reg;
+
+    // Fetch solution names
+
+    while(! in.atEnd())
+    {
+        line = in.readLine() ;
+        if(line.contains(sampleRegEx))
+        {
+            solutionNames = line.split(';');
+            solutionNames.removeAll("");
+            solutionNames.removeAt(0); // Discard smpTag
+            break ;
+        }
+    }
+
+    //Count Elements Number
+
+    while (!in.atEnd())
+    {
+        line = in.readLine();
+        if (line.contains(eltRegEx))
+        {
+            nbElt++;
+        }
+    }
+
+    if(solutionNames.isEmpty())
+    {
+        result.first=1;
+        result.second="Input File Format Error : No Solution Detected";
+        return  result;
+    }
+
+    //No elements detected
+
+    if (nbElt==0){
+        result.first=1;
+        result.second="Input File Format Error : No Element Detected";
+        return  result;
+    }
+
+    // Create solutions
+    // TODO instantiate and add them into data.
+
+    //Parse Solutions
+
+    in.seek(0); // Rewind
+
+    while(! in.atEnd())
+    {
+        line = in.readLine() ;
+        if(line.contains(eltRegEx))
+        {
+            solutionTokens = line.split(';');
+            solutionTokens.removeAll("");
+
+            //Element Name
+            reg.setPattern(namePattern);
+            if (reg.indexIn(solutionTokens[0]) != -1)
+            {
+                eltName = reg.cap();
+            }
+
+            //Element Mass
+            reg.setPattern(massPattern);
+            if (reg.indexIn(solutionTokens[0]) != -1){
+                reg.setPattern("\\d{1,3}");
+                reg.indexIn(reg.cap()) ;
+                eltMass = reg.cap().toInt();
+            }
+
+            // TODO: create and add element into data
+            // keep element id
+
+            // Element::UNDEFINED) ;
+
+            // TODO: parse solution data
+            // iterate on solutionId solutionId++;
+        }
+    }
+}
 
 QPair<int, QString> ParserInHRElementCSV::parse(QFile * file,Data * data, Processing *process) {
 
