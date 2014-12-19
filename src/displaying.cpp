@@ -1,7 +1,7 @@
 /** 
  *  user-FRiendly Elemental dAta procesSIng (uFREASI)
  *  
- *  Copyright © 2012 Oualid Khelefi.
+ *  Copyright Â© 2012 Oualid Khelefi.
  *
  *  Authors : see AUTHORS.
  *
