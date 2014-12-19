@@ -176,7 +176,11 @@ QPair<int, QString> ParserInAgilentCSV::parse(QFile * file,Data * data, Processi
                                              undefinedPattern +
                                              ")")))
                 {
-                    // TODO: report error.
+                    result.first=1;
+                    result.second = "Input File Format Error: unrecognized pulse value for element \'" +
+                                    data->getIso(eltId).getName() + "\' in solution \'" +
+                                    data->getSolution(solutionId).getName() ;
+                    return result;
                 }
 
                 pulseValue = solutionTokens.at(tokenIndex).toDouble() ;
@@ -186,7 +190,11 @@ QPair<int, QString> ParserInAgilentCSV::parse(QFile * file,Data * data, Processi
                 if(! solutionTokens.at(tokenIndex).
                                     contains(QRegExp(rsdPattern)))
                 {
-                    // TODO report error.
+                    result.first=1;
+                    result.second = "Input File Format Error: unrecognized rsd value for element \'" +
+                                    data->getIso(eltId).getName() + "\' in solution \'" +
+                                    data->getSolution(solutionId).getName() ;
+                    return result;
                 }
 
                 // Remove trailing %
@@ -198,7 +206,14 @@ QPair<int, QString> ParserInAgilentCSV::parse(QFile * file,Data * data, Processi
                 tokenIndex++;
 
                 // TODO: check data vs nb elements
-
+                /*
+                result.first=1;
+                retourStr = "Input File Format Error:\n\nFor the Element "
+                        + data->getIso(numIso).getName()
+                        + " Values Number detected do not match with Solutions number";
+                result.second= retourStr;
+                return  retour;
+                */
                 currentSolution = &data->getSolution(solutionId) ;
                 currentSolution->setCps(eltId, pulseValue);
                 currentSolution->setCpsSD(eltId, rsdValue);
@@ -208,6 +223,13 @@ QPair<int, QString> ParserInAgilentCSV::parse(QFile * file,Data * data, Processi
         }
     }
 
+    //Return Message
+    result.first=0;
+    result.second = "Parsed Elements "
+                    + QString::number(nbElt)
+                    + "\n\n"
+                    + "Parsed Solutions "
+                    + QString::number(solutionNames.size());
     return result ;
 }
 
