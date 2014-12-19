@@ -34,6 +34,9 @@ const QString Parser::ID_QC("QC_");
 
 QPair<int, QString> ParserInAgilentCSV::parse(QFile * file,Data * data, Processing *process)
 {
+    // Avoid "unused parameter" warning
+    process->DEBUG = process->DEBUG ;
+
     // Patterns
 
     QString namePattern("[A-Z][a-z]?");
@@ -235,6 +238,9 @@ QPair<int, QString> ParserInAgilentCSV::parse(QFile * file,Data * data, Processi
 }
 
 QPair<int, QString> ParserInHRElementCSV::parse(QFile * file,Data * data, Processing *process) {
+
+    // Avoid "unused parameter" warning
+    process->DEBUG = process->DEBUG ;
 
     //Parsing Strings **********************************************
 
@@ -485,6 +491,9 @@ QPair<int, QString> ParserOutCSV::parse(QFile * file,Data * data,Processing *pro
   */
 
 QPair<int, QString> ParserInSTDQC::parse(QFile * file,Data * data,Processing *process) {
+
+    // Avoid "unused parameter" warning
+    process->DEBUG = process->DEBUG ;
 
     // Parsing Strings **********************************************
 
