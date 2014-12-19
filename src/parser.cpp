@@ -137,7 +137,7 @@ QPair<int, QString> ParserInAgilentCSV::parse(QFile * file,Data * data, Processi
         QString eltName ;
         int eltMass = -1 ;
         double pulseValue = -1. ;
-        double rsdValue = -1 ;
+        double rsdValue = -1. ;
         Solution* currentSolution = NULL ;
 
         line = in.readLine() ;
@@ -165,37 +165,47 @@ QPair<int, QString> ParserInAgilentCSV::parse(QFile * file,Data * data, Processi
             // Create element
             eltId = data->addIso(Element(eltName, eltMass, Element::UNDEFINED)) ;
 
-            // Parse solution data
-            while(tokenIndex < solutionTokens.size())
+            // Check values for each solution
+            int nbValues =0;
+            for(tokenIndex=1 ; tokenIndex<solutionTokens.size(); tokenIndex++)
             {
-                // Parse pulse value.
-                if(! solutionTokens.at(tokenIndex).
-                                    contains(QRegExp("("      +
-                                             pulsePattern     +
-                                             ")|("            +
-                                             undefinedPattern +
-                                             ")")))
+                reg.setPattern("(" + pulsePattern + ")|(" +
+                               undefinedPattern + ")|(" +
+                               rsdPattern +")") ;
+
+                if(solutionTokens.at(tokenIndex).contains(reg))
+                {
+                    nbValues++;
+                }
+                else
                 {
                     result.first=1;
-                    result.second = "Input File Format Error: unrecognized pulse value for element \'" +
+                    result.second = "Input File Format Error: unrecognized pulse or rsd value for element \'" +
                                     data->getIso(eltId).getName() + "\' in solution \'" +
                                     data->getSolution(solutionId).getName() ;
                     return result;
                 }
+            }
 
+            // Check if the number of values is compatible with number of Solutions
+            if (nbValues != (2*solutionNames.size()))
+            {
+                result.first=1;
+                result.second = "Input File Format Error:\n\nFor the Element " +
+                                data->getIso(eltId).getName() +
+                                " Values Number detected do not match with Solutions number";
+                return result;
+            }
+
+            // Parse solution data
+            tokenIndex = 1 ;
+            while(tokenIndex < solutionTokens.size())
+            {
+                // Parse pulse value.
                 pulseValue = solutionTokens.at(tokenIndex).toDouble() ;
                 tokenIndex++;
 
                 // Parse rsd value.
-                if(! solutionTokens.at(tokenIndex).
-                                    contains(QRegExp(rsdPattern)))
-                {
-                    result.first=1;
-                    result.second = "Input File Format Error: unrecognized rsd value for element \'" +
-                                    data->getIso(eltId).getName() + "\' in solution \'" +
-                                    data->getSolution(solutionId).getName() ;
-                    return result;
-                }
 
                 // Remove trailing %
                 solutionTokens[tokenIndex].remove(QChar('%'), Qt::CaseInsensitive);
@@ -203,21 +213,12 @@ QPair<int, QString> ParserInAgilentCSV::parse(QFile * file,Data * data, Processi
                 // Compute rsdValue
                 rsdValue = solutionTokens.at(tokenIndex).toDouble() * pulseValue / 100. ;
 
-                tokenIndex++;
-
-                // TODO: check data vs nb elements
-                /*
-                result.first=1;
-                retourStr = "Input File Format Error:\n\nFor the Element "
-                        + data->getIso(numIso).getName()
-                        + " Values Number detected do not match with Solutions number";
-                result.second= retourStr;
-                return  retour;
-                */
+                // Set solution's values
                 currentSolution = &data->getSolution(solutionId) ;
                 currentSolution->setCps(eltId, pulseValue);
                 currentSolution->setCpsSD(eltId, rsdValue);
 
+                tokenIndex++;
                 solutionId++;
             }
         }
