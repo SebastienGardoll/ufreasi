@@ -89,7 +89,7 @@ QPair<int, QString> ParserInAgilentCSV::parse(QFile * file,Data * data, Processi
     if(solutionNames.isEmpty())
     {
         result.first=1;
-        result.second="Input File Format Error : No Solution Detected";
+        result.second="Input File Format Error : No Solution Detected (Agilent parser)" ;
         return  result;
     }
 
@@ -97,7 +97,7 @@ QPair<int, QString> ParserInAgilentCSV::parse(QFile * file,Data * data, Processi
 
     if (nbElt==0){
         result.first=1;
-        result.second="Input File Format Error : No Element Detected";
+        result.second="Input File Format Error : No Element Detected (Agilent parser)";
         return  result;
     }
 
@@ -193,7 +193,7 @@ QPair<int, QString> ParserInAgilentCSV::parse(QFile * file,Data * data, Processi
                 {
                     result.first=1;
                     result.second = "Input File Format Error: unrecognized pulse or rsd value for element \'" +
-                                    data->getIso(eltId).getName() + "\' in solution \'" +
+                                    data->getIso(eltId).getName() + "\' in solution \' (Agilent parser)" +
                                     data->getSolution(solutionId).getName() ;
                     return result;
                 }
@@ -205,7 +205,7 @@ QPair<int, QString> ParserInAgilentCSV::parse(QFile * file,Data * data, Processi
                 result.first=1;
                 result.second = "Input File Format Error:\n\nFor the Element " +
                                 data->getIso(eltId).getName() +
-                                " Values Number detected do not match with Solutions number";
+                                " Values Number detected do not match with Solutions number (Agilent parser)";
                 return result;
             }
 
@@ -294,7 +294,7 @@ QPair<int, QString> ParserInHRElementCSV::parse(QFile * file,Data * data, Proces
 
     if (counterElement==0){
         retour.first=1;
-        retour.second="Input File Format Error : No Elements Detected";
+        retour.second="Input File Format Error : No Elements Detected (HR Element parser)";
         return  retour;
     }
 
@@ -327,7 +327,7 @@ QPair<int, QString> ParserInHRElementCSV::parse(QFile * file,Data * data, Proces
     //No solutions detected
     if(counterEchant==0){
         retour.first=1;
-        retour.second="Input File Format Error : No Solutions Detected";
+        retour.second="Input File Format Error : No Solutions Detected (HR Element parser)";
         return  retour;
     }
 
@@ -386,7 +386,7 @@ QPair<int, QString> ParserInHRElementCSV::parse(QFile * file,Data * data, Proces
                 retour.first=1;
                 retourStr = "Input File Format Error :\n\nFor the Element "
                         + data->getIso(numIso).getName()
-                        + " Values Number detected do not match with Solutions number";
+                        + " Values Number detected do not match with Solutions number (HR Element parser)";
                 retour.second= retourStr;
                 return  retour;
             }
