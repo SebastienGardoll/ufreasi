@@ -220,7 +220,10 @@ void Application::initIHM(){
     ui->graphEvol->setAxisMaxMinor(QwtPlot::xBottom, 0);
     ui->graphEvol->replot();
 
-    // ui->icpmsModel->addItem();
+    // Set ICP-MS model available
+    ui->icpmsModel->addItem(ParserInHRElementCSV::ICP_MS_NAME);
+    ui->icpmsModel->addItem(ParserInAgilentCSV::ICP_MS_NAME);
+    ui->icpmsModel->setCurrentIndex(0);
 }
 
 /**
