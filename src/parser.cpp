@@ -156,6 +156,12 @@ QPair<int, QString> ParserInAgilentCSV::parse(QFile * file,Data * data, Processi
             if (reg.indexIn(solutionTokens.at(0)) != -1)
             {
                 eltName = reg.cap();
+                reg.setPattern(resolutionPattern);
+                reg.indexIn(solutionTokens.at(0));
+                tmp = reg.cap();
+                tmp.remove(QChar('['), Qt::CaseInsensitive);
+                tmp.remove(QChar(']'), Qt::CaseInsensitive);
+                eltName += " " + tmp ;
             }
 
             //Element Mass
