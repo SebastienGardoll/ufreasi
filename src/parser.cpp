@@ -31,6 +31,8 @@
 const QString Parser::ID_BLK("BLK_") ;
 const QString Parser::ID_STD("STD_") ;
 const QString Parser::ID_QC("QC_");
+const QString ParserInHRElementCSV::ICP_MS_NAME("HR Element");
+const QString ParserInAgilentCSV::ICP_MS_NAME("Agilent");
 
 QPair<int, QString> ParserInAgilentCSV::parse(QFile * file,Data * data, Processing *process)
 {
