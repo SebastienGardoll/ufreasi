@@ -40,13 +40,13 @@ QPair<int, QString> ParserInAgilentCSV::parse(QFile * file,Data * data, Processi
     // Patterns
 
     QString namePattern("[A-Z][a-z]?");
-    QString massPattern(" / \\d{1,3}");
+    QString massPattern("/ \\d{1,3}");
     QString pulsePattern("\\d+.\\d+");
     QString rsdPattern(pulsePattern + "%") ;
     QString undefinedPattern("<###> ");
     QString resolutionPattern("\\[#\\d\\]");
-    QString smpTag("Sample:") ;
-    QString eltPattern(namePattern + massPattern + resolutionPattern + ";");
+    QString smpTag("^Sample:") ;
+    QString eltPattern(namePattern + " " + massPattern + " " + resolutionPattern + ";");
 
     // Regular expressions
 
