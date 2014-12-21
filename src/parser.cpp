@@ -175,7 +175,7 @@ QPair<int, QString> ParserInAgilentCSV::parse(QFile * file,Data * data, Processi
             }
 
             // Create element
-            eltId = data->addIso(Element(eltName, eltMass, Element::LR)) ;
+            eltId = data->addIso(Element(eltName, eltMass, Element::UNDEFINED)) ;
 
             // Check values for each solution
             int nbValues =0;

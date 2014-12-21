@@ -53,6 +53,7 @@ int Data::addIso(Element element){
         case Element::LR : mapIsoLR << current; break;
         case Element::MR : mapIsoMR << current; break;
         case Element::HR : mapIsoHR << current; break;
+        case Element::UNDEFINED : mapIsoLR << current; break;
     }
 
     return(current);

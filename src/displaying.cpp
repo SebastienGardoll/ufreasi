@@ -224,6 +224,7 @@ void Displaying::displayLists(Data *data){
             case Element::LR : listeISLR << data->getIso(i).getName(); break;
             case Element::MR : listeISMR << data->getIso(i).getName(); break;
             case Element::HR : listeISHR << data->getIso(i).getName(); break;
+            case Element::UNDEFINED : listeISLR << data->getIso(i).getName(); break;
         }
     }
 
