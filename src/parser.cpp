@@ -138,6 +138,7 @@ QPair<int, QString> ParserInAgilentCSV::parse(QFile * file,Data * data, Processi
         int eltId = -1 ;
         int solutionId = 0 ;
         QString eltName ;
+        QString tmp ;
         int eltMass = -1 ;
         double pulseValue = -1. ;
         double rsdValue = -1. ;
@@ -159,9 +160,11 @@ QPair<int, QString> ParserInAgilentCSV::parse(QFile * file,Data * data, Processi
 
             //Element Mass
             reg.setPattern(massPattern);
-            if (reg.indexIn(solutionTokens.at(0)) != -1){
+            if (reg.indexIn(solutionTokens.at(0)) != -1)
+            {
+                tmp = reg.cap() ;
                 reg.setPattern("\\d{1,3}");
-                reg.indexIn(reg.cap()) ;
+                reg.indexIn(tmp) ;
                 eltMass = reg.cap().toInt();
             }
 
