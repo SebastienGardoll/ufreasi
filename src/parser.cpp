@@ -43,7 +43,7 @@ QPair<int, QString> ParserInAgilentCSV::parse(QFile * file,Data * data, Processi
 
     QString namePattern("[A-Z][a-z]?");
     QString massPattern("/ \\d{1,3}");
-    QString pulsePattern("\\d+.\\d+");
+    QString pulsePattern("\\d+(.\\d+)?");
     QString rsdPattern(pulsePattern + "%") ;
     QString undefinedPattern("<###> ");
     QString resolutionPattern("\\[#\\d\\]");
@@ -261,7 +261,7 @@ QPair<int, QString> ParserInHRElementCSV::parse(QFile * file,Data * data, Proces
     QString MR("MR");
     QString HR("HR");
     QString resolElt("("+LR+"|"+MR+"|"+HR+")");
-    QString valElt("\\d+.\\d+");
+    QString valElt("\\d+(.\\d+)?");
     QString valEltInd("not def.");
 
     QString elementPathern(nameElt+massElt+"\\("+resolElt+"\\);");
