@@ -69,7 +69,7 @@ Application::~Application(){
 
 void Application::about(){
     QMessageBox::about(this, tr("About uFREASI Application"),
-                       tr("<p>uFREASI : <b>user-FRiendly Elemental dAta procesSIng</b></p>"
+                       tr("<p>uFREASI : <b>user-FRiendly Elemental dAta procesSIng v1.30</b></p>"
                           "<p>Application to process HR-ICP-MS Element data.</p>"
                           "<p><b>Designed by :</b></p>"
                           "<p> KHELIFI Oualid - Telecom ParisTech - khelifi@enst.fr</p>"
