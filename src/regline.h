@@ -22,13 +22,6 @@
 #ifndef REGLINE_H
 #define REGLINE_H
 
-//#include <QtCore>
-//#include <QtGui>
-//#include <iostream>
-//#include <cmath>
-
-using namespace std;
-
 class Regline {
 
 public :
