@@ -38,6 +38,8 @@ public:
     static const QString ID_BLK ;
     static const QString ID_STD ;
     static const QString ID_QC ;
+
+    virtual inline ~Parser(){};
 };
 
 /**

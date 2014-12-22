@@ -40,9 +40,6 @@ Application::Application(QWidget *parent) : QMainWindow(parent), ui(new Ui::Appl
     //Process actions on the HCI
     createActions();
 
-    //Init IHM
-    initIHM();
-
     //Instancier
     processing = new Processing();
 
@@ -61,6 +58,9 @@ Application::Application(QWidget *parent) : QMainWindow(parent), ui(new Ui::Appl
     if(settings.value("File").toString() != ""){
         fileName = settings.value("File").toString();
     }
+
+    //Init IHM
+    initIHM();
 }
 
 Application::~Application(){
@@ -290,6 +290,28 @@ void Application::listISChange(){
     listISChoice << "MR Internal Standard : " + ui->comboISMR->currentText();
     listISChoice << "HR Internal Standard : " + ui->comboISHR->currentText();
     ui->plotISchoice->setModel(new QStringListModel(listISChoice));
+}
+
+void Application::on_icpmsModel_currentIndexChanged(const QString &selection)
+{
+    if(ParserInHRElementCSV::ICP_MS_NAME.compare(selection) == 0)
+    {
+        if(typeid(myParserIN1) != typeid(ParserInHRElementCSV))
+        {
+            delete myParserIN1;
+            myParserIN1 = new ParserInHRElementCSV() ;
+            dataInput->loadParser(myParserIN1);
+        }
+    }
+    else if(ParserInAgilentCSV::ICP_MS_NAME.compare(selection) == 0)
+    {
+        if(typeid(myParserIN1) != typeid(ParserInAgilentCSV))
+        {
+            delete myParserIN1;
+            myParserIN1 = new ParserInAgilentCSV();
+            dataInput->loadParser(myParserIN1);
+        }
+    }
 }
 
 void Application::run(){
