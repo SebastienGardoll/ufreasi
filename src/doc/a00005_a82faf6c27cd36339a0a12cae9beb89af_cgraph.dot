@@ -1,0 +1,10 @@
+digraph "Element::getName"
+{
+ // INTERACTIVE_SVG=YES
+  edge [fontname="Helvetica",fontsize="12",labelfontname="Helvetica",labelfontsize="12"];
+  node [fontname="Helvetica",fontsize="12",shape=record];
+  rankdir="LR";
+  Node1 [label="Element::getName",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled" fontcolor="black"];
+  Node1 -> Node2 [color="midnightblue",fontsize="12",style="solid",fontname="Helvetica"];
+  Node2 [label="Element::getResolName",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$a00005.html#abb76918e2eabc06604d4abc04243a714",tooltip="Gets the resolution defined into a String. "];
+}

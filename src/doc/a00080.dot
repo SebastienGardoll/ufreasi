@@ -1,0 +1,7 @@
+digraph "Element"
+{
+ // INTERACTIVE_SVG=YES
+  edge [fontname="Helvetica",fontsize="12",labelfontname="Helvetica",labelfontsize="12"];
+  node [fontname="Helvetica",fontsize="12",shape=record];
+  Node1 [label="{Element\n|- element\l- mass\l- resol\l|+ Element()\l+ getElement()\l+ getMasse()\l+ getResol()\l+ getResolName()\l+ getName()\l}",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled" fontcolor="black"];
+}

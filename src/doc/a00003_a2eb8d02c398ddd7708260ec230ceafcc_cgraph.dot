@@ -1,0 +1,45 @@
+digraph "Displaying::plotElement"
+{
+ // INTERACTIVE_SVG=YES
+  edge [fontname="Helvetica",fontsize="12",labelfontname="Helvetica",labelfontsize="12"];
+  node [fontname="Helvetica",fontsize="12",shape=record];
+  rankdir="LR";
+  Node1 [label="Displaying::plotElement",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled" fontcolor="black"];
+  Node1 -> Node2 [color="midnightblue",fontsize="12",style="solid",fontname="Helvetica"];
+  Node2 [label="Data::getIso",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$a00002.html#a4baa9866aaea800c81e4502b9483e4ec",tooltip="Gets an element identified by its Id. "];
+  Node1 -> Node3 [color="midnightblue",fontsize="12",style="solid",fontname="Helvetica"];
+  Node3 [label="Element::getName",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$a00005.html#a82faf6c27cd36339a0a12cae9beb89af",tooltip="Gets the complete Name of the istope, used to display the element to HCI. "];
+  Node3 -> Node4 [color="midnightblue",fontsize="12",style="solid",fontname="Helvetica"];
+  Node4 [label="Element::getResolName",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$a00005.html#abb76918e2eabc06604d4abc04243a714",tooltip="Gets the resolution defined into a String. "];
+  Node1 -> Node5 [color="midnightblue",fontsize="12",style="solid",fontname="Helvetica"];
+  Node5 [label="Data::solutionSize",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$a00002.html#a84179b0c71fb3e69cfa177e92004ee79",tooltip="Gets the Number of Solutions. "];
+  Node1 -> Node6 [color="midnightblue",fontsize="12",style="solid",fontname="Helvetica"];
+  Node6 [label="Data::getSolution",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$a00002.html#a7b1a07606090591e7fffb48be72bd734",tooltip="Gets a solution identified by its Id. "];
+  Node1 -> Node7 [color="midnightblue",fontsize="12",style="solid",fontname="Helvetica"];
+  Node7 [label="Solution::getType",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$a00014.html#a7e480d4e590046701d82e74491ff944a",tooltip="Gets type of the solution. "];
+  Node1 -> Node8 [color="midnightblue",fontsize="12",style="solid",fontname="Helvetica"];
+  Node8 [label="Solution::getCps",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$a00014.html#a6cb75c8a1aa020796506362920216816",tooltip="Gets Intensity. "];
+  Node1 -> Node9 [color="midnightblue",fontsize="12",style="solid",fontname="Helvetica"];
+  Node9 [label="Solution::getConcent",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$a00014.html#af9f7e1dfafa0cd431387737664e3ac7e",tooltip="Gets Concentration. "];
+  Node1 -> Node10 [color="midnightblue",fontsize="12",style="solid",fontname="Helvetica"];
+  Node10 [label="Solution::getCpsRSD",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$a00014.html#ac0ca8e1256ac9b972eab1f02f11ab8ac",tooltip="Gets Intensity Relative Standard Deviation (%) "];
+  Node10 -> Node11 [color="midnightblue",fontsize="12",style="solid",fontname="Helvetica"];
+  Node11 [label="Solution::getCpsSD",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$a00014.html#a0fe4de8b637ba6637d653b91df95fcd0",tooltip="Gets Intensity Standard Deviation. "];
+  Node10 -> Node8 [color="midnightblue",fontsize="12",style="solid",fontname="Helvetica"];
+  Node1 -> Node12 [color="midnightblue",fontsize="12",style="solid",fontname="Helvetica"];
+  Node12 [label="Solution::getConcentRSD",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$a00014.html#a1adae3ea7b071d2a311b62371b959633",tooltip="Gets Concentration Relative Standard Deviation (%) "];
+  Node1 -> Node13 [color="midnightblue",fontsize="12",style="solid",fontname="Helvetica"];
+  Node13 [label="Solution::getName",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$a00014.html#a08617ee6ca1993e92372e265829508f0",tooltip="Gets the Name. "];
+  Node1 -> Node14 [color="midnightblue",fontsize="12",style="solid",fontname="Helvetica"];
+  Node14 [label="Processing::max",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$a00011.html#ad47f77284133874657553b30fa449f68",tooltip="Computes the max of a vector. "];
+  Node1 -> Node15 [color="midnightblue",fontsize="12",style="solid",fontname="Helvetica"];
+  Node15 [label="Processing::min",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$a00011.html#ae5c1570b50e37113591f5cad1343f48b",tooltip="Computes the min of a vector. "];
+  Node1 -> Node16 [color="midnightblue",fontsize="12",style="solid",fontname="Helvetica"];
+  Node16 [label="Processing::getLine",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$a00011.html#a1e247e39fde3f7e1123d0dbdd8275ef0",tooltip="Gets calibration line corresponding to the Id element given. "];
+  Node1 -> Node17 [color="midnightblue",fontsize="12",style="solid",fontname="Helvetica"];
+  Node17 [label="Processing::getSquareR",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$a00011.html#af0524fbbdf92207a5c735e837d571f71",tooltip="Gets calibration line Error corresponding to the by Id element given. "];
+  Node1 -> Node18 [color="midnightblue",fontsize="12",style="solid",fontname="Helvetica"];
+  Node18 [label="Processing::getLOD",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$a00011.html#ae20ae3100fa8fd1578dbe6cbe179e6e5",tooltip="Gets LOD corresponding to the Id element given. "];
+  Node1 -> Node19 [color="midnightblue",fontsize="12",style="solid",fontname="Helvetica"];
+  Node19 [label="Processing::getLOQ",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$a00011.html#a3c8e2bd5d31b4a61b8d1e54f219fa015",tooltip="Gets LOQ corresponding to the Id element given. "];
+}

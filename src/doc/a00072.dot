@@ -1,0 +1,18 @@
+digraph "Application"
+{
+ // INTERACTIVE_SVG=YES
+  edge [fontname="Helvetica",fontsize="12",labelfontname="Helvetica",labelfontsize="12"];
+  node [fontname="Helvetica",fontsize="12",shape=record];
+  Node1 [label="{Application\n|- ui\l- aboutAct\l- aboutQtAct\l- quitAct\l- openQcStdAct\l- openAct\l- plotAct\l- saveAct\l- runAct\l- fileName\l|+ Application()\l+ ~Application()\l+ closeEvent()\l- createActions()\l- initIHM()\l- enableBlankSelection()\l- onListViewInput()\l- onListViewOutput()\l- onListCurves()\l- onListEvol()\l- tab()\l- onISChoice()\l- listISChange()\l- listEvolChoice()\l- saveFile()\l- openFile()\land 8 more...\l}",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled" fontcolor="black"];
+  Node2 -> Node1 [dir="back",color="midnightblue",fontsize="12",style="solid",arrowtail="onormal",fontname="Helvetica"];
+  Node2 [label="{QMainWindow\n||}",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled"];
+  Node3 -> Node1 [color="grey25",fontsize="12",style="solid",label=" -display" ,arrowhead="odiamond",fontname="Helvetica"];
+  Node3 [label="{Displaying\n|- ui\l- curveElement\l- lineElement\l- curveElementQC\l- curveIS\l- curveEvol\l- barErreurV\l- barErreurH\l- elementZoomer\l|+ Displaying()\l+ ~Displaying()\l+ initModeleTable()\l+ dispTableInput()\l+ dispTableInput()\l+ dispTableOutput()\l+ dispTableOutput()\l+ displaySolutions()\l+ displayLists()\l+ plotIS()\l+ plotElement()\l+ plotEvol()\l}",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$a00003.html"];
+  Node4 -> Node1 [color="grey25",fontsize="12",style="solid",label=" -dataInput\n-dataOutput" ,arrowhead="odiamond",fontname="Helvetica"];
+  Node4 [label="{Data\n|+ ZERO\l- elementList\l- solutionList\l- mapBlk\l- mapIsoLR\l- mapIsoMR\l- mapIsoHR\l|+ Data()\l+ loadParser()\l+ addIso()\l+ getIso()\l+ isoSize()\l+ addSolution()\l+ getSolution()\l+ containsSolution()\l+ solutionSize()\l+ mapBLK()\land 7 more...\l}",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$a00002.html"];
+  Node5 -> Node4 [color="grey25",fontsize="12",style="solid",label=" -parser" ,arrowhead="odiamond",fontname="Helvetica"];
+  Node5 [label="{Parser\n|+ ID_BLK\l+ ID_STD\l+ ID_QC\l|+ parse()\l+ ~Parser()\l}",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$a00006.html"];
+  Node6 -> Node1 [color="grey25",fontsize="12",style="solid",label=" -processing" ,arrowhead="odiamond",fontname="Helvetica"];
+  Node6 [label="{Processing\n|+ DEBUG\l- lines\l- squareR\l- LOQ\l- LOD\l|+ Processing()\l+ ~Processing()\l+ init()\l+ computeConcent()\l+ calibration()\l+ computeLimits()\l+ getLine()\l+ getSquareR()\l+ getLOD()\l+ getLOQ()\l+ subtructBlank()\l+ correctionIS()\l+ passQC()\l+ max()\l+ min()\l+ avr()\l+ stat()\l+ isValid()\l- computeLine()\l- concentRSD_y_intercept_s()\l- concentRSD_blank_s()\l- concentRSD_y_intercept_IS_s()\l- concentRSD_blank_IS_s()\l- computeSlopeRsdS()\l- computeAlpha()\l- computeIsRSD_s()\l}",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$a00011.html"];
+  Node5 -> Node1 [color="grey25",fontsize="12",style="solid",label=" -myParserOUT\n-myParserIN1\n-myParserIN2" ,arrowhead="odiamond",fontname="Helvetica"];
+}

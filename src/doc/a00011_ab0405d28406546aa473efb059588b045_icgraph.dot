@@ -1,0 +1,12 @@
+digraph "Processing::stat"
+{
+ // INTERACTIVE_SVG=YES
+  edge [fontname="Helvetica",fontsize="12",labelfontname="Helvetica",labelfontsize="12"];
+  node [fontname="Helvetica",fontsize="12",shape=record];
+  rankdir="LR";
+  Node1 [label="Processing::stat",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled" fontcolor="black"];
+  Node1 -> Node2 [dir="back",color="midnightblue",fontsize="12",style="solid",fontname="Helvetica"];
+  Node2 [label="Displaying::plotIS",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$a00003.html#a836d9f49a3480b021e2c2fa22e05d6b1",tooltip="Plots internal standard curve. "];
+  Node2 -> Node3 [dir="back",color="midnightblue",fontsize="12",style="solid",fontname="Helvetica"];
+  Node3 [label="Application::onISChoice",height=0.2,width=0.4,color="red", fillcolor="white", style="filled",URL="$a00001.html#a9c0b6e60ede4b6f2c60abe874f351994",tooltip="Slot of choosing Internal standard plot plot to diplay. "];
+}

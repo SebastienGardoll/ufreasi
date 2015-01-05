@@ -1,0 +1,26 @@
+digraph "Data::addSolution"
+{
+ // INTERACTIVE_SVG=YES
+  edge [fontname="Helvetica",fontsize="12",labelfontname="Helvetica",labelfontsize="12"];
+  node [fontname="Helvetica",fontsize="12",shape=record];
+  rankdir="LR";
+  Node1 [label="Data::addSolution",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled" fontcolor="black"];
+  Node1 -> Node2 [dir="back",color="midnightblue",fontsize="12",style="solid",fontname="Helvetica"];
+  Node2 [label="Application::run",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$a00001.html#a68965449404743bf1add056784d6cf81",tooltip="Slot of clicking on proceed button. "];
+  Node2 -> Node3 [dir="back",color="midnightblue",fontsize="12",style="solid",fontname="Helvetica"];
+  Node3 [label="Application::createActions",height=0.2,width=0.4,color="red", fillcolor="white", style="filled",URL="$a00001.html#a934cebb73a90017ac0ffb8ba9b0f251b",tooltip="Creation of HCI actions. "];
+  Node1 -> Node4 [dir="back",color="midnightblue",fontsize="12",style="solid",fontname="Helvetica"];
+  Node4 [label="Data::copyData",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$a00002.html#a6fc1d983c7fa16eebd0d0b12cb505a30",tooltip="Copies data contain from the given parameter. "];
+  Node4 -> Node2 [dir="back",color="midnightblue",fontsize="12",style="solid",fontname="Helvetica"];
+  Node4 -> Node5 [dir="back",color="midnightblue",fontsize="12",style="solid",fontname="Helvetica"];
+  Node5 [label="Application::openFile",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$a00001.html#ab7f9356b1eaa23c179500675d92a49d5",tooltip="Slot of clicking on open data file button. "];
+  Node5 -> Node3 [dir="back",color="midnightblue",fontsize="12",style="solid",fontname="Helvetica"];
+  Node1 -> Node6 [dir="back",color="midnightblue",fontsize="12",style="solid",fontname="Helvetica"];
+  Node6 [label="Data::addBLKmoy",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$a00002.html#a6ff99fcec4f0387958fff773969de591",tooltip="Adds a calculated Blank Solution. "];
+  Node6 -> Node2 [dir="back",color="midnightblue",fontsize="12",style="solid",fontname="Helvetica"];
+  Node6 -> Node5 [dir="back",color="midnightblue",fontsize="12",style="solid",fontname="Helvetica"];
+  Node1 -> Node7 [dir="back",color="midnightblue",fontsize="12",style="solid",fontname="Helvetica"];
+  Node7 [label="ParserInAgilentCSV\l::parse",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$a00007.html#a1588c3bd39bda3db375258536a8b1a39",tooltip="Parsing Function. "];
+  Node1 -> Node8 [dir="back",color="midnightblue",fontsize="12",style="solid",fontname="Helvetica"];
+  Node8 [label="ParserInHRElementCSV\l::parse",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$a00008.html#afe0bbb03f0c526684ac059c7007a5ede",tooltip="Parsing Function. "];
+}

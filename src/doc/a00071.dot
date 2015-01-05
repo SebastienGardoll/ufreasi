@@ -1,0 +1,9 @@
+digraph "Application"
+{
+ // INTERACTIVE_SVG=YES
+  edge [fontname="Helvetica",fontsize="12",labelfontname="Helvetica",labelfontsize="12"];
+  node [fontname="Helvetica",fontsize="12",shape=record];
+  Node1 [label="{Application\n|- ui\l- dataInput\l- dataOutput\l- display\l- processing\l- aboutAct\l- aboutQtAct\l- quitAct\l- openQcStdAct\l- openAct\land 7 more...\l|+ Application()\l+ ~Application()\l+ closeEvent()\l- createActions()\l- initIHM()\l- enableBlankSelection()\l- onListViewInput()\l- onListViewOutput()\l- onListCurves()\l- onListEvol()\l- tab()\l- onISChoice()\l- listISChange()\l- listEvolChoice()\l- saveFile()\l- openFile()\land 8 more...\l}",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled" fontcolor="black"];
+  Node2 -> Node1 [dir="back",color="midnightblue",fontsize="12",style="solid",arrowtail="onormal",fontname="Helvetica"];
+  Node2 [label="{QMainWindow\n||}",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled"];
+}

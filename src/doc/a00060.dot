@@ -1,0 +1,39 @@
+digraph "processing.h"
+{
+ // INTERACTIVE_SVG=YES
+  edge [fontname="Helvetica",fontsize="12",labelfontname="Helvetica",labelfontsize="12"];
+  node [fontname="Helvetica",fontsize="12",shape=record];
+  Node1 [label="processing.h",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled" fontcolor="black"];
+  Node1 -> Node2 [color="midnightblue",fontsize="12",style="solid",fontname="Helvetica"];
+  Node2 [label="QtCore",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled"];
+  Node1 -> Node3 [color="midnightblue",fontsize="12",style="solid",fontname="Helvetica"];
+  Node3 [label="QtGui",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled"];
+  Node1 -> Node4 [color="midnightblue",fontsize="12",style="solid",fontname="Helvetica"];
+  Node4 [label="iostream",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled"];
+  Node1 -> Node5 [color="midnightblue",fontsize="12",style="solid",fontname="Helvetica"];
+  Node5 [label="cmath",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled"];
+  Node1 -> Node6 [color="midnightblue",fontsize="12",style="solid",fontname="Helvetica"];
+  Node6 [label="data.h",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$a00019.html"];
+  Node6 -> Node3 [color="midnightblue",fontsize="12",style="solid",fontname="Helvetica"];
+  Node6 -> Node2 [color="midnightblue",fontsize="12",style="solid",fontname="Helvetica"];
+  Node6 -> Node7 [color="midnightblue",fontsize="12",style="solid",fontname="Helvetica"];
+  Node7 [label="element.h",height=0.2,width=0.4,color="red", fillcolor="white", style="filled",URL="$a00025.html"];
+  Node6 -> Node8 [color="midnightblue",fontsize="12",style="solid",fontname="Helvetica"];
+  Node8 [label="solution.h",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$a00037.html"];
+  Node8 -> Node2 [color="midnightblue",fontsize="12",style="solid",fontname="Helvetica"];
+  Node8 -> Node3 [color="midnightblue",fontsize="12",style="solid",fontname="Helvetica"];
+  Node6 -> Node9 [color="midnightblue",fontsize="12",style="solid",fontname="Helvetica"];
+  Node9 [label="displaying.h",height=0.2,width=0.4,color="red", fillcolor="white", style="filled",URL="$a00021.html"];
+  Node9 -> Node3 [color="midnightblue",fontsize="12",style="solid",fontname="Helvetica"];
+  Node9 -> Node2 [color="midnightblue",fontsize="12",style="solid",fontname="Helvetica"];
+  Node9 -> Node6 [color="midnightblue",fontsize="12",style="solid",fontname="Helvetica"];
+  Node9 -> Node1 [color="midnightblue",fontsize="12",style="solid",fontname="Helvetica"];
+  Node6 -> Node10 [color="midnightblue",fontsize="12",style="solid",fontname="Helvetica"];
+  Node10 [label="parser.h",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$a00028.html"];
+  Node10 -> Node6 [color="midnightblue",fontsize="12",style="solid",fontname="Helvetica"];
+  Node10 -> Node3 [color="midnightblue",fontsize="12",style="solid",fontname="Helvetica"];
+  Node10 -> Node2 [color="midnightblue",fontsize="12",style="solid",fontname="Helvetica"];
+  Node10 -> Node4 [color="midnightblue",fontsize="12",style="solid",fontname="Helvetica"];
+  Node1 -> Node11 [color="midnightblue",fontsize="12",style="solid",fontname="Helvetica"];
+  Node11 [label="regline.h",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$a00035.html"];
+}

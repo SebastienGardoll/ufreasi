@@ -1,0 +1,34 @@
+digraph "Solution::getCpsSD"
+{
+ // INTERACTIVE_SVG=YES
+  edge [fontname="Helvetica",fontsize="12",labelfontname="Helvetica",labelfontsize="12"];
+  node [fontname="Helvetica",fontsize="12",shape=record];
+  rankdir="LR";
+  Node1 [label="Solution::getCpsSD",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled" fontcolor="black"];
+  Node1 -> Node2 [dir="back",color="midnightblue",fontsize="12",style="solid",fontname="Helvetica"];
+  Node2 [label="Data::copyData",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$a00002.html#a6fc1d983c7fa16eebd0d0b12cb505a30",tooltip="Copies data contain from the given parameter. "];
+  Node2 -> Node3 [dir="back",color="midnightblue",fontsize="12",style="solid",fontname="Helvetica"];
+  Node3 [label="Application::run",height=0.2,width=0.4,color="red", fillcolor="white", style="filled",URL="$a00001.html#a68965449404743bf1add056784d6cf81",tooltip="Slot of clicking on proceed button. "];
+  Node2 -> Node4 [dir="back",color="midnightblue",fontsize="12",style="solid",fontname="Helvetica"];
+  Node4 [label="Application::openFile",height=0.2,width=0.4,color="red", fillcolor="white", style="filled",URL="$a00001.html#ab7f9356b1eaa23c179500675d92a49d5",tooltip="Slot of clicking on open data file button. "];
+  Node1 -> Node5 [dir="back",color="midnightblue",fontsize="12",style="solid",fontname="Helvetica"];
+  Node5 [label="Data::addBLKmoy",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$a00002.html#a6ff99fcec4f0387958fff773969de591",tooltip="Adds a calculated Blank Solution. "];
+  Node5 -> Node3 [dir="back",color="midnightblue",fontsize="12",style="solid",fontname="Helvetica"];
+  Node5 -> Node4 [dir="back",color="midnightblue",fontsize="12",style="solid",fontname="Helvetica"];
+  Node1 -> Node6 [dir="back",color="midnightblue",fontsize="12",style="solid",fontname="Helvetica"];
+  Node6 [label="Processing::computeConcent",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$a00011.html#ac0d956c3e8bdbc42a3b24975b25c6dfd",tooltip="Computes concentrations on data container. "];
+  Node6 -> Node3 [dir="back",color="midnightblue",fontsize="12",style="solid",fontname="Helvetica"];
+  Node1 -> Node7 [dir="back",color="midnightblue",fontsize="12",style="solid",fontname="Helvetica"];
+  Node7 [label="Solution::getCpsRSD",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$a00014.html#ac0ca8e1256ac9b972eab1f02f11ab8ac",tooltip="Gets Intensity Relative Standard Deviation (%) "];
+  Node7 -> Node8 [dir="back",color="midnightblue",fontsize="12",style="solid",fontname="Helvetica"];
+  Node8 [label="Displaying::dispTableInput",height=0.2,width=0.4,color="red", fillcolor="white", style="filled",URL="$a00003.html#a30730fad4ea063bd1a253de59a279ecc",tooltip="displays input data on the input Table "];
+  Node8 -> Node3 [dir="back",color="midnightblue",fontsize="12",style="solid",fontname="Helvetica"];
+  Node8 -> Node4 [dir="back",color="midnightblue",fontsize="12",style="solid",fontname="Helvetica"];
+  Node7 -> Node9 [dir="back",color="midnightblue",fontsize="12",style="solid",fontname="Helvetica"];
+  Node9 [label="Displaying::dispTableOutput",height=0.2,width=0.4,color="red", fillcolor="white", style="filled",URL="$a00003.html#a773c819165ab712b4fd073ddddcd8695",tooltip="display output data on the output Table "];
+  Node9 -> Node3 [dir="back",color="midnightblue",fontsize="12",style="solid",fontname="Helvetica"];
+  Node9 -> Node4 [dir="back",color="midnightblue",fontsize="12",style="solid",fontname="Helvetica"];
+  Node7 -> Node10 [dir="back",color="midnightblue",fontsize="12",style="solid",fontname="Helvetica"];
+  Node10 [label="Displaying::plotElement",height=0.2,width=0.4,color="red", fillcolor="white", style="filled",URL="$a00003.html#a2eb8d02c398ddd7708260ec230ceafcc",tooltip="Plots Calibration curves. "];
+  Node10 -> Node3 [dir="back",color="midnightblue",fontsize="12",style="solid",fontname="Helvetica"];
+}

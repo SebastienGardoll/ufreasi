@@ -1,0 +1,21 @@
+digraph "Processing::avr"
+{
+ // INTERACTIVE_SVG=YES
+  edge [fontname="Helvetica",fontsize="12",labelfontname="Helvetica",labelfontsize="12"];
+  node [fontname="Helvetica",fontsize="12",shape=record];
+  rankdir="LR";
+  Node1 [label="Processing::avr",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled" fontcolor="black"];
+  Node1 -> Node2 [dir="back",color="midnightblue",fontsize="12",style="solid",fontname="Helvetica"];
+  Node2 [label="Processing::computeLine",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$a00011.html#a5fbd5c910da7cec1497168d1d217f1ed",tooltip="Computes a calibration line. "];
+  Node2 -> Node3 [dir="back",color="midnightblue",fontsize="12",style="solid",fontname="Helvetica"];
+  Node3 [label="Processing::calibration",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$a00011.html#aab8fde82e21bbe6c59a743bac8480c49",tooltip="Computes calibration lines. "];
+  Node3 -> Node4 [dir="back",color="midnightblue",fontsize="12",style="solid",fontname="Helvetica"];
+  Node4 [label="Application::run",height=0.2,width=0.4,color="red", fillcolor="white", style="filled",URL="$a00001.html#a68965449404743bf1add056784d6cf81",tooltip="Slot of clicking on proceed button. "];
+  Node1 -> Node5 [dir="back",color="midnightblue",fontsize="12",style="solid",fontname="Helvetica"];
+  Node5 [label="Processing::computeLimits",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$a00011.html#ac6f31cca949dba1d4aa18b746311dd2f",tooltip="Computes limits - of detection (LOD), of Quantification (LOQ) "];
+  Node5 -> Node4 [dir="back",color="midnightblue",fontsize="12",style="solid",fontname="Helvetica"];
+  Node1 -> Node6 [dir="back",color="midnightblue",fontsize="12",style="solid",fontname="Helvetica"];
+  Node6 [label="Processing::stat",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$a00011.html#ab0405d28406546aa473efb059588b045",tooltip="Computes the average (first) and the standard deviation (second) of a vector. "];
+  Node6 -> Node7 [dir="back",color="midnightblue",fontsize="12",style="solid",fontname="Helvetica"];
+  Node7 [label="Displaying::plotIS",height=0.2,width=0.4,color="red", fillcolor="white", style="filled",URL="$a00003.html#a836d9f49a3480b021e2c2fa22e05d6b1",tooltip="Plots internal standard curve. "];
+}

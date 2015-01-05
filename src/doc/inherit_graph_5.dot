@@ -1,0 +1,16 @@
+digraph "Graphical Class Hierarchy"
+{
+ // INTERACTIVE_SVG=YES
+  edge [fontname="Helvetica",fontsize="12",labelfontname="Helvetica",labelfontsize="12"];
+  node [fontname="Helvetica",fontsize="12",shape=record];
+  rankdir="LR";
+  Node1 [label="Parser",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$a00006.html"];
+  Node1 -> Node2 [dir="back",color="midnightblue",fontsize="12",style="solid",fontname="Helvetica"];
+  Node2 [label="ParserInAgilentCSV",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$a00007.html"];
+  Node1 -> Node3 [dir="back",color="midnightblue",fontsize="12",style="solid",fontname="Helvetica"];
+  Node3 [label="ParserInHRElementCSV",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$a00008.html"];
+  Node1 -> Node4 [dir="back",color="midnightblue",fontsize="12",style="solid",fontname="Helvetica"];
+  Node4 [label="ParserInSTDQC",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$a00009.html"];
+  Node1 -> Node5 [dir="back",color="midnightblue",fontsize="12",style="solid",fontname="Helvetica"];
+  Node5 [label="ParserOutCSV",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$a00010.html"];
+}

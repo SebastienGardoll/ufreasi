@@ -1,0 +1,17 @@
+digraph "Data::loadParser"
+{
+ // INTERACTIVE_SVG=YES
+  edge [fontname="Helvetica",fontsize="12",labelfontname="Helvetica",labelfontsize="12"];
+  node [fontname="Helvetica",fontsize="12",shape=record];
+  rankdir="LR";
+  Node1 [label="Data::loadParser",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled" fontcolor="black"];
+  Node1 -> Node2 [dir="back",color="midnightblue",fontsize="12",style="solid",fontname="Helvetica"];
+  Node2 [label="Application::on_icpmsModel\l_currentIndexChanged",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$a00001.html#a5394624a689b32b9b03a092640fd09ad"];
+  Node1 -> Node3 [dir="back",color="midnightblue",fontsize="12",style="solid",fontname="Helvetica"];
+  Node3 [label="Application::run",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$a00001.html#a68965449404743bf1add056784d6cf81",tooltip="Slot of clicking on proceed button. "];
+  Node3 -> Node4 [dir="back",color="midnightblue",fontsize="12",style="solid",fontname="Helvetica"];
+  Node4 [label="Application::createActions",height=0.2,width=0.4,color="red", fillcolor="white", style="filled",URL="$a00001.html#a934cebb73a90017ac0ffb8ba9b0f251b",tooltip="Creation of HCI actions. "];
+  Node1 -> Node5 [dir="back",color="midnightblue",fontsize="12",style="solid",fontname="Helvetica"];
+  Node5 [label="Application::openFile",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$a00001.html#ab7f9356b1eaa23c179500675d92a49d5",tooltip="Slot of clicking on open data file button. "];
+  Node5 -> Node4 [dir="back",color="midnightblue",fontsize="12",style="solid",fontname="Helvetica"];
+}

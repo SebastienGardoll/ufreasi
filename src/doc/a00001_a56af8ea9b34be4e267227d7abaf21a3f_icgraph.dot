@@ -1,0 +1,12 @@
+digraph "Application::about"
+{
+ // INTERACTIVE_SVG=YES
+  edge [fontname="Helvetica",fontsize="12",labelfontname="Helvetica",labelfontsize="12"];
+  node [fontname="Helvetica",fontsize="12",shape=record];
+  rankdir="LR";
+  Node1 [label="Application::about",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled" fontcolor="black"];
+  Node1 -> Node2 [dir="back",color="midnightblue",fontsize="12",style="solid",fontname="Helvetica"];
+  Node2 [label="Application::createActions",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$a00001.html#a934cebb73a90017ac0ffb8ba9b0f251b",tooltip="Creation of HCI actions. "];
+  Node2 -> Node3 [dir="back",color="midnightblue",fontsize="12",style="solid",fontname="Helvetica"];
+  Node3 [label="Application::Application",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$a00001.html#a706f84eb3028a175380c1444f7891d6e",tooltip="Constructor of Application class. "];
+}

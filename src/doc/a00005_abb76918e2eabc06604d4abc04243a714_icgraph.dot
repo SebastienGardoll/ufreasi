@@ -1,0 +1,30 @@
+digraph "Element::getResolName"
+{
+ // INTERACTIVE_SVG=YES
+  edge [fontname="Helvetica",fontsize="12",labelfontname="Helvetica",labelfontsize="12"];
+  node [fontname="Helvetica",fontsize="12",shape=record];
+  rankdir="LR";
+  Node1 [label="Element::getResolName",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled" fontcolor="black"];
+  Node1 -> Node2 [dir="back",color="midnightblue",fontsize="12",style="solid",fontname="Helvetica"];
+  Node2 [label="Element::getName",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$a00005.html#a82faf6c27cd36339a0a12cae9beb89af",tooltip="Gets the complete Name of the istope, used to display the element to HCI. "];
+  Node2 -> Node3 [dir="back",color="midnightblue",fontsize="12",style="solid",fontname="Helvetica"];
+  Node3 [label="Displaying::dispTableInput",height=0.2,width=0.4,color="red", fillcolor="white", style="filled",URL="$a00003.html#a30730fad4ea063bd1a253de59a279ecc",tooltip="displays input data on the input Table "];
+  Node2 -> Node4 [dir="back",color="midnightblue",fontsize="12",style="solid",fontname="Helvetica"];
+  Node4 [label="Displaying::dispTableOutput",height=0.2,width=0.4,color="red", fillcolor="white", style="filled",URL="$a00003.html#a773c819165ab712b4fd073ddddcd8695",tooltip="display output data on the output Table "];
+  Node2 -> Node5 [dir="back",color="midnightblue",fontsize="12",style="solid",fontname="Helvetica"];
+  Node5 [label="Displaying::displayLists",height=0.2,width=0.4,color="red", fillcolor="white", style="filled",URL="$a00003.html#a5948e8f752a67b250665cee57abdadb2",tooltip="Generates lists : of Elements, HR-MR-LR Elements and Blanks. "];
+  Node2 -> Node6 [dir="back",color="midnightblue",fontsize="12",style="solid",fontname="Helvetica"];
+  Node6 [label="Displaying::plotIS",height=0.2,width=0.4,color="red", fillcolor="white", style="filled",URL="$a00003.html#a836d9f49a3480b021e2c2fa22e05d6b1",tooltip="Plots internal standard curve. "];
+  Node2 -> Node7 [dir="back",color="midnightblue",fontsize="12",style="solid",fontname="Helvetica"];
+  Node7 [label="Displaying::plotEvol",height=0.2,width=0.4,color="red", fillcolor="white", style="filled",URL="$a00003.html#a5b87ca7ad17830b56f9609f54991dd77",tooltip="Plots Evolution curve. "];
+  Node2 -> Node8 [dir="back",color="midnightblue",fontsize="12",style="solid",fontname="Helvetica"];
+  Node8 [label="Displaying::plotElement",height=0.2,width=0.4,color="red", fillcolor="white", style="filled",URL="$a00003.html#a2eb8d02c398ddd7708260ec230ceafcc",tooltip="Plots Calibration curves. "];
+  Node2 -> Node9 [dir="back",color="midnightblue",fontsize="12",style="solid",fontname="Helvetica"];
+  Node9 [label="ParserInAgilentCSV\l::parse",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$a00007.html#a1588c3bd39bda3db375258536a8b1a39",tooltip="Parsing Function. "];
+  Node2 -> Node10 [dir="back",color="midnightblue",fontsize="12",style="solid",fontname="Helvetica"];
+  Node10 [label="ParserInHRElementCSV\l::parse",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$a00008.html#afe0bbb03f0c526684ac059c7007a5ede",tooltip="Parsing Function. "];
+  Node2 -> Node11 [dir="back",color="midnightblue",fontsize="12",style="solid",fontname="Helvetica"];
+  Node11 [label="ParserOutCSV::parse",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$a00010.html#aac066ac6d6c2c4d2391343af917c92b4",tooltip="Parsing Function. "];
+  Node2 -> Node12 [dir="back",color="midnightblue",fontsize="12",style="solid",fontname="Helvetica"];
+  Node12 [label="Processing::passQC",height=0.2,width=0.4,color="red", fillcolor="white", style="filled",URL="$a00011.html#a092b32603577be8f4482f2d5d5f7ff30",tooltip="Quality control after data processing. "];
+}

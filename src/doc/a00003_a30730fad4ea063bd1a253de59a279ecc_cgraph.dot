@@ -1,0 +1,29 @@
+digraph "Displaying::dispTableInput"
+{
+ // INTERACTIVE_SVG=YES
+  edge [fontname="Helvetica",fontsize="12",labelfontname="Helvetica",labelfontsize="12"];
+  node [fontname="Helvetica",fontsize="12",shape=record];
+  rankdir="LR";
+  Node1 [label="Displaying::dispTableInput",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled" fontcolor="black"];
+  Node1 -> Node2 [color="midnightblue",fontsize="12",style="solid",fontname="Helvetica"];
+  Node2 [label="Data::isoSize",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$a00002.html#acd1f2adc01b25ef7bded9b6d2b331278",tooltip="Gets the Number of elements. "];
+  Node1 -> Node3 [color="midnightblue",fontsize="12",style="solid",fontname="Helvetica"];
+  Node3 [label="Data::getIso",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$a00002.html#a4baa9866aaea800c81e4502b9483e4ec",tooltip="Gets an element identified by its Id. "];
+  Node1 -> Node4 [color="midnightblue",fontsize="12",style="solid",fontname="Helvetica"];
+  Node4 [label="Element::getName",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$a00005.html#a82faf6c27cd36339a0a12cae9beb89af",tooltip="Gets the complete Name of the istope, used to display the element to HCI. "];
+  Node4 -> Node5 [color="midnightblue",fontsize="12",style="solid",fontname="Helvetica"];
+  Node5 [label="Element::getResolName",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$a00005.html#abb76918e2eabc06604d4abc04243a714",tooltip="Gets the resolution defined into a String. "];
+  Node1 -> Node6 [color="midnightblue",fontsize="12",style="solid",fontname="Helvetica"];
+  Node6 [label="Data::getSolution",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$a00002.html#a7b1a07606090591e7fffb48be72bd734",tooltip="Gets a solution identified by its Id. "];
+  Node1 -> Node7 [color="midnightblue",fontsize="12",style="solid",fontname="Helvetica"];
+  Node7 [label="Solution::getCps",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$a00014.html#a6cb75c8a1aa020796506362920216816",tooltip="Gets Intensity. "];
+  Node1 -> Node8 [color="midnightblue",fontsize="12",style="solid",fontname="Helvetica"];
+  Node8 [label="Solution::getCpsRSD",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$a00014.html#ac0ca8e1256ac9b972eab1f02f11ab8ac",tooltip="Gets Intensity Relative Standard Deviation (%) "];
+  Node8 -> Node9 [color="midnightblue",fontsize="12",style="solid",fontname="Helvetica"];
+  Node9 [label="Solution::getCpsSD",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$a00014.html#a0fe4de8b637ba6637d653b91df95fcd0",tooltip="Gets Intensity Standard Deviation. "];
+  Node8 -> Node7 [color="midnightblue",fontsize="12",style="solid",fontname="Helvetica"];
+  Node1 -> Node10 [color="midnightblue",fontsize="12",style="solid",fontname="Helvetica"];
+  Node10 [label="Solution::getConcent",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$a00014.html#af9f7e1dfafa0cd431387737664e3ac7e",tooltip="Gets Concentration. "];
+  Node1 -> Node11 [color="midnightblue",fontsize="12",style="solid",fontname="Helvetica"];
+  Node11 [label="Solution::getConcentRSD",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$a00014.html#a1adae3ea7b071d2a311b62371b959633",tooltip="Gets Concentration Relative Standard Deviation (%) "];
+}
