@@ -20,6 +20,7 @@
  */
 
 #include "application.h"
+#include <typeinfo>
 
 /**
   * Create actions, initialize HCI, create Data - Display - Processing - Parser instances,
