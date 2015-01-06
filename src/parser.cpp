@@ -22,7 +22,7 @@
 #include "parser.h"
 
 /**
-  * \param file Input file that contains input data comming from ICP-MS : file to be read
+  * \param file Input file that contains input data comming from ICP-MS: file to be read
   * \param data Container of the data set
   * \param process Container of processed data
   * \return Error code and a return Message to be displayed
@@ -91,7 +91,8 @@ QPair<int, QString> ParserInAgilentCSV::parse(QFile * file,Data * data, Processi
     if(solutionNames.isEmpty())
     {
         result.first=1;
-        result.second="Input File Format Error : No Solution Detected (Agilent parser)" ;
+        result.second="Input file format error: no solution detected (instrument set for \'" +
+                      ParserInAgilentCSV::ICP_MS_NAME + "\')" ;
         return  result;
     }
 
@@ -99,7 +100,8 @@ QPair<int, QString> ParserInAgilentCSV::parse(QFile * file,Data * data, Processi
 
     if (nbElt==0){
         result.first=1;
-        result.second="Input File Format Error : No Element Detected (Agilent parser)";
+        result.second="Input file format error: no element detected (instrument set for \'" +
+                      ParserInAgilentCSV::ICP_MS_NAME + "\')";
         return  result;
     }
 
@@ -194,9 +196,11 @@ QPair<int, QString> ParserInAgilentCSV::parse(QFile * file,Data * data, Processi
                 else
                 {
                     result.first=1;
-                    result.second = "Input File Format Error: unrecognized pulse or rsd value for element \'" +
-                                    data->getIso(eltId).getName() + "\' in solution \' (Agilent parser)" +
-                                    data->getSolution(solutionId).getName() ;
+                    result.second = "Input file format error: unrecognized pulse or rsd value for element \'" +
+                                    data->getIso(eltId).getName() + "\' in solution \' " +
+                                    data->getSolution(solutionId).getName() +
+                                    "\' (instrument set for \'" + ParserInAgilentCSV::ICP_MS_NAME + "\')" ;
+
                     return result;
                 }
             }
@@ -205,9 +209,10 @@ QPair<int, QString> ParserInAgilentCSV::parse(QFile * file,Data * data, Processi
             if (nbValues != (2*solutionNames.size()))
             {
                 result.first=1;
-                result.second = "Input File Format Error:\n\nFor the Element " +
+                result.second = "Input file format error:\n\nFor the element \'" +
                                 data->getIso(eltId).getName() +
-                                " Values Number detected do not match with Solutions number (Agilent parser)";
+                                "\': values number detected do not match with solutions number (instrument set for \'" +
+                                ParserInAgilentCSV::ICP_MS_NAME + "\')";
                 return result;
             }
 
@@ -272,8 +277,8 @@ QPair<int, QString> ParserInHRElementCSV::parse(QFile * file,Data * data, Proces
     QPair<int,QString> retour;
     QString retourStr;
 
-    //The first line : Solutions Identification
-    //The first column : Elements Identification
+    //The first line: Solutions Identification
+    //The first column: Elements Identification
 
     QTextStream in(file);
     QStringList echant;
@@ -296,7 +301,8 @@ QPair<int, QString> ParserInHRElementCSV::parse(QFile * file,Data * data, Proces
 
     if (counterElement==0){
         retour.first=1;
-        retour.second="Input File Format Error : No Elements Detected (HR Element parser)";
+        retour.second="Input file format error: no element detected (instrument set for \'" +
+                      ParserInHRElementCSV::ICP_MS_NAME + "\')";
         return  retour;
     }
 
@@ -329,7 +335,8 @@ QPair<int, QString> ParserInHRElementCSV::parse(QFile * file,Data * data, Proces
     //No solutions detected
     if(counterEchant==0){
         retour.first=1;
-        retour.second="Input File Format Error : No Solutions Detected (HR Element parser)";
+        retour.second="Input file format error: no solution detected (instrument set for \'"+
+                      ParserInHRElementCSV::ICP_MS_NAME + "\')";
         return  retour;
     }
 
@@ -386,9 +393,10 @@ QPair<int, QString> ParserInHRElementCSV::parse(QFile * file,Data * data, Proces
             //Verifiy if the number of values is compatible with number of Solutions
             if (counter != (2*counterEchant)){
                 retour.first=1;
-                retourStr = "Input File Format Error :\n\nFor the Element "
+                retourStr = "Input file format error:\n\nFor the element \'"
                         + data->getIso(numIso).getName()
-                        + " Values Number detected do not match with Solutions number (HR Element parser)";
+                        + "\': values number detected do not match with solutions number (instrument set for \'"
+                        + ParserInHRElementCSV::ICP_MS_NAME + "\')";
                 retour.second= retourStr;
                 return  retour;
             }
@@ -428,7 +436,7 @@ QPair<int, QString> ParserInHRElementCSV::parse(QFile * file,Data * data, Proces
 }
 
 /**
-  * \param file Output file that contains processed data : file to be written
+  * \param file Output file that contains processed data: file to be written
   * \param data Container of the data set
   * \param process Container of processed data
   * \return Error code and a return Message to be displayed
@@ -437,7 +445,7 @@ QPair<int, QString> ParserInHRElementCSV::parse(QFile * file,Data * data, Proces
 QPair<int, QString> ParserOutCSV::parse(QFile * file,Data * data,Processing *process) {
     QTextStream out(file);
 
-    //1st Line : Elements Name
+    //1st Line: Elements Name
     out << ";;";
 
     for(int i=0;i<data->isoSize();i++){
@@ -495,7 +503,7 @@ QPair<int, QString> ParserOutCSV::parse(QFile * file,Data * data,Processing *pro
 }
 
 /**
-  * \param file Input file that contains STD and QC concentrations : file to be read
+  * \param file Input file that contains STD and QC concentrations: file to be read
   * \param data Container of the data set
   * \param process Container of processed data
   * \return Error code and a return Message to be displayed
@@ -548,7 +556,7 @@ QPair<int, QString> ParserInSTDQC::parse(QFile * file,Data * data,Processing *pr
             }
         }
 
-        //If not found : return message
+        //If not found: return message
         if(column == -1){
             QPair<int,QString> retour;
             retour.first=1;
