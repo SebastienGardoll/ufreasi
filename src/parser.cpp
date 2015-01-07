@@ -91,7 +91,7 @@ QPair<int, QString> ParserInAgilentCSV::parse(QFile * file,Data * data, Processi
     if(solutionNames.isEmpty())
     {
         result.first=1;
-        result.second="Input file format error: no solution detected (instrument set for \'" +
+        result.second="Input file format error: no solution detected (instrument set to \'" +
                       ParserInAgilentCSV::ICP_MS_NAME + "\')" ;
         return  result;
     }
@@ -100,7 +100,7 @@ QPair<int, QString> ParserInAgilentCSV::parse(QFile * file,Data * data, Processi
 
     if (nbElt==0){
         result.first=1;
-        result.second="Input file format error: no element detected (instrument set for \'" +
+        result.second="Input file format error: no element detected (instrument set to \'" +
                       ParserInAgilentCSV::ICP_MS_NAME + "\')";
         return  result;
     }
@@ -211,7 +211,7 @@ QPair<int, QString> ParserInAgilentCSV::parse(QFile * file,Data * data, Processi
                 result.first=1;
                 result.second = "Input file format error:\n\nFor the element \'" +
                                 data->getIso(eltId).getName() +
-                                "\': values number detected do not match with solutions number (instrument set for \'" +
+                                "\': values number detected do not match with solutions number (instrument set to \'" +
                                 ParserInAgilentCSV::ICP_MS_NAME + "\')";
                 return result;
             }
@@ -301,7 +301,7 @@ QPair<int, QString> ParserInHRElementCSV::parse(QFile * file,Data * data, Proces
 
     if (counterElement==0){
         retour.first=1;
-        retour.second="Input file format error: no element detected (instrument set for \'" +
+        retour.second="Input file format error: no element detected (instrument set to \'" +
                       ParserInHRElementCSV::ICP_MS_NAME + "\')";
         return  retour;
     }
@@ -335,7 +335,7 @@ QPair<int, QString> ParserInHRElementCSV::parse(QFile * file,Data * data, Proces
     //No solutions detected
     if(counterEchant==0){
         retour.first=1;
-        retour.second="Input file format error: no solution detected (instrument set for \'"+
+        retour.second="Input file format error: no solution detected (instrument set to \'"+
                       ParserInHRElementCSV::ICP_MS_NAME + "\')";
         return  retour;
     }
@@ -395,7 +395,7 @@ QPair<int, QString> ParserInHRElementCSV::parse(QFile * file,Data * data, Proces
                 retour.first=1;
                 retourStr = "Input file format error:\n\nFor the element \'"
                         + data->getIso(numIso).getName()
-                        + "\': values number detected do not match with solutions number (instrument set for \'"
+                        + "\': values number detected do not match with solutions number (instrument set to \'"
                         + ParserInHRElementCSV::ICP_MS_NAME + "\')";
                 retour.second= retourStr;
                 return  retour;
