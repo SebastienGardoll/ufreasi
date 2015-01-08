@@ -20,7 +20,7 @@
   </property>
   <property name="windowIcon">
    <iconset resource="res.qrc">
-    <normaloff>:/res/chimie.png</normaloff>:/res/chimie.png</iconset>
+    <normaloff>:/res/ufreasi.png</normaloff>:/res/ufreasi.png</iconset>
   </property>
   <property name="windowOpacity">
    <double>1.000000000000000</double>

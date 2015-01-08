@@ -86,7 +86,7 @@ void Application::createActions(){
     quitAct->setStatusTip(tr("Quit the application"));
     connect(quitAct, SIGNAL(triggered()), this, SLOT(close()));
 
-    aboutAct = new QAction(QIcon(":/res/chimie.png"),tr("&About"), this);
+    aboutAct = new QAction(QIcon(":/res/ufreasi.png"),tr("&About"), this);
     aboutAct->setStatusTip(tr("Show the application's About box"));
     connect(aboutAct, SIGNAL(triggered()), this, SLOT(about()));
 
