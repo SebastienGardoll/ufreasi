@@ -1,7 +1,0 @@
-digraph "Displaying"
-{
- // INTERACTIVE_SVG=YES
-  edge [fontname="Helvetica",fontsize="12",labelfontname="Helvetica",labelfontsize="12"];
-  node [fontname="Helvetica",fontsize="12",shape=record];
-  Node1 [label="{Displaying\n|- ui\l- curveElement\l- lineElement\l- curveElementQC\l- curveIS\l- curveEvol\l- barErreurV\l- barErreurH\l- elementZoomer\l|+ Displaying()\l+ ~Displaying()\l+ initModeleTable()\l+ dispTableInput()\l+ dispTableInput()\l+ dispTableOutput()\l+ dispTableOutput()\l+ displaySolutions()\l+ displayLists()\l+ plotIS()\l+ plotElement()\l+ plotEvol()\l}",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled" fontcolor="black"];
-}

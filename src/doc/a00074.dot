@@ -1,9 +1,0 @@
-digraph "Data"
-{
- // INTERACTIVE_SVG=YES
-  edge [fontname="Helvetica",fontsize="12",labelfontname="Helvetica",labelfontsize="12"];
-  node [fontname="Helvetica",fontsize="12",shape=record];
-  Node1 [label="{Data\n|+ ZERO\l- elementList\l- solutionList\l- mapBlk\l- mapIsoLR\l- mapIsoMR\l- mapIsoHR\l|+ Data()\l+ loadParser()\l+ addIso()\l+ getIso()\l+ isoSize()\l+ addSolution()\l+ getSolution()\l+ containsSolution()\l+ solutionSize()\l+ mapBLK()\land 7 more...\l}",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled" fontcolor="black"];
-  Node2 -> Node1 [color="grey25",fontsize="12",style="solid",label=" -parser" ,arrowhead="odiamond",fontname="Helvetica"];
-  Node2 [label="{Parser\n|+ ID_BLK\l+ ID_STD\l+ ID_QC\l|+ parse()\l+ ~Parser()\l}",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$a00006.html"];
-}
