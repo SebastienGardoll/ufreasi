@@ -73,7 +73,7 @@ DESTDIR = bin
 ### PLATEFORM TARGET RULES ### 
 
 win32 {
-   RC_FILE += res/icone.rc
+   RC_FILE += res/icon.rc
    LIBS += -L C:/qwt-6.0.1/lib/ -lqwt
    INCLUDEPATH += C:/qwt-6.0.1/include/
    DEPENDPATH += C:/qwt-6.0.1/include/  
