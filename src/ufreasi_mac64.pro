@@ -79,5 +79,5 @@ mac {
    LIBS = -F/Library/Frameworks/qwt.framework -framework qwt
    INCLUDEPATH += /Library/Frameworks/qwt.framework/Headers/
    DEPENDPATH += /Library/Frameworks/qwt.framework/Headers/
-   ICON = res/chimie.icns
+   ICON = res/ufreasi.icns
 }
