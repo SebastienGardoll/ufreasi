@@ -320,6 +320,10 @@ void Application::run(){
     if(Processing::DEBUG)
         cout << "*** begin processing ***" << endl ;
 
+
+    if(Processing::DEBUG)
+        cout << "# open QC-STD file" << endl ;
+
     QSettings settings("LGE", "uFREASI");
 
     if(settings.value("File").toString() != ""){
@@ -339,6 +343,9 @@ void Application::run(){
         return;
     }
 
+    if(Processing::DEBUG)
+        cout << "# parse QC-STD file" << endl ;
+
     //Get concentrations from input file
     dataInput->loadParser(myParserIN2);
     QPair<int,QString> retour = dataInput->executeParsing(&file,processing);
@@ -349,6 +356,9 @@ void Application::run(){
         QMessageBox::information(this,tr("Parsing CSV"),retour.second);
         return;
     }
+
+    if(Processing::DEBUG)
+        cout << "# init processing variables" << endl ;
 
     int blank_id = -1 ;
     int is_ref_id = -1 ;
@@ -370,6 +380,9 @@ void Application::run(){
     // ALWAYS do first as average blank calulation is wrong if the internal standard reference is taken from a blank.
     if (ui->correctionIS->isChecked() == true)
     {
+        if(Processing::DEBUG)
+            cout << "# internal standard correction" << endl ;
+
         is_ref_id = ui->echantIS->currentIndex() ;
         
         is_elements[Element::LR] = dataInput->mapLR(ui->comboISLR->currentIndex()) ;
@@ -397,7 +410,11 @@ void Application::run(){
     }
 
     //Substract Blank or not (not substract Internal standards)
-    if (ui->subBlank->isChecked() == true){
+    if (ui->subBlank->isChecked() == true)
+    {
+        if(Processing::DEBUG)
+            cout << "# substract blank" << endl ;
+
         blank_id = dataOutput->mapBLK(ui->blankSelection->currentIndex()) ;
         processing->subtructBlank(dataOutput,
                                   blank_id,
@@ -405,6 +422,9 @@ void Application::run(){
                                   isoIS);
     }
     
+    if(Processing::DEBUG)
+        cout << "# add blk solutions" << endl ;
+
     //Add BLK Solutions
     QList<int> idBlkMoy;
     for(int i=0;i<dataInput->solutionSize();i++){
@@ -442,6 +462,9 @@ void Application::run(){
        }
     }
     
+    if(Processing::DEBUG)
+        cout << "# process calibration" << endl ;
+
     //Process calibration
     processing->calibration(dataOutput,isoIS);
     
