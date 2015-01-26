@@ -161,9 +161,7 @@ void Processing::computeConcent(Data *outputData, Data* inputData, int blank_id,
    {
       Solution& solInput = inputData->getSolution(i) ;
       Solution& solOutput = outputData->getSolution(i) ;
-      
-      // cout << sol.getName().toStdString() << " *********************" << endl ;
-      
+
       if(solOutput.getType() != Solution::STD)
       {
          if(is_ref_id != -1) // Internal standard correction factors are computed.
@@ -189,33 +187,9 @@ void Processing::computeConcent(Data *outputData, Data* inputData, int blank_id,
                   is_sol_rsd_s[i] = 0. ;
                   is_ref_rsd_s[i] = 0. ;
                   alpha[i] = 1. ;
-               }
-               /*
-               if (solInput.getName() == "QC_SLRS5_1")
-               {
-                 cout << solInput.getName().toStdString() << ", " << is.getName().toStdString() << endl ;
-                  
-                  cout << "element " << is_element_id << endl ;
-                 cout << solInput.getCpsSD(is_element_id) << ", " << solInput.getCps(is_element_id) << endl ;
-                 cout << is.getCps(is_element_id) << ", " << solInput.getCps(is_element_id) << endl ;
-               }
-               */
-               
+               }             
             }
          }
-         
-         /*
-         if (solInput.getName() == "QC_SLRS5_1")
-                  {
-                    
-                     for (int i = 0 ; i < 3 ; i++)
-                     {
-                     cout << setiosflags(ios::fixed) << std::setprecision(8) << "is_sol_rsd_s[" << i << "]= " << is_sol_rsd_s[i] << endl ;
-                    cout << setiosflags(ios::fixed) << std::setprecision(8) << "is_ref_rsd_s[" << i << "]= " << is_ref_rsd_s[i] << endl ;
-                    cout << setiosflags(ios::fixed) << std::setprecision(8) << "alpha[" << i << "]= " << alpha[i] << endl ;
-                     }
-                  }
-         */
          
          for(int j=0;j<inputData->isoSize();j++)
          {
