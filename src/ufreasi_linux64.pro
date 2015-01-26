@@ -59,7 +59,7 @@ FORMS += application.ui \
 RESOURCES += \
     res.qrc
 
-CONFIG += release
+CONFIG += debug_and_release
 
 CONFIG += qwt
 
