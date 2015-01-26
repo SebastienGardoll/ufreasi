@@ -317,6 +317,9 @@ void Application::on_icpmsModel_currentIndexChanged(const QString &selection)
 
 void Application::run(){
 
+    if(Processing::DEBUG)
+        cout << "*** begin processing ***" << endl ;
+
     QSettings settings("LGE", "uFREASI");
 
     if(settings.value("File").toString() != ""){
@@ -451,13 +454,23 @@ void Application::run(){
        cout << endl ;
     }
     
+    if(Processing::DEBUG)
+        cout << "*** process concentration ***" << endl ;
+
     //Process concentrations
     processing->computeConcent(dataOutput, dataInput, blank_id, is_ref_id, is_elements) ;
     
+    if(Processing::DEBUG)
+        cout << "*** process limits ***" << endl ;
+
     processing->computeLimits(dataOutput,idBlkMoy);
 
     //Apply Quality control
-    if (ui->controlQC->isChecked() == true){
+    if (ui->controlQC->isChecked() == true)
+    {
+        if(Processing::DEBUG)
+            cout << "*** process QC control ***" << endl ;
+
         QPair<int,QStringList> retour = processing->passQC(dataInput,dataOutput);
 
         int nbrQC = 0;
@@ -476,6 +489,9 @@ void Application::run(){
             dialog->exec();
         }
     }
+
+    if(Processing::DEBUG)
+        cout << "*** refreshing plots and tables ***" << endl ;
 
     //Refresh plot of Internal Standard
     onISChoice();
@@ -499,6 +515,9 @@ void Application::run(){
     if(row != -1){
          display->dispTableInput(dataInput,row);
     }
+
+    if(Processing::DEBUG)
+        cout << "*** end of processing ***" << endl ;
 }
 
 void Application::openFile()
