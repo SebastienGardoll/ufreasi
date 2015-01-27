@@ -446,7 +446,11 @@ void Application::run(){
     
     dataOutput->addBLKmoy(idBlkMoy,"BLK_Avg_First_Seq");
     
-    if(ui->yIntercept->isChecked()) {
+    if(ui->yIntercept->isChecked())
+    {
+        if(Processing::DEBUG)
+            cout << "# y intercept" << endl ;
+
        // Blank solution are part of the linear regression.
        // Add blank as a zero concentration standard.
        
