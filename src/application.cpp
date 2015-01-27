@@ -431,7 +431,7 @@ void Application::run(){
         if(dataInput->getSolution(i).getType() == Solution::BLK) idBlkMoy << i;
     }
 
-    dataOutput->addBLKmoy(idBlkMoy,"BLK_Avg_All");
+    dataOutput->addBLKmoy(idBlkMoy, Data::ALL_AVG);
 
     idBlkMoy.clear();
     int i=0;
@@ -444,7 +444,7 @@ void Application::run(){
         i++;
     }
     
-    dataOutput->addBLKmoy(idBlkMoy,"BLK_Avg_First_Seq");
+    dataOutput->addBLKmoy(idBlkMoy,Data::FIRST_SEQ_AVG);
     
     if(ui->yIntercept->isChecked())
     {
@@ -612,7 +612,7 @@ void Application::openFile()
         if(dataInput->getSolution(i).getType() == Solution::BLK) idBlkMoy << i;
     }
 
-    dataOutput->addBLKmoy(idBlkMoy,"BLK_Avg_All");
+    dataOutput->addBLKmoy(idBlkMoy,Data::ALL_AVG);
 
     idBlkMoy.clear();
     int i=0;
@@ -624,7 +624,7 @@ void Application::openFile()
         idBlkMoy << i;
         i++;
     }
-    dataOutput->addBLKmoy(idBlkMoy,"BLK_Avg_First_Seq");
+    dataOutput->addBLKmoy(idBlkMoy,Data::FIRST_SEQ_AVG);
 
     //Initialiaze processing interface
     processing->init(dataOutput->isoSize());
