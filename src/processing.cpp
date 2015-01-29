@@ -23,7 +23,7 @@
 #include <iostream>
 #include <iomanip>
 
-bool Processing::DEBUG = false ;
+bool Processing::DEBUG = true ;
 
 Processing::Processing(){
 }
@@ -458,7 +458,10 @@ void Processing::computeLine(Data *data,int Id){
     
     if(Processing::DEBUG)
     {
-      cout << setiosflags(ios::fixed) << std::setprecision(8) << "slope = " << lines[Id].slope << ", y-intercept =  " << lines[Id].intercept << ", r2 = " << squareR[Id] << endl ;
+      Element el = data->getIso(Id) ;
+      cout << setiosflags(ios::fixed) << std::setprecision(8) << el.getName().toStdString() << ": "
+           << "slope = " << lines[Id].slope << ", y-intercept =  " << lines[Id].intercept
+           << ", r2 = " << squareR[Id] << endl ;
     }
 }
 
