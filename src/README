@@ -27,7 +27,7 @@ uFREASI version 1.XX
       _ make
 
    _ 10.9:
-      _ install QT SDK 4.8.6
+      _ install QT SDK 4.8.6-1
       _ copy librairies/macosx/qwt-6.0.1/10.9/*.framework into /Library/Frameworks directory
       _ qmake -spec macx-g++ ufreasi_mac64.pro
       _ make
