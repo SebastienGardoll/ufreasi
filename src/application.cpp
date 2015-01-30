@@ -348,7 +348,7 @@ void Application::run(){
             }
             else
             {
-                cout << "  Blank correction is not applied" << endl ;
+                cout << "  No blank correction is applied" << endl ;
                 displayBlk = false ;
             }
         }
@@ -555,6 +555,8 @@ void Application::run(){
         
         // if(retour.first == 1)
         {
+            QString debugTrace (QString::number(retour.second.size()) + " / " + QString::number(nbrQC)) ;
+            cout << "# QC not valid: " << debugTrace.toStdString() << endl ;
             QCDialog * dialog =  new QCDialog(&retour.second,nbrQC,this);
             dialog->exec();
         }
