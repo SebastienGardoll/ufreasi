@@ -20,6 +20,7 @@
  */
 
 #include "parser.h"
+//#include <QErrorMessage>
 
 /**
   * \param file Input file that contains input data comming from ICP-MS: file to be read
@@ -67,9 +68,11 @@ double InputParser::toDouble(const QString &str)
 
             if(isConvertOk == false)
             {
-              cout << "PARSING ERROR: unable to read real number. Please, convert your real numbers into english or french format" << endl ;
-              cout << "abort" << endl ;
-              exit(-10) ;
+                QMessageBox msgBox;
+                msgBox.setIcon(QMessageBox::Critical);
+                msgBox.setText("PARSING ERROR: unable to read real number (unknown format). Please, convert your data into english or french number format");
+                msgBox.exec();
+                exit(-10) ;
             }
             else
             {

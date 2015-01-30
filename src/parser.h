@@ -47,7 +47,7 @@ class InputParser
 public:
 
     virtual QString getNotDefinedTag() = 0 ; ///< Returns the tag, related to the ICP-MS, for missing data or undefined data.
-    double toDouble(const QString& str) ; ///< Returns 0.0 if str is empty or parsing fails.
+    double toDouble(const QString& str) ; ///< Returns 0.0 if str is empty or if str is a undefined data tag. Show error box if parsing fails (real number format unknown) and exit (-10).
 
     virtual inline ~InputParser(){};
 };
