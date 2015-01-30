@@ -62,7 +62,8 @@ double Parser::toDouble(const QString &str)
           if(isConvertOk == false)
           {
             cout << "PARSING ERROR: unable to read real number. Please, convert your real numbers into english or french format" << endl ;
-            exit (-10) ;
+            cout << "abort" << endl ;
+            exit(-10) ;
           }
           else
           {
