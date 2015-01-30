@@ -333,6 +333,10 @@ void Application::run(){
             cout << "    - " << ui->comboISMR->currentText().toStdString() << " as the IS-MR isotope reference" << endl ;
             cout << "    - " << ui->comboISHR->currentText().toStdString() << " as the IS-HR isotope reference" << endl ;
         }
+        else
+        {
+            cout << "  No internal standard correction is applied" << endl ;
+        }
 
         bool displayBlk = true ;
 
