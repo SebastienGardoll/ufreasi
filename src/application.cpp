@@ -318,8 +318,46 @@ void Application::on_icpmsModel_currentIndexChanged(const QString &selection)
 void Application::run(){
 
     if(Processing::DEBUG)
+    {
         cout << "*** begin processing ***" << endl ;
+        cout << "# uFREASI configuration:" << endl ;
+        cout << "  Selected ICP instrument: " << ui->icpmsModel->currentText().toStdString() << endl ;
 
+        if(ui->correctionIS->isChecked())
+        {
+            cout << "  Internal standard correction is set with:" << endl ;
+            cout << "    - " << ui->echantIS->currentText().toStdString() << " as the IS reference solution" << endl ;
+            cout << "    - IS check boxes' status are: " << ui->correctISLR->isChecked() << " ; "
+                    << ui->correctISMR->isChecked() << " ; " << ui->correctISHR->isChecked() << endl ;
+            cout << "    - " << ui->comboISLR->currentText().toStdString() << " as the IS-LR isotope reference" << endl ;
+            cout << "    - " << ui->comboISMR->currentText().toStdString() << " as the IS-MR isotope reference" << endl ;
+            cout << "    - " << ui->comboISHR->currentText().toStdString() << " as the IS-HR isotope reference" << endl ;
+        }
+
+        bool displayBlk = true ;
+
+        if(ui->yIntercept->isChecked())
+        {
+            cout << "  Y-intercept is set" ;
+        }
+        else
+        {
+            if(ui->subBlank->isChecked())
+            {
+                cout << "  Blank subtraction is set" ;
+            }
+            else
+            {
+                cout << "  Blank correction is not applied" << endl ;
+                displayBlk = false ;
+            }
+        }
+
+        if(displayBlk)
+        {
+            cout << " with " << ui->blankSelection->currentText().toStdString() << " as the blank reference solution" << endl;
+        }
+    }
 
     if(Processing::DEBUG)
         cout << "# open QC-STD file" << endl ;
