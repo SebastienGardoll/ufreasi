@@ -31,53 +31,75 @@
 const QString Parser::ID_BLK("BLK_") ;
 const QString Parser::ID_STD("STD_") ;
 const QString Parser::ID_QC("QC_");
-const QString ParserInHRElementCSV::ICP_MS_NAME("HR-ICP-MS");
-const QString ParserInAgilentCSV::ICP_MS_NAME("Q-ICP-MS");
 
-double Parser::toDouble(const QString &str)
+const QString ParserInHRElementCSV::ICP_MS_NAME("HR-ICP-MS");
+const QString ParserInHRElementCSV::NOT_DEFINED_TAG("not def.");
+
+const QString ParserInAgilentCSV::ICP_MS_NAME("Q-ICP-MS");
+const QString ParserInAgilentCSV::NOT_DEFINED_TAG("<###> ");
+
+double InputParser::toDouble(const QString &str)
 {
     double result = 0.0 ;
     bool isConvertOk = false ;
 
     if(! str.isEmpty())
     {
-      result = str.toDouble(&isConvertOk) ;
-
-      if(isConvertOk == false)
+      if(this->getNotDefinedTag().compare(str))
       {
-        // If toDouble failed, the str is not in the
-        // local system format and C format.
-        // So try in the french and english formats
-        // otherwise give it up.
-
-        QLocale fr (QLocale::French) ;
-        QLocale en (QLocale::English) ;
-
-        result = fr.toDouble(str, &isConvertOk) ;
+        result = str.toDouble(&isConvertOk) ;
 
         if(isConvertOk == false)
         {
-          result = en.toDouble(str, &isConvertOk);
+          // If toDouble failed, the str is not in the
+          // local system format and C format.
+          // So try in the french and english formats
+          // otherwise give it up.
+
+          QLocale fr (QLocale::French) ;
+          QLocale en (QLocale::English) ;
+
+          result = fr.toDouble(str, &isConvertOk) ;
 
           if(isConvertOk == false)
           {
-            cout << "PARSING ERROR: unable to read real number. Please, convert your real numbers into english or french format" << endl ;
-            cout << "abort" << endl ;
-            exit(-10) ;
+            result = en.toDouble(str, &isConvertOk);
+
+            if(isConvertOk == false)
+            {
+              cout << "PARSING ERROR: unable to read real number. Please, convert your real numbers into english or french format" << endl ;
+              cout << "abort" << endl ;
+              exit(-10) ;
+            }
+            else
+            {
+              QLocale::setDefault(en) ;
+            }
           }
           else
           {
-            QLocale::setDefault(en) ;
+            QLocale::setDefault(fr) ;
           }
-        }
-        else
-        {
-          QLocale::setDefault(fr) ;
         }
       }
     }
 
     return result ;
+}
+
+QString ParserInAgilentCSV::getNotDefinedTag()
+{
+    return ParserInAgilentCSV::NOT_DEFINED_TAG ;
+}
+
+QString ParserInHRElementCSV::getNotDefinedTag()
+{
+    return ParserInHRElementCSV::NOT_DEFINED_TAG ;
+}
+
+QString ParserInSTDQC::getNotDefinedTag()
+{
+    return "";
 }
 
 QPair<int, QString> ParserInAgilentCSV::parse(QFile * file,Data * data, Processing *process)
@@ -91,7 +113,7 @@ QPair<int, QString> ParserInAgilentCSV::parse(QFile * file,Data * data, Processi
     QString massPattern("/ \\d{1,3}");
     QString pulsePattern("\\d+(.\\d+)?");
     QString rsdPattern(pulsePattern + "%") ;
-    QString undefinedPattern("<###> ");
+    QString undefinedPattern(ParserInAgilentCSV::NOT_DEFINED_TAG);
     QString resolutionPattern("\\[#\\d\\]");
     QString smpTag("^Sample:") ;
     QString eltPattern(namePattern + " " + massPattern + " " + resolutionPattern + ";");
@@ -267,7 +289,7 @@ QPair<int, QString> ParserInAgilentCSV::parse(QFile * file,Data * data, Processi
             while(tokenIndex < solutionTokens.size())
             {
                 // Parse pulse value.
-                pulseValue = Parser::toDouble(solutionTokens.at(tokenIndex)) ;
+                pulseValue = this->toDouble(solutionTokens.at(tokenIndex)) ;
                 tokenIndex++;
 
                 // Parse rsd value.
@@ -276,7 +298,7 @@ QPair<int, QString> ParserInAgilentCSV::parse(QFile * file,Data * data, Processi
                 solutionTokens[tokenIndex].remove(QChar('%'), Qt::CaseInsensitive);
 
                 // Compute rsdValue
-                double solutionTokenValue = Parser::toDouble(solutionTokens.at(tokenIndex)) ;
+                double solutionTokenValue = this->toDouble(solutionTokens.at(tokenIndex)) ;
                 rsdValue = solutionTokenValue * pulseValue / 100. ;
 
                 // Set solution's values
@@ -314,7 +336,7 @@ QPair<int, QString> ParserInHRElementCSV::parse(QFile * file,Data * data, Proces
     QString HR("HR");
     QString resolElt("("+LR+"|"+MR+"|"+HR+")");
     QString valElt("\\d+(.\\d+)?");
-    QString valEltInd("not def.");
+    QString valEltInd(ParserInHRElementCSV::NOT_DEFINED_TAG);
 
     QString elementPathern(nameElt+massElt+"\\("+resolElt+"\\);");
 
@@ -459,13 +481,13 @@ QPair<int, QString> ParserInHRElementCSV::parse(QFile * file,Data * data, Proces
 
                 if (isConcent)
                 {
-                    double isoValue = Parser::toDouble(isot.at(j)) ;
+                    double isoValue = this->toDouble(isot.at(j)) ;
                     data->getSolution(count).setCps(numIso,isoValue);
                     isConcent=false;
                 }
                 else
                 {
-                   double isoValue = Parser::toDouble(isot.at(j)) ;
+                   double isoValue = this->toDouble(isot.at(j)) ;
                    double sd = isoValue * data->getSolution(count).getCps(numIso)/ 100. ;
                    data->getSolution(count).setCpsSD(numIso,sd);
                    isConcent=true;
@@ -631,13 +653,13 @@ QPair<int, QString> ParserInSTDQC::parse(QFile * file,Data * data,Processing *pr
             if (line == -1) continue;
 
 
-            //Introduce concetration
+            //Introduce concentration
             QString valueString = isot.at(line).value(column);
-            double value = Parser::toDouble(valueString) ;
+            double value = this->toDouble(valueString) ;
             data->getSolution(i).setConcent(j,value);
 
             QString valueSdString = isot.at(line).value(column+1);
-            double valueSd = Parser::toDouble(valueSdString) ;
+            double valueSd = this->toDouble(valueSdString) ;
             data->getSolution(i).setConcentRSD(j,valueSd);
         }
     }
