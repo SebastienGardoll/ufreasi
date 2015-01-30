@@ -1,3 +1,28 @@
+Release 1.31
+===================
+
+Changes
+-------
+
+Sébastien Gardoll
+
+1) Remove blank average from the IS reference combobox.
+2) Fix real number format: uFREASI understand french, english and C formats.
+3) Print uFREASI's configuration on the standard output.
+
+
+Release 1.30
+===================
+
+Changes
+-------
+
+Sébastien Gardoll
+
+1) Implement Agilent's data parser.
+2) Implement parser gui selector.
+
+
 Release 1.23
 ===================
 
@@ -33,7 +58,6 @@ Sébastien Gardoll
 1) error propagation implemented.
 
 
-
 Release 1.11
 ===================
 
@@ -48,7 +72,6 @@ Sébastien Gardoll
 4) enable zero standard if "y intercept" is enable.
 5) rename BLK_MOY into BLK_AVR.
 6) option order inverted for linear regression and IS.
-
 
 
 Release 1.10
@@ -72,3 +95,9 @@ Bug Fixes
 Sébastien Gardoll
 
 1) Average blank calculations: internal standard correction taken into effect.
+
+
+Release 1.00
+===================
+
+Initial development by Oualid Khelifi.

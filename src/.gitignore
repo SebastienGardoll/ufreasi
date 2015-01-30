@@ -4,3 +4,8 @@ moc
 obj
 rcc
 ui
+*.user
+.DS_Store
+*.csv
+Makefile.Debug
+Makefile.Release

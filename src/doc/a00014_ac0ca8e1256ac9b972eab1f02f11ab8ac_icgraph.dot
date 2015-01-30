@@ -1,0 +1,27 @@
+digraph "Solution::getCpsRSD"
+{
+ // INTERACTIVE_SVG=YES
+  edge [fontname="Helvetica",fontsize="12",labelfontname="Helvetica",labelfontsize="12"];
+  node [fontname="Helvetica",fontsize="12",shape=record];
+  rankdir="LR";
+  Node1 [label="Solution::getCpsRSD",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled" fontcolor="black"];
+  Node1 -> Node2 [dir="back",color="midnightblue",fontsize="12",style="solid",fontname="Helvetica"];
+  Node2 [label="Displaying::dispTableInput",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$a00003.html#a30730fad4ea063bd1a253de59a279ecc",tooltip="displays input data on the input Table "];
+  Node2 -> Node3 [dir="back",color="midnightblue",fontsize="12",style="solid",fontname="Helvetica"];
+  Node3 [label="Application::onListViewInput",height=0.2,width=0.4,color="red", fillcolor="white", style="filled",URL="$a00001.html#a046e614292cb3c01bf90568dbde70d0c",tooltip="Slot of clicking on Solutions list in input data view. "];
+  Node2 -> Node4 [dir="back",color="midnightblue",fontsize="12",style="solid",fontname="Helvetica"];
+  Node4 [label="Application::run",height=0.2,width=0.4,color="red", fillcolor="white", style="filled",URL="$a00001.html#a68965449404743bf1add056784d6cf81",tooltip="Slot of clicking on proceed button. "];
+  Node2 -> Node5 [dir="back",color="midnightblue",fontsize="12",style="solid",fontname="Helvetica"];
+  Node5 [label="Application::openFile",height=0.2,width=0.4,color="red", fillcolor="white", style="filled",URL="$a00001.html#ab7f9356b1eaa23c179500675d92a49d5",tooltip="Slot of clicking on open data file button. "];
+  Node1 -> Node6 [dir="back",color="midnightblue",fontsize="12",style="solid",fontname="Helvetica"];
+  Node6 [label="Displaying::dispTableOutput",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$a00003.html#a773c819165ab712b4fd073ddddcd8695",tooltip="display output data on the output Table "];
+  Node6 -> Node7 [dir="back",color="midnightblue",fontsize="12",style="solid",fontname="Helvetica"];
+  Node7 [label="Application::onListViewOutput",height=0.2,width=0.4,color="red", fillcolor="white", style="filled",URL="$a00001.html#a8123f70b34dd0f69ba8ba756e23c0ce0",tooltip="Slot of clicking on Solutions list in output data view. "];
+  Node6 -> Node4 [dir="back",color="midnightblue",fontsize="12",style="solid",fontname="Helvetica"];
+  Node6 -> Node5 [dir="back",color="midnightblue",fontsize="12",style="solid",fontname="Helvetica"];
+  Node1 -> Node8 [dir="back",color="midnightblue",fontsize="12",style="solid",fontname="Helvetica"];
+  Node8 [label="Displaying::plotElement",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$a00003.html#a2eb8d02c398ddd7708260ec230ceafcc",tooltip="Plots Calibration curves. "];
+  Node8 -> Node9 [dir="back",color="midnightblue",fontsize="12",style="solid",fontname="Helvetica"];
+  Node9 [label="Application::onListCurves",height=0.2,width=0.4,color="red", fillcolor="white", style="filled",URL="$a00001.html#a4c314b290d0ecc615133d5bf6799b710",tooltip="Slot of clicking on Elements list in Calibration curve view. "];
+  Node8 -> Node4 [dir="back",color="midnightblue",fontsize="12",style="solid",fontname="Helvetica"];
+}

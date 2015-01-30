@@ -1,0 +1,42 @@
+digraph "Processing::computeConcent"
+{
+ // INTERACTIVE_SVG=YES
+  edge [fontname="Helvetica",fontsize="12",labelfontname="Helvetica",labelfontsize="12"];
+  node [fontname="Helvetica",fontsize="12",shape=record];
+  rankdir="LR";
+  Node1 [label="Processing::computeConcent",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled" fontcolor="black"];
+  Node1 -> Node2 [color="midnightblue",fontsize="12",style="solid",fontname="Helvetica"];
+  Node2 [label="Data::solutionSize",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$a00002.html#a84179b0c71fb3e69cfa177e92004ee79",tooltip="Gets the Number of Solutions. "];
+  Node1 -> Node3 [color="midnightblue",fontsize="12",style="solid",fontname="Helvetica"];
+  Node3 [label="Data::getSolution",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$a00002.html#a7b1a07606090591e7fffb48be72bd734",tooltip="Gets a solution identified by its Id. "];
+  Node1 -> Node4 [color="midnightblue",fontsize="12",style="solid",fontname="Helvetica"];
+  Node4 [label="Solution::getType",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$a00014.html#a7e480d4e590046701d82e74491ff944a",tooltip="Gets type of the solution. "];
+  Node1 -> Node5 [color="midnightblue",fontsize="12",style="solid",fontname="Helvetica"];
+  Node5 [label="Processing::computeIsRSD_s",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$a00011.html#aba81f76cd6cc8d50659adcab7580da7a"];
+  Node1 -> Node6 [color="midnightblue",fontsize="12",style="solid",fontname="Helvetica"];
+  Node6 [label="Solution::getCpsSD",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$a00014.html#a0fe4de8b637ba6637d653b91df95fcd0",tooltip="Gets Intensity Standard Deviation. "];
+  Node1 -> Node7 [color="midnightblue",fontsize="12",style="solid",fontname="Helvetica"];
+  Node7 [label="Solution::getCps",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$a00014.html#a6cb75c8a1aa020796506362920216816",tooltip="Gets Intensity. "];
+  Node1 -> Node8 [color="midnightblue",fontsize="12",style="solid",fontname="Helvetica"];
+  Node8 [label="Processing::computeAlpha",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$a00011.html#a1f2aced69b89e42bc45785b086068bde"];
+  Node1 -> Node9 [color="midnightblue",fontsize="12",style="solid",fontname="Helvetica"];
+  Node9 [label="Data::isoSize",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$a00002.html#acd1f2adc01b25ef7bded9b6d2b331278",tooltip="Gets the Number of elements. "];
+  Node1 -> Node10 [color="midnightblue",fontsize="12",style="solid",fontname="Helvetica"];
+  Node10 [label="Data::getIso",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$a00002.html#a4baa9866aaea800c81e4502b9483e4ec",tooltip="Gets an element identified by its Id. "];
+  Node1 -> Node11 [color="midnightblue",fontsize="12",style="solid",fontname="Helvetica"];
+  Node11 [label="Element::getResol",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$a00005.html#ab8c2c9824162b3a151e84cb2f2c5df6f",tooltip="Gets the resolution (value of Resolution enumeration) "];
+  Node1 -> Node12 [color="midnightblue",fontsize="12",style="solid",fontname="Helvetica"];
+  Node12 [label="Solution::setConcent",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$a00014.html#adc74f58993747169c721739962ec2a5a",tooltip="Sets Concentration. "];
+  Node1 -> Node13 [color="midnightblue",fontsize="12",style="solid",fontname="Helvetica"];
+  Node13 [label="Processing::computeSlopeRsdS",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$a00011.html#a90d685c4661d6ea8c50f2901d5c96e66"];
+  Node1 -> Node14 [color="midnightblue",fontsize="12",style="solid",fontname="Helvetica"];
+  Node14 [label="Processing::concentRSD\l_blank_IS_s",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$a00011.html#a8b631f1b4ad86fbe19702dd38774fc79"];
+  Node1 -> Node15 [color="midnightblue",fontsize="12",style="solid",fontname="Helvetica"];
+  Node15 [label="Processing::concentRSD\l_blank_s",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$a00011.html#a201b26b8cfd9ef76744c661c7b23a766"];
+  Node1 -> Node16 [color="midnightblue",fontsize="12",style="solid",fontname="Helvetica"];
+  Node16 [label="Processing::concentRSD\l_y_intercept_IS_s",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$a00011.html#a9135a309a55a8456b0f16c3522bd98fd"];
+  Node1 -> Node17 [color="midnightblue",fontsize="12",style="solid",fontname="Helvetica"];
+  Node17 [label="Processing::concentRSD\l_y_intercept_s",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$a00011.html#ac856677cd16c468c2dacdb1d8d853926"];
+  Node1 -> Node18 [color="midnightblue",fontsize="12",style="solid",fontname="Helvetica"];
+  Node18 [label="Solution::setConcentRSD",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$a00014.html#a60ca23e0e5593012162a2669841c952e",tooltip="Sets Concentration Relative Standard Deviation (%) "];
+}

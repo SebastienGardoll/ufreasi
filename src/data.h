@@ -59,6 +59,8 @@ public:
     QPair<int, QString> executeParsing(QFile *file,class Processing *process);
     
     static double ZERO ;
+    static const QString ALL_AVG ;
+    static const QString FIRST_SEQ_AVG ;
 
 private:
     QList<Element> elementList;   ///< List of elements

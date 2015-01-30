@@ -1,0 +1,7 @@
+digraph "Solution"
+{
+ // INTERACTIVE_SVG=YES
+  edge [fontname="Helvetica",fontsize="12",labelfontname="Helvetica",labelfontsize="12"];
+  node [fontname="Helvetica",fontsize="12",shape=record];
+  Node1 [label="{Solution\n|+ ZERO_STD_NAME\l- cps\l- cpsSD\l- concent\l- concentRSD\l- name\l- nbrElement\l- typeSolution\l|+ Solution()\l+ copy()\l+ getName()\l+ getNbrElement()\l+ getType()\l+ getCps()\l+ getCpsSD()\l+ getCpsRSD()\l+ getConcent()\l+ getConcentRSD()\l+ setCps()\l+ setCpsSD()\l+ setConcent()\l+ setConcentRSD()\l}",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled" fontcolor="black"];
+}

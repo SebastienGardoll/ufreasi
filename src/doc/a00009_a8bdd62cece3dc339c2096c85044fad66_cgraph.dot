@@ -1,0 +1,26 @@
+digraph "ParserInSTDQC::parse"
+{
+ // INTERACTIVE_SVG=YES
+  edge [fontname="Helvetica",fontsize="12",labelfontname="Helvetica",labelfontsize="12"];
+  node [fontname="Helvetica",fontsize="12",shape=record];
+  rankdir="LR";
+  Node1 [label="ParserInSTDQC::parse",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled" fontcolor="black"];
+  Node1 -> Node2 [color="midnightblue",fontsize="12",style="solid",fontname="Helvetica"];
+  Node2 [label="Data::solutionSize",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$a00002.html#a84179b0c71fb3e69cfa177e92004ee79",tooltip="Gets the Number of Solutions. "];
+  Node1 -> Node3 [color="midnightblue",fontsize="12",style="solid",fontname="Helvetica"];
+  Node3 [label="Data::getSolution",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$a00002.html#a7b1a07606090591e7fffb48be72bd734",tooltip="Gets a solution identified by its Id. "];
+  Node1 -> Node4 [color="midnightblue",fontsize="12",style="solid",fontname="Helvetica"];
+  Node4 [label="Solution::getType",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$a00014.html#a7e480d4e590046701d82e74491ff944a",tooltip="Gets type of the solution. "];
+  Node1 -> Node5 [color="midnightblue",fontsize="12",style="solid",fontname="Helvetica"];
+  Node5 [label="Solution::getName",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$a00014.html#a08617ee6ca1993e92372e265829508f0",tooltip="Gets the Name. "];
+  Node1 -> Node6 [color="midnightblue",fontsize="12",style="solid",fontname="Helvetica"];
+  Node6 [label="Data::isoSize",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$a00002.html#acd1f2adc01b25ef7bded9b6d2b331278",tooltip="Gets the Number of elements. "];
+  Node1 -> Node7 [color="midnightblue",fontsize="12",style="solid",fontname="Helvetica"];
+  Node7 [label="Data::getIso",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$a00002.html#a4baa9866aaea800c81e4502b9483e4ec",tooltip="Gets an element identified by its Id. "];
+  Node1 -> Node8 [color="midnightblue",fontsize="12",style="solid",fontname="Helvetica"];
+  Node8 [label="Element::getElement",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$a00005.html#a982ccc1c2f9f57d58ad5f98eedb53706",tooltip="Gets the Name of the element. "];
+  Node1 -> Node9 [color="midnightblue",fontsize="12",style="solid",fontname="Helvetica"];
+  Node9 [label="Solution::setConcent",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$a00014.html#adc74f58993747169c721739962ec2a5a",tooltip="Sets Concentration. "];
+  Node1 -> Node10 [color="midnightblue",fontsize="12",style="solid",fontname="Helvetica"];
+  Node10 [label="Solution::setConcentRSD",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$a00014.html#a60ca23e0e5593012162a2669841c952e",tooltip="Sets Concentration Relative Standard Deviation (%) "];
+}

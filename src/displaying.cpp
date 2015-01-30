@@ -1,7 +1,7 @@
 /** 
  *  user-FRiendly Elemental dAta procesSIng (uFREASI)
  *  
- *  Copyright © 2012 Oualid Khelefi.
+ *  Copyright Â© 2012 Oualid Khelefi.
  *
  *  Authors : see AUTHORS.
  *
@@ -224,6 +224,7 @@ void Displaying::displayLists(Data *data){
             case Element::LR : listeISLR << data->getIso(i).getName(); break;
             case Element::MR : listeISMR << data->getIso(i).getName(); break;
             case Element::HR : listeISHR << data->getIso(i).getName(); break;
+            case Element::UNDEFINED : listeISLR << data->getIso(i).getName(); break;
         }
     }
 
@@ -250,8 +251,26 @@ void Displaying::displaySolutions(Data *dataIn,Data *dataOut){
     ui->listViewInput->setEditTriggers(QAbstractItemView::NoEditTriggers);
 
     QStringList listeTestsOut;
+    QStringList listeTestsOutWithoutAvg;
+    QString tmp ;
+
+
     for(int i=0;i<dataOut->solutionSize();i++){
-        listeTestsOut << dataOut->getSolution(i).getName();
+
+        tmp = dataOut->getSolution(i).getName();
+
+        listeTestsOut << tmp ;
+
+        if(tmp.compare(Data::ALL_AVG) &&
+           tmp.compare(Data::FIRST_SEQ_AVG))
+        {
+            listeTestsOutWithoutAvg <<  tmp ;
+        }
+        else
+        {
+            // Don't add BLK_Avg_All and BLK_Avg_First_Seq as it will segfault at
+            // processing::correctionIS if the user selects them.
+        }
     }
 
     ui->listViewOutput->clear();
@@ -259,7 +278,7 @@ void Displaying::displaySolutions(Data *dataIn,Data *dataOut){
     ui->listViewOutput->setEditTriggers(QAbstractItemView::NoEditTriggers);
 
     ui->echantIS->clear();
-    ui->echantIS->addItems(listeTestsOut);
+    ui->echantIS->addItems(listeTestsOutWithoutAvg);
 
     //Display Blank Solutions list
     QStringList listeBlanc;

@@ -34,15 +34,46 @@ class Data;
 class Parser{
 public:
     virtual QPair<int,QString> parse(QFile *file,class Data *data,class Processing *process) = 0; ///< Parsing Function
+
+    static const QString ID_BLK ;
+    static const QString ID_STD ;
+    static const QString ID_QC ;
+
+    virtual inline ~Parser(){};
+};
+
+class InputParser
+{
+public:
+
+    virtual QString getNotDefinedTag() = 0 ; ///< Returns the tag, related to the ICP-MS, for missing data or undefined data.
+    double toDouble(const QString& str) ; ///< Returns 0.0 if str is empty or if str is a undefined data tag. Show error box if parsing fails (real number format unknown) and exit (-10).
+
+    virtual inline ~InputParser(){};
 };
 
 /**
-  * Parser for the input CSV data file, raw data comming from the ICP-MS
+  * Parser for the input CSV data file, raw data comming from the HR Element ICP-MS
   */
 
-class ParserInCSV: public Parser{
+class ParserInHRElementCSV: public Parser, InputParser{
 public:
+    static const QString ICP_MS_NAME ; ///< ICP-MS model name that this parser is aimed
+    static const QString NOT_DEFINED_TAG ; ///< Tag for undefined data or missing data.
     QPair<int,QString> parse(QFile *file,Data *data,class Processing *process); ///< Parsing Function
+    QString getNotDefinedTag();
+};
+
+/**
+  * Parser for the input CSV data file, raw data comming from the Agilent ICP-MS
+  */
+
+class ParserInAgilentCSV: public Parser, InputParser{
+public:
+    static const QString ICP_MS_NAME ; ///< ICP-MS model name that this parser is aimed
+    static const QString NOT_DEFINED_TAG ; ///< Tag for undefined data or missing data.
+    QPair<int,QString> parse(QFile *file,Data *data,class Processing *process); ///< Parsing Function
+    QString getNotDefinedTag();
 };
 
 /**
@@ -58,9 +89,10 @@ public:
   * Parser for the input CSV concentrations file, it contains known concentrations of standards and quality controls
   */
 
-class ParserInSTDQC: public Parser{
+class ParserInSTDQC: public Parser, InputParser{
 public:
     QPair<int, QString> parse(QFile *file,Data *data,class Processing *process); ///< Parsing Function
+    QString getNotDefinedTag();
 };
 
 #endif // PARSER_H

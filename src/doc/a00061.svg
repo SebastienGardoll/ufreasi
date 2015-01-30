@@ -16,7 +16,7 @@
 </g>
 <!-- Node2 -->
 <g id="node3" class="node"><title>Node2</title>
-<a xlink:href="a00031.html" target="_top" xlink:title="qcdialog.h">
+<a xlink:href="a00031.html" target="_top" target="_top" xlink:title="qcdialog.h">
 <polygon fill="white" stroke="red" points="0,-1 0,-25 72,-25 72,-1 0,-1"/>
 <text text-anchor="middle" x="36" y="-10.2" font-family="Helvetica,sans-Serif" font-size="12.00">qcdialog.h</text>
 </a>

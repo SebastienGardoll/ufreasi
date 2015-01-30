@@ -22,7 +22,7 @@
 <RCC>
     <qresource prefix="/">
         <file>res/save.png</file>
-        <file>res/chimie.png</file>
+        <file>res/ufreasi.png</file>
         <file>res/close.png</file>
         <file>res/config.png</file>
         <file>res/open.png</file>

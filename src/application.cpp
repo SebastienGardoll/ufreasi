@@ -20,6 +20,7 @@
  */
 
 #include "application.h"
+#include <typeinfo>
 
 /**
   * Create actions, initialize HCI, create Data - Display - Processing - Parser instances,
@@ -40,13 +41,10 @@ Application::Application(QWidget *parent) : QMainWindow(parent), ui(new Ui::Appl
     //Process actions on the HCI
     createActions();
 
-    //Init IHM
-    initIHM();
-
     //Instancier
     processing = new Processing();
 
-    myParserIN1 = new ParserInCSV();
+    myParserIN1 = new ParserInHRElementCSV(); // ParserInHRElementCSV set as default parser
     myParserOUT = new ParserOutCSV();
     myParserIN2 = new ParserInSTDQC();
 
@@ -61,6 +59,9 @@ Application::Application(QWidget *parent) : QMainWindow(parent), ui(new Ui::Appl
     if(settings.value("File").toString() != ""){
         fileName = settings.value("File").toString();
     }
+
+    //Init IHM
+    initIHM();
 }
 
 Application::~Application(){
@@ -69,8 +70,8 @@ Application::~Application(){
 
 void Application::about(){
     QMessageBox::about(this, tr("About uFREASI Application"),
-                       tr("<p>uFREASI : <b>user-FRiendly Elemental dAta procesSIng</b></p>"
-                          "<p>Application to process HR-ICP-MS Element data.</p>"
+                       tr("<p>uFREASI : <b>user-FRiendly Elemental dAta procesSIng v1.31</b></p>"
+                          "<p>Application to process ICP-MS data.</p>"
                           "<p><b>Designed by :</b></p>"
                           "<p> KHELIFI Oualid - Telecom ParisTech - khelifi@enst.fr</p>"
                           "<p> THARAUD Mickael - Laboratoire de G&eacute;ochimie des Eaux - tharaud@ipgp.fr</p>"
@@ -85,7 +86,7 @@ void Application::createActions(){
     quitAct->setStatusTip(tr("Quit the application"));
     connect(quitAct, SIGNAL(triggered()), this, SLOT(close()));
 
-    aboutAct = new QAction(QIcon(":/res/chimie.png"),tr("&About"), this);
+    aboutAct = new QAction(QIcon(":/res/ufreasi.png"),tr("&About"), this);
     aboutAct->setStatusTip(tr("Show the application's About box"));
     connect(aboutAct, SIGNAL(triggered()), this, SLOT(about()));
 
@@ -219,6 +220,11 @@ void Application::initIHM(){
     ui->graphEvol->setAxisTitle( QwtPlot::yLeft, "Intensity (cps)" );
     ui->graphEvol->setAxisMaxMinor(QwtPlot::xBottom, 0);
     ui->graphEvol->replot();
+
+    // Set ICP-MS model available
+    ui->icpmsModel->addItem(ParserInHRElementCSV::ICP_MS_NAME);
+    ui->icpmsModel->addItem(ParserInAgilentCSV::ICP_MS_NAME);
+    ui->icpmsModel->setCurrentIndex(0);
 }
 
 /**
@@ -287,7 +293,83 @@ void Application::listISChange(){
     ui->plotISchoice->setModel(new QStringListModel(listISChoice));
 }
 
+void Application::on_icpmsModel_currentIndexChanged(const QString &selection)
+{
+    if(ParserInHRElementCSV::ICP_MS_NAME.compare(selection) == 0)
+    {
+        if(typeid(myParserIN1) != typeid(ParserInHRElementCSV))
+        {
+            delete myParserIN1;
+            myParserIN1 = new ParserInHRElementCSV() ;
+            dataInput->loadParser(myParserIN1);
+        }
+    }
+    else if(ParserInAgilentCSV::ICP_MS_NAME.compare(selection) == 0)
+    {
+        if(typeid(myParserIN1) != typeid(ParserInAgilentCSV))
+        {
+            delete myParserIN1;
+            myParserIN1 = new ParserInAgilentCSV();
+            dataInput->loadParser(myParserIN1);
+        }
+    }
+}
+
 void Application::run(){
+
+    if(Processing::DEBUG)
+    {
+        cout << "*** begin processing ***" << endl ;
+        cout << "# uFREASI configuration:" << endl ;
+        cout << "  Selected ICP instrument: " << ui->icpmsModel->currentText().toStdString() << endl ;
+
+        if(ui->correctionIS->isChecked())
+        {
+            cout << "  Internal standard correction is set with:" << endl ;
+            cout << "    - " << ui->echantIS->currentText().toStdString() << " as the IS reference solution" << endl ;
+            cout << "    - IS check boxes' status are: " << ui->correctISLR->isChecked() << " ; "
+                    << ui->correctISMR->isChecked() << " ; " << ui->correctISHR->isChecked() << endl ;
+            cout << "    - " << ui->comboISLR->currentText().toStdString() << " as the IS-LR isotope reference" << endl ;
+            cout << "    - " << ui->comboISMR->currentText().toStdString() << " as the IS-MR isotope reference" << endl ;
+            cout << "    - " << ui->comboISHR->currentText().toStdString() << " as the IS-HR isotope reference" << endl ;
+        }
+        else
+        {
+            cout << "  No internal standard correction is applied" << endl ;
+        }
+
+        bool displayBlk = true ;
+
+        if(ui->yIntercept->isChecked())
+        {
+            cout << "  Y-intercept is set" ;
+        }
+        else
+        {
+            if(ui->subBlank->isChecked())
+            {
+                cout << "  Blank subtraction is set" ;
+            }
+            else
+            {
+                cout << "  No blank correction is applied" << endl ;
+                displayBlk = false ;
+            }
+        }
+
+        if(displayBlk)
+        {
+            cout << " with " << ui->blankSelection->currentText().toStdString() << " as the blank reference solution" << endl;
+        }
+
+        if(ui->controlQC->isChecked())
+        {
+            cout << "  Quality control validation is set" << endl ;
+        }
+    }
+
+    if(Processing::DEBUG)
+        cout << "# open QC-STD file" << endl ;
 
     QSettings settings("LGE", "uFREASI");
 
@@ -308,6 +390,9 @@ void Application::run(){
         return;
     }
 
+    if(Processing::DEBUG)
+        cout << "# parse QC-STD file" << endl ;
+
     //Get concentrations from input file
     dataInput->loadParser(myParserIN2);
     QPair<int,QString> retour = dataInput->executeParsing(&file,processing);
@@ -318,6 +403,9 @@ void Application::run(){
         QMessageBox::information(this,tr("Parsing CSV"),retour.second);
         return;
     }
+
+    if(Processing::DEBUG)
+        cout << "# init processing variables" << endl ;
 
     int blank_id = -1 ;
     int is_ref_id = -1 ;
@@ -339,6 +427,9 @@ void Application::run(){
     // ALWAYS do first as average blank calulation is wrong if the internal standard reference is taken from a blank.
     if (ui->correctionIS->isChecked() == true)
     {
+        if(Processing::DEBUG)
+            cout << "# internal standard correction" << endl ;
+
         is_ref_id = ui->echantIS->currentIndex() ;
         
         is_elements[Element::LR] = dataInput->mapLR(ui->comboISLR->currentIndex()) ;
@@ -366,7 +457,11 @@ void Application::run(){
     }
 
     //Substract Blank or not (not substract Internal standards)
-    if (ui->subBlank->isChecked() == true){
+    if (ui->subBlank->isChecked() == true)
+    {
+        if(Processing::DEBUG)
+            cout << "# substract blank" << endl ;
+
         blank_id = dataOutput->mapBLK(ui->blankSelection->currentIndex()) ;
         processing->subtructBlank(dataOutput,
                                   blank_id,
@@ -374,13 +469,16 @@ void Application::run(){
                                   isoIS);
     }
     
+    if(Processing::DEBUG)
+        cout << "# add blk solutions" << endl ;
+
     //Add BLK Solutions
     QList<int> idBlkMoy;
     for(int i=0;i<dataInput->solutionSize();i++){
         if(dataInput->getSolution(i).getType() == Solution::BLK) idBlkMoy << i;
     }
 
-    dataOutput->addBLKmoy(idBlkMoy,"BLK_Avg_All");
+    dataOutput->addBLKmoy(idBlkMoy, Data::ALL_AVG);
 
     idBlkMoy.clear();
     int i=0;
@@ -393,9 +491,13 @@ void Application::run(){
         i++;
     }
     
-    dataOutput->addBLKmoy(idBlkMoy,"BLK_Avg_First_Seq");
+    dataOutput->addBLKmoy(idBlkMoy,Data::FIRST_SEQ_AVG);
     
-    if(ui->yIntercept->isChecked()) {
+    if(ui->yIntercept->isChecked())
+    {
+        if(Processing::DEBUG)
+            cout << "# y intercept" << endl ;
+
        // Blank solution are part of the linear regression.
        // Add blank as a zero concentration standard.
        
@@ -411,6 +513,9 @@ void Application::run(){
        }
     }
     
+    if(Processing::DEBUG)
+        cout << "# process calibration" << endl ;
+
     //Process calibration
     processing->calibration(dataOutput,isoIS);
     
@@ -423,13 +528,23 @@ void Application::run(){
        cout << endl ;
     }
     
+    if(Processing::DEBUG)
+        cout << "*** process concentration ***" << endl ;
+
     //Process concentrations
     processing->computeConcent(dataOutput, dataInput, blank_id, is_ref_id, is_elements) ;
     
+    if(Processing::DEBUG)
+        cout << "*** process limits ***" << endl ;
+
     processing->computeLimits(dataOutput,idBlkMoy);
 
     //Apply Quality control
-    if (ui->controlQC->isChecked() == true){
+    if (ui->controlQC->isChecked() == true)
+    {
+        if(Processing::DEBUG)
+            cout << "*** process QC control ***" << endl ;
+
         QPair<int,QStringList> retour = processing->passQC(dataInput,dataOutput);
 
         int nbrQC = 0;
@@ -444,10 +559,15 @@ void Application::run(){
         
         // if(retour.first == 1)
         {
+            QString debugTrace (QString::number(retour.second.size()) + " / " + QString::number(nbrQC)) ;
+            cout << "# QC not valid: " << debugTrace.toStdString() << endl ;
             QCDialog * dialog =  new QCDialog(&retour.second,nbrQC,this);
             dialog->exec();
         }
     }
+
+    if(Processing::DEBUG)
+        cout << "*** refreshing plots and tables ***" << endl ;
 
     //Refresh plot of Internal Standard
     onISChoice();
@@ -471,6 +591,9 @@ void Application::run(){
     if(row != -1){
          display->dispTableInput(dataInput,row);
     }
+
+    if(Processing::DEBUG)
+        cout << "*** end of processing ***" << endl ;
 }
 
 void Application::openFile()
@@ -538,7 +661,7 @@ void Application::openFile()
         if(dataInput->getSolution(i).getType() == Solution::BLK) idBlkMoy << i;
     }
 
-    dataOutput->addBLKmoy(idBlkMoy,"BLK_Avg_All");
+    dataOutput->addBLKmoy(idBlkMoy,Data::ALL_AVG);
 
     idBlkMoy.clear();
     int i=0;
@@ -550,7 +673,7 @@ void Application::openFile()
         idBlkMoy << i;
         i++;
     }
-    dataOutput->addBLKmoy(idBlkMoy,"BLK_Avg_First_Seq");
+    dataOutput->addBLKmoy(idBlkMoy,Data::FIRST_SEQ_AVG);
 
     //Initialiaze processing interface
     processing->init(dataOutput->isoSize());

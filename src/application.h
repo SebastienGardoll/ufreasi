@@ -81,6 +81,8 @@ private slots:
     void on_subBlank_clicked();
     void on_correctionIS_clicked();
 
+    void on_icpmsModel_currentIndexChanged(const QString &selection);
+
 private:
     Ui::Application *ui;    ///< Contains the definition of the widgets and HCI elements
 

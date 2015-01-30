@@ -22,6 +22,8 @@
 #include "data.h"
 
 double Data::ZERO = 0.00000000000001 ;
+const QString Data::ALL_AVG = "BLK_Avg_All" ;
+const QString Data::FIRST_SEQ_AVG = "BLK_Avg_First_Seq" ;
 
 /**
   * \param  parser Pointer to default parser
@@ -53,6 +55,7 @@ int Data::addIso(Element element){
         case Element::LR : mapIsoLR << current; break;
         case Element::MR : mapIsoMR << current; break;
         case Element::HR : mapIsoHR << current; break;
+        case Element::UNDEFINED : mapIsoLR << current; break;
     }
 
     return(current);

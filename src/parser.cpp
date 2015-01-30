@@ -1,6 +1,6 @@
-/** 
+/**
  *  user-FRiendly Elemental dAta procesSIng (uFREASI)
- *  
+ *
  *  Copyright © 2012 Oualid Khelefi.
  *
  *  Authors : see AUTHORS.
@@ -20,21 +20,317 @@
  */
 
 #include "parser.h"
+//#include <QErrorMessage>
 
 /**
-  * \param file Input file that contains input data comming from ICP-MS : file to be read
+  * \param file Input file that contains input data comming from ICP-MS: file to be read
   * \param data Container of the data set
   * \param process Container of processed data
   * \return Error code and a return Message to be displayed
   */
 
-QPair<int, QString> ParserInCSV::parse(QFile * file,Data * data, Processing *process) {
+const QString Parser::ID_BLK("BLK_") ;
+const QString Parser::ID_STD("STD_") ;
+const QString Parser::ID_QC("QC_");
+
+const QString ParserInHRElementCSV::ICP_MS_NAME("HR-ICP-MS");
+const QString ParserInHRElementCSV::NOT_DEFINED_TAG("not def.");
+
+const QString ParserInAgilentCSV::ICP_MS_NAME("Q-ICP-MS");
+const QString ParserInAgilentCSV::NOT_DEFINED_TAG("<###> ");
+
+double InputParser::toDouble(const QString &str)
+{
+    double result = 0.0 ;
+    bool isConvertOk = false ;
+
+    if(! str.isEmpty())
+    {
+      if(this->getNotDefinedTag().compare(str))
+      {
+        result = str.toDouble(&isConvertOk) ;
+
+        if(isConvertOk == false)
+        {
+          // If toDouble failed, the str is not in the
+          // local system format and C format.
+          // So try in the french and english formats
+          // otherwise give it up.
+
+          QLocale fr (QLocale::French) ;
+          QLocale en (QLocale::English) ;
+
+          result = fr.toDouble(str, &isConvertOk) ;
+
+          if(isConvertOk == false)
+          {
+            result = en.toDouble(str, &isConvertOk);
+
+            if(isConvertOk == false)
+            {
+                QMessageBox msgBox;
+                msgBox.setIcon(QMessageBox::Critical);
+                msgBox.setText("PARSING ERROR: unable to read real number (unknown format). Please, convert your data into english or french number format");
+                msgBox.exec();
+                exit(-10) ;
+            }
+            else
+            {
+              QLocale::setDefault(en) ;
+            }
+          }
+          else
+          {
+            QLocale::setDefault(fr) ;
+          }
+        }
+      }
+    }
+
+    return result ;
+}
+
+QString ParserInAgilentCSV::getNotDefinedTag()
+{
+    return ParserInAgilentCSV::NOT_DEFINED_TAG ;
+}
+
+QString ParserInHRElementCSV::getNotDefinedTag()
+{
+    return ParserInHRElementCSV::NOT_DEFINED_TAG ;
+}
+
+QString ParserInSTDQC::getNotDefinedTag()
+{
+    return "";
+}
+
+QPair<int, QString> ParserInAgilentCSV::parse(QFile * file,Data * data, Processing *process)
+{
+    // Avoid "unused parameter" warning
+    process->DEBUG = process->DEBUG ;
+
+    // Patterns
+
+    QString namePattern("[A-Z][a-z]?");
+    QString massPattern("/ \\d{1,3}");
+    QString pulsePattern("\\d+(.\\d+)?");
+    QString rsdPattern(pulsePattern + "%") ;
+    QString undefinedPattern(ParserInAgilentCSV::NOT_DEFINED_TAG);
+    QString resolutionPattern("\\[#\\d\\]");
+    QString smpTag("^Sample:") ;
+    QString eltPattern(namePattern + " " + massPattern + " " + resolutionPattern + ";");
+
+    // Regular expressions
+
+    QRegExp eltRegEx(eltPattern) ;
+    QRegExp sampleRegEx(smpTag) ;
+
+    QPair<int,QString> result ;
+    QTextStream in(file);
+    QStringList solutionNames ;
+    QStringList solutionTokens ;
+    QString line ;
+    QRegExp reg;
+    int nbElt = 0 ;
+
+    // Parse solution names
+
+    while(! in.atEnd())
+    {
+        line = in.readLine() ;
+        if(line.contains(sampleRegEx))
+        {
+            solutionNames = line.split(';');
+            solutionNames.removeAll("");
+            solutionNames.removeAt(0); // Discard smpTag
+            break ;
+        }
+    }
+
+    //Count Elements Number
+
+    while (!in.atEnd())
+    {
+        line = in.readLine();
+        if (line.contains(eltRegEx))
+        {
+            nbElt++;
+        }
+    }
+
+    if(solutionNames.isEmpty())
+    {
+        result.first=1;
+        result.second="Input file format error: no solution detected (instrument set to \'" +
+                      ParserInAgilentCSV::ICP_MS_NAME + "\')" ;
+        return  result;
+    }
+
+    //No elements detected
+
+    if (nbElt==0){
+        result.first=1;
+        result.second="Input file format error: no element detected (instrument set to \'" +
+                      ParserInAgilentCSV::ICP_MS_NAME + "\')";
+        return  result;
+    }
+
+    for(int i = 0 ; i < solutionNames.size() ; i++)
+    {
+        //Add Solutions with apropriate type
+        Solution::Type type;
+
+        if(solutionNames.at(i).contains(QRegExp(ID_BLK)))
+        {
+            type = Solution::BLK;
+        }
+        else if(solutionNames.at(i).contains(QRegExp(ID_STD)))
+        {
+            type = Solution::STD;
+        }
+        else if(solutionNames.at(i).contains(QRegExp(ID_QC)))
+        {
+            type = Solution::QC;
+        }
+        else
+        {
+            type = Solution::SMP;
+        }
+
+        data->addSolution(Solution(solutionNames.at(i),
+                                   nbElt,
+                                   type));
+    }
+
+    //Parse Solutions
+
+    in.seek(0); // Rewind
+
+    while(! in.atEnd())
+    {
+        int tokenIndex = 1 ;
+        int eltId = -1 ;
+        int solutionId = 0 ;
+        QString eltName ;
+        QString tmp ;
+        int eltMass = -1 ;
+        double pulseValue = -1. ;
+        double rsdValue = -1. ;
+        Solution* currentSolution = NULL ;
+
+        line = in.readLine() ;
+
+        if(line.contains(eltRegEx))
+        {
+            solutionTokens = line.split(';');
+            solutionTokens.removeAll("");
+
+            //Element Name
+            reg.setPattern(namePattern);
+            if (reg.indexIn(solutionTokens.at(0)) != -1)
+            {
+                eltName = reg.cap();
+                reg.setPattern(resolutionPattern);
+                reg.indexIn(solutionTokens.at(0));
+                tmp = reg.cap();
+                tmp.remove(QChar('['), Qt::CaseInsensitive);
+                tmp.remove(QChar(']'), Qt::CaseInsensitive);
+                eltName += " " + tmp ;
+            }
+
+            //Element Mass
+            reg.setPattern(massPattern);
+            if (reg.indexIn(solutionTokens.at(0)) != -1)
+            {
+                tmp = reg.cap() ;
+                reg.setPattern("\\d{1,3}");
+                reg.indexIn(tmp) ;
+                eltMass = reg.cap().toInt();
+            }
+
+            // Create element
+            eltId = data->addIso(Element(eltName, eltMass, Element::UNDEFINED)) ;
+
+            // Check values for each solution
+            int nbValues =0;
+            for(tokenIndex=1 ; tokenIndex<solutionTokens.size(); tokenIndex++)
+            {
+                reg.setPattern("(" + pulsePattern + ")|(" +
+                               undefinedPattern + ")|(" +
+                               rsdPattern +")") ;
+
+                if(solutionTokens.at(tokenIndex).contains(reg))
+                {
+                    nbValues++;
+                }
+                else
+                {
+                    result.first=1;
+                    result.second = "Input file format error: unrecognized pulse or rsd value for element \'" +
+                                    data->getIso(eltId).getName() + "\' in solution \' " +
+                                    data->getSolution(solutionId).getName() +
+                                    "\' (instrument set for \'" + ParserInAgilentCSV::ICP_MS_NAME + "\')" ;
+
+                    return result;
+                }
+            }
+
+            // Check if the number of values is compatible with number of Solutions
+            if (nbValues != (2*solutionNames.size()))
+            {
+                result.first=1;
+                result.second = "Input file format error:\n\nFor the element \'" +
+                                data->getIso(eltId).getName() +
+                                "\': values number detected do not match with solutions number (instrument set to \'" +
+                                ParserInAgilentCSV::ICP_MS_NAME + "\')";
+                return result;
+            }
+
+            // Parse solution data
+            tokenIndex = 1 ;
+            while(tokenIndex < solutionTokens.size())
+            {
+                // Parse pulse value.
+                pulseValue = this->toDouble(solutionTokens.at(tokenIndex)) ;
+                tokenIndex++;
+
+                // Parse rsd value.
+
+                // Remove trailing %
+                solutionTokens[tokenIndex].remove(QChar('%'), Qt::CaseInsensitive);
+
+                // Compute rsdValue
+                double solutionTokenValue = this->toDouble(solutionTokens.at(tokenIndex)) ;
+                rsdValue = solutionTokenValue * pulseValue / 100. ;
+
+                // Set solution's values
+                currentSolution = &data->getSolution(solutionId) ;
+                currentSolution->setCps(eltId, pulseValue);
+                currentSolution->setCpsSD(eltId, rsdValue);
+
+                tokenIndex++;
+                solutionId++;
+            }
+        }
+    }
+
+    //Return Message
+    result.first=0;
+    result.second = "Parsed Elements "
+                    + QString::number(nbElt)
+                    + "\n\n"
+                    + "Parsed Solutions "
+                    + QString::number(solutionNames.size());
+    return result ;
+}
+
+QPair<int, QString> ParserInHRElementCSV::parse(QFile * file,Data * data, Processing *process) {
+
+    // Avoid "unused parameter" warning
+    process->DEBUG = process->DEBUG ;
 
     //Parsing Strings **********************************************
-
-    QString idBLK("BLK_");
-    QString idSTD("STD_");
-    QString idQC("QC_");
 
     QString nameElt("[A-Z][a-z]?");
     QString massElt("\\d{1,3}");
@@ -42,8 +338,8 @@ QPair<int, QString> ParserInCSV::parse(QFile * file,Data * data, Processing *pro
     QString MR("MR");
     QString HR("HR");
     QString resolElt("("+LR+"|"+MR+"|"+HR+")");
-    QString valElt("\\d+.\\d+");
-    QString valEltInd("not def.");
+    QString valElt("\\d+(.\\d+)?");
+    QString valEltInd(ParserInHRElementCSV::NOT_DEFINED_TAG);
 
     QString elementPathern(nameElt+massElt+"\\("+resolElt+"\\);");
 
@@ -53,8 +349,8 @@ QPair<int, QString> ParserInCSV::parse(QFile * file,Data * data, Processing *pro
     QPair<int,QString> retour;
     QString retourStr;
 
-    //The first line : Solutions Identification
-    //The first column : Elements Identification
+    //The first line: Solutions Identification
+    //The first column: Elements Identification
 
     QTextStream in(file);
     QStringList echant;
@@ -77,7 +373,8 @@ QPair<int, QString> ParserInCSV::parse(QFile * file,Data * data, Processing *pro
 
     if (counterElement==0){
         retour.first=1;
-        retour.second="Input File Format Error : No Elements Detected";
+        retour.second="Input file format error: no element detected (instrument set to \'" +
+                      ParserInHRElementCSV::ICP_MS_NAME + "\')";
         return  retour;
     }
 
@@ -93,11 +390,11 @@ QPair<int, QString> ParserInCSV::parse(QFile * file,Data * data, Processing *pro
         //Add Solutions with apropriate type
         Solution::Type type;
 
-        if(echant.at(j).contains(QRegExp(idBLK))){
+        if(echant.at(j).contains(QRegExp(ID_BLK))){
             type = Solution::BLK;
-        }else if(echant.at(j).contains(QRegExp(idSTD))){
+        }else if(echant.at(j).contains(QRegExp(ID_STD))){
             type = Solution::STD;
-        }else if(echant.at(j).contains(QRegExp(idQC))){
+        }else if(echant.at(j).contains(QRegExp(ID_QC))){
             type = Solution::QC;
         }else{
             type = Solution::SMP;
@@ -110,7 +407,8 @@ QPair<int, QString> ParserInCSV::parse(QFile * file,Data * data, Processing *pro
     //No solutions detected
     if(counterEchant==0){
         retour.first=1;
-        retour.second="Input File Format Error : No Solutions Detected";
+        retour.second="Input file format error: no solution detected (instrument set to \'"+
+                      ParserInHRElementCSV::ICP_MS_NAME + "\')";
         return  retour;
     }
 
@@ -167,9 +465,10 @@ QPair<int, QString> ParserInCSV::parse(QFile * file,Data * data, Processing *pro
             //Verifiy if the number of values is compatible with number of Solutions
             if (counter != (2*counterEchant)){
                 retour.first=1;
-                retourStr = "Input File Format Error :\n\nFor the Element "
+                retourStr = "Input file format error:\n\nFor the element \'"
                         + data->getIso(numIso).getName()
-                        + " Values Number detected do not match with Solutions number";
+                        + "\': values number detected do not match with solutions number (instrument set to \'"
+                        + ParserInHRElementCSV::ICP_MS_NAME + "\')";
                 retour.second= retourStr;
                 return  retour;
             }
@@ -183,15 +482,19 @@ QPair<int, QString> ParserInCSV::parse(QFile * file,Data * data, Processing *pro
                     continue;
                 }
 
-                if (isConcent){
-                    data->getSolution(count).setCps(numIso,isot.at(j).toDouble());
-                    isConcent=false;
-                }else
+                if (isConcent)
                 {
-                   double sd = isot.at(j).toDouble() * data->getSolution(count).getCps(numIso)/ 100. ;
+                    double isoValue = this->toDouble(isot.at(j)) ;
+                    data->getSolution(count).setCps(numIso,isoValue);
+                    isConcent=false;
+                }
+                else
+                {
+                   double isoValue = this->toDouble(isot.at(j)) ;
+                   double sd = isoValue * data->getSolution(count).getCps(numIso)/ 100. ;
                    data->getSolution(count).setCpsSD(numIso,sd);
-                    isConcent=true;
-                    count++;
+                   isConcent=true;
+                   count++;
                 }
             }
         }
@@ -209,7 +512,7 @@ QPair<int, QString> ParserInCSV::parse(QFile * file,Data * data, Processing *pro
 }
 
 /**
-  * \param file Output file that contains processed data : file to be written
+  * \param file Output file that contains processed data: file to be written
   * \param data Container of the data set
   * \param process Container of processed data
   * \return Error code and a return Message to be displayed
@@ -218,7 +521,7 @@ QPair<int, QString> ParserInCSV::parse(QFile * file,Data * data, Processing *pro
 QPair<int, QString> ParserOutCSV::parse(QFile * file,Data * data,Processing *process) {
     QTextStream out(file);
 
-    //1st Line : Elements Name
+    //1st Line: Elements Name
     out << ";;";
 
     for(int i=0;i<data->isoSize();i++){
@@ -276,13 +579,16 @@ QPair<int, QString> ParserOutCSV::parse(QFile * file,Data * data,Processing *pro
 }
 
 /**
-  * \param file Input file that contains STD and QC concentrations : file to be read
+  * \param file Input file that contains STD and QC concentrations: file to be read
   * \param data Container of the data set
   * \param process Container of processed data
   * \return Error code and a return Message to be displayed
   */
 
 QPair<int, QString> ParserInSTDQC::parse(QFile * file,Data * data,Processing *process) {
+
+    // Avoid "unused parameter" warning
+    process->DEBUG = process->DEBUG ;
 
     // Parsing Strings **********************************************
 
@@ -326,7 +632,7 @@ QPair<int, QString> ParserInSTDQC::parse(QFile * file,Data * data,Processing *pr
             }
         }
 
-        //If not found : return message
+        //If not found: return message
         if(column == -1){
             QPair<int,QString> retour;
             retour.first=1;
@@ -350,12 +656,14 @@ QPair<int, QString> ParserInSTDQC::parse(QFile * file,Data * data,Processing *pr
             if (line == -1) continue;
 
 
-            //Introduce concetration
-            QString value = isot.at(line).value(column);
-            data->getSolution(i).setConcent(j,value.toDouble());
+            //Introduce concentration
+            QString valueString = isot.at(line).value(column);
+            double value = this->toDouble(valueString) ;
+            data->getSolution(i).setConcent(j,value);
 
-            QString valueSD = isot.at(line).value(column+1);
-            data->getSolution(i).setConcentRSD(j,valueSD.toDouble());
+            QString valueSdString = isot.at(line).value(column+1);
+            double valueSd = this->toDouble(valueSdString) ;
+            data->getSolution(i).setConcentRSD(j,valueSd);
         }
     }
 

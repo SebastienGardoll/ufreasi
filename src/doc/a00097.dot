@@ -1,0 +1,7 @@
+digraph "Processing"
+{
+ // INTERACTIVE_SVG=YES
+  edge [fontname="Helvetica",fontsize="12",labelfontname="Helvetica",labelfontsize="12"];
+  node [fontname="Helvetica",fontsize="12",shape=record];
+  Node1 [label="{Processing\n|+ DEBUG\l- lines\l- squareR\l- LOQ\l- LOD\l|+ Processing()\l+ ~Processing()\l+ init()\l+ computeConcent()\l+ calibration()\l+ computeLimits()\l+ getLine()\l+ getSquareR()\l+ getLOD()\l+ getLOQ()\l+ subtructBlank()\l+ correctionIS()\l+ passQC()\l+ max()\l+ min()\l+ avr()\l+ stat()\l+ isValid()\l- computeLine()\l- concentRSD_y_intercept_s()\l- concentRSD_blank_s()\l- concentRSD_y_intercept_IS_s()\l- concentRSD_blank_IS_s()\l- computeSlopeRsdS()\l- computeAlpha()\l- computeIsRSD_s()\l}",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled" fontcolor="black"];
+}
