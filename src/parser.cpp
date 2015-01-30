@@ -34,6 +34,51 @@ const QString Parser::ID_QC("QC_");
 const QString ParserInHRElementCSV::ICP_MS_NAME("HR-ICP-MS");
 const QString ParserInAgilentCSV::ICP_MS_NAME("Q-ICP-MS");
 
+double Parser::toDouble(const QString &str)
+{
+    double result = 0.0 ;
+    bool isConvertOk = false ;
+
+    if(! str.isEmpty())
+    {
+      result = str.toDouble(&isConvertOk) ;
+
+      if(isConvertOk == false)
+      {
+        // If toDouble failed, the str is not in the
+        // local system format and C format.
+        // So try in the french and english formats
+        // otherwise give it up.
+
+        QLocale fr (QLocale::French) ;
+        QLocale en (QLocale::English) ;
+
+        result = fr.toDouble(str, &isConvertOk) ;
+
+        if(isConvertOk == false)
+        {
+          result = en.toDouble(str, &isConvertOk);
+
+          if(isConvertOk == false)
+          {
+            cout << "PARSING ERROR: unable to read real number. Please, convert your real numbers into US or French format" << endl ;
+            exit (-10) ;
+          }
+          else
+          {
+            QLocale::setDefault(en) ;
+          }
+        }
+        else
+        {
+          QLocale::setDefault(fr) ;
+        }
+      }
+    }
+
+    return result ;
+}
+
 QPair<int, QString> ParserInAgilentCSV::parse(QFile * file,Data * data, Processing *process)
 {
     // Avoid "unused parameter" warning

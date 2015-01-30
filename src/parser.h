@@ -39,6 +39,8 @@ public:
     static const QString ID_STD ;
     static const QString ID_QC ;
 
+    static double toDouble(const QString& str) ; ///< Returns 0.0 if str is empty or parsing fails.
+
     virtual inline ~Parser(){};
 };
 
