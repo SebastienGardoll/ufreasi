@@ -266,7 +266,7 @@ QPair<int, QString> ParserInAgilentCSV::parse(QFile * file,Data * data, Processi
             while(tokenIndex < solutionTokens.size())
             {
                 // Parse pulse value.
-                pulseValue = solutionTokens.at(tokenIndex).toDouble() ;
+                pulseValue = Parser::toDouble(solutionTokens.at(tokenIndex)) ;
                 tokenIndex++;
 
                 // Parse rsd value.
@@ -275,7 +275,8 @@ QPair<int, QString> ParserInAgilentCSV::parse(QFile * file,Data * data, Processi
                 solutionTokens[tokenIndex].remove(QChar('%'), Qt::CaseInsensitive);
 
                 // Compute rsdValue
-                rsdValue = solutionTokens.at(tokenIndex).toDouble() * pulseValue / 100. ;
+                double solutionTokenValue = Parser::toDouble(solutionTokens.at(tokenIndex)) ;
+                rsdValue = solutionTokenValue * pulseValue / 100. ;
 
                 // Set solution's values
                 currentSolution = &data->getSolution(solutionId) ;
@@ -455,15 +456,19 @@ QPair<int, QString> ParserInHRElementCSV::parse(QFile * file,Data * data, Proces
                     continue;
                 }
 
-                if (isConcent){
-                    data->getSolution(count).setCps(numIso,isot.at(j).toDouble());
-                    isConcent=false;
-                }else
+                if (isConcent)
                 {
-                   double sd = isot.at(j).toDouble() * data->getSolution(count).getCps(numIso)/ 100. ;
+                    double isoValue = Parser::toDouble(isot.at(j)) ;
+                    data->getSolution(count).setCps(numIso,isoValue);
+                    isConcent=false;
+                }
+                else
+                {
+                   double isoValue = Parser::toDouble(isot.at(j)) ;
+                   double sd = isoValue * data->getSolution(count).getCps(numIso)/ 100. ;
                    data->getSolution(count).setCpsSD(numIso,sd);
-                    isConcent=true;
-                    count++;
+                   isConcent=true;
+                   count++;
                 }
             }
         }
@@ -626,11 +631,13 @@ QPair<int, QString> ParserInSTDQC::parse(QFile * file,Data * data,Processing *pr
 
 
             //Introduce concetration
-            QString value = isot.at(line).value(column);
-            data->getSolution(i).setConcent(j,value.toDouble());
+            QString valueString = isot.at(line).value(column);
+            double value = Parser::toDouble(valueString) ;
+            data->getSolution(i).setConcent(j,value);
 
-            QString valueSD = isot.at(line).value(column+1);
-            data->getSolution(i).setConcentRSD(j,valueSD.toDouble());
+            QString valueSdString = isot.at(line).value(column+1);
+            double valueSd = Parser::toDouble(valueSdString) ;
+            data->getSolution(i).setConcentRSD(j,valueSd);
         }
     }
 
