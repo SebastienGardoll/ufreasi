@@ -7,6 +7,8 @@ Changes
 Sébastien Gardoll
 
 1) Remove blank average from the IS reference combobox.
+2) Fix real number format: uFREASI understand french, english and C formats.
+3) Print uFREASI's configuration on the standard output.
 
 
 Release 1.30
