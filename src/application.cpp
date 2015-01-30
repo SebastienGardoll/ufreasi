@@ -357,6 +357,11 @@ void Application::run(){
         {
             cout << " with " << ui->blankSelection->currentText().toStdString() << " as the blank reference solution" << endl;
         }
+
+        if(ui->controlQC->isChecked())
+        {
+            cout << "  Quality control validation is set" << endl ;
+        }
     }
 
     if(Processing::DEBUG)
