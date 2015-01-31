@@ -23,7 +23,8 @@
 #include <iostream>
 #include <iomanip>
 
-bool Processing::DEBUG = true ;
+bool Processing::DEBUG = false ;
+bool Processing::INFO = true ;
 
 Processing::Processing(){
 }
@@ -136,7 +137,11 @@ void Processing::correctionIS(Data *data,int IdEchant,int Id,Element::Resolution
   * \param notEtal Elements for which there isn't calibration compute (typically internal standards)
   */
 
-void Processing::calibration(Data *data,QList<int> notEtal){
+void Processing::calibration(Data *data,QList<int> notEtal)
+{
+    if(Processing::INFO)
+        cout << "<- isotope -><- slope -><- y-intercept -><- r2 ->" << endl ;
+
     for(int i=0;i<data->isoSize();i++){
         if(notEtal.indexOf(i) != -1) continue;
         computeLine(data,i);
@@ -456,12 +461,12 @@ void Processing::computeLine(Data *data,int Id){
     
     lines[Id].interceptSdSquare = facto * (1./x.size() + moyX * moyX / SD2) ;
     
-    if(Processing::DEBUG)
+    if(Processing::INFO)
     {
       Element el = data->getIso(Id) ;
-      cout << setiosflags(ios::fixed) << std::setprecision(8) << el.getName().toStdString() << ": "
-           << "slope = " << lines[Id].slope << ", y-intercept =  " << lines[Id].intercept
-           << ", r2 = " << squareR[Id] << endl ;
+      cout << setiosflags(ios::fixed) << std::setprecision(8) << el.getName().toStdString() << " ; "
+             << lines[Id].slope << " ; " << lines[Id].intercept
+               << " ; " << squareR[Id] << endl ;
     }
 }
 

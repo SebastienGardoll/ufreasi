@@ -1,0 +1,189 @@
+************************ Output for uFREASI 1.32 *******************************
+
+Data input files: STD_QC_200612.csv and caroline_260612_short
+Parsed element: 47
+Parsed solution: 64
+
+*** 1 ***
+
+*** begin processing ***
+# uFREASI configuration:
+  Selected ICP instrument: HR-ICP-MS
+  Internal standard correction is set with:
+    - BLK_1 as the IS reference solution
+    - IS check boxes' status are: 1 ; 1 ; 1
+    - 115In LR as the IS-LR isotope reference
+    - 115In MR as the IS-MR isotope reference
+    - 115In HR as the IS-HR isotope reference
+  Y-intercept is set with BLK_1 as the blank reference solution
+  Quality control validation is set
+# open QC-STD file
+# internal standard correction
+# y intercept
+# process calibration
+<- isotope -><- slope -><- y-intercept -><- r2 ->
+7Li LR ; 62235.56186626 ; 3275.26302610 ; 0.99999957
+11B LR ; 33500.80159906 ; 68854.90351500 ; 0.93897331
+85Rb LR ; 335915.44206616 ; 1112.02205870 ; 0.99999987
+95Mo LR ; 60946.55679913 ; 503.64448813 ; 0.99999837
+111Cd LR ; 51508.75529915 ; 89.19847165 ; 0.99999896
+118Sn LR ; 132384.07222707 ; 5381.06233917 ; 0.99999431
+121Sb LR ; 127624.84356292 ; 291.89727646 ; 0.99999992
+137Ba LR ; 78881.64234161 ; 510.10466476 ; 0.99999804
+208Pb LR ; 393062.09567938 ; 5274.69644811 ; 0.99999602
+235U LR ; 3955.98613495 ; -13.09502182 ; 0.99999881
+238U LR ; 958791.04228810 ; 3753.57773898 ; 0.99999848
+27Al MR ; 18292.49329405 ; 20476.19191675 ; 0.99998610
+47Ti MR ; 1994.38083694 ; -18.58170820 ; 0.99998064
+51V MR ; 24614.46724537 ; -51.50628133 ; 0.99999812
+52Cr MR ; 21578.10232439 ; 264.73268867 ; 0.99999939
+55Mn MR ; 34650.14369243 ; 232.71343115 ; 0.99998889
+56Fe MR ; 30778.48495167 ; 4028.19252263 ; 0.99996893
+59Co MR ; 30860.22856581 ; -186.43541135 ; 0.99999481
+60Ni MR ; 6763.08277499 ; 442.59998164 ; 0.99999155
+63Cu MR ; 14389.27484600 ; 2064.94094880 ; 0.99999120
+66Zn MR ; 4146.67767710 ; 1629.98107019 ; 0.99991074
+75As HR ; 969.60144750 ; -11.30791289 ; 0.99997807
+77Se HR ; 89.18898084 ; -4.05440185 ; 0.99978412
+78Se HR ; 110.13194780 ; 1293.75585832 ; 0.10850060
+*** process concentration ***
+*** process limits ***
+*** process QC control ***
+# QC not valid: 6 / 51
+*** end of processing ***
+
+*** 2 ***
+
+*** begin processing ***
+# uFREASI configuration:
+  Selected ICP instrument: HR-ICP-MS
+  Internal standard correction is set with:
+    - BLK_1 as the IS reference solution
+    - IS check boxes' status are: 1 ; 1 ; 1
+    - 115In LR as the IS-LR isotope reference
+    - 115In MR as the IS-MR isotope reference
+    - 115In HR as the IS-HR isotope reference
+  Blank subtraction is set with BLK_1 as the blank reference solution
+  Quality control validation is set
+# open QC-STD file
+# internal standard correction
+# substract blank
+# process calibration
+<- isotope -><- slope -><- y-intercept -><- r2 ->
+7Li LR ; 62249.92157467 ; -335.94792723 ; 0.99999986
+11B LR ; 29969.83130149 ; 82195.45448184 ; 0.99779035
+85Rb LR ; 335890.87588367 ; 571.86222619 ; 0.99999988
+95Mo LR ; 60923.56769212 ; 538.37101606 ; 0.99999904
+111Cd LR ; 51505.90655858 ; 66.58027722 ; 0.99999880
+118Sn LR ; 132287.28906398 ; 2241.66203709 ; 0.99999690
+121Sb LR ; 127622.91508233 ; 44.80195552 ; 0.99999991
+137Ba LR ; 78903.93695207 ; -522.62749071 ; 0.99999824
+208Pb LR ; 392887.77327505 ; 4082.37387729 ; 0.99999664
+235U LR ; 3957.31568325 ; -31.01189238 ; 0.99999936
+238U LR ; 958563.78161156 ; 5300.88573003 ; 0.99999859
+27Al MR ; 18283.66577410 ; 206.31528580 ; 0.99998521
+47Ti MR ; 1996.76248120 ; -55.27412694 ; 0.99998685
+51V MR ; 24619.58535769 ; -119.85864997 ; 0.99999808
+52Cr MR ; 21571.07490391 ; 164.07958436 ; 1.00000000
+55Mn MR ; 34671.78445760 ; -502.24730047 ; 0.99998958
+56Fe MR ; 30789.96782815 ; -266.49906641 ; 0.99996446
+59Co MR ; 30876.23914862 ; -373.07510844 ; 0.99999571
+60Ni MR ; 6767.70081915 ; -108.25561807 ; 0.99999321
+63Cu MR ; 14372.28272394 ; 396.74021695 ; 0.99999902
+66Zn MR ; 4142.30879807 ; 101.80266626 ; 0.99990237
+75As HR ; 970.44154058 ; -19.75220087 ; 0.99997931
+77Se HR ; 89.48786513 ; -6.97849367 ; 0.99982292
+78Se HR ; 241.53416710 ; -3068.04204968 ; 0.98052310
+*** process concentration ***
+*** process limits ***
+*** process QC control ***
+# QC not valid: 7 / 51
+*** end of processing ***
+
+*** 3 ***
+
+*** begin processing ***
+# uFREASI configuration:
+  Selected ICP instrument: HR-ICP-MS
+  Internal standard correction is set with:
+    - BLK_1 as the IS reference solution
+    - IS check boxes' status are: 1 ; 1 ; 1
+    - 115In LR as the IS-LR isotope reference
+    - 115In MR as the IS-MR isotope reference
+    - 115In HR as the IS-HR isotope reference
+  No blank correction is applied
+  Quality control validation is set
+# open QC-STD file
+# internal standard correction
+# process calibration
+<- isotope -><- slope -><- y-intercept -><- r2 ->
+7Li LR ; 62249.92157467 ; 3153.75207277 ; 0.99999986
+11B LR ; 29969.83130149 ; 98584.65448184 ; 0.99779035
+85Rb LR ; 335890.87588367 ; 1318.86222619 ; 0.99999988
+95Mo LR ; 60923.56769212 ; 698.37101606 ; 0.99999904
+111Cd LR ; 51505.90655858 ; 113.28027722 ; 0.99999880
+118Sn LR ; 132287.28906398 ; 6191.86203709 ; 0.99999690
+121Sb LR ; 127622.91508233 ; 308.10195552 ; 0.99999991
+137Ba LR ; 78903.93695207 ; 321.07250929 ; 0.99999824
+208Pb LR ; 392887.77327505 ; 6751.27387729 ; 0.99999664
+235U LR ; 3957.31568325 ; -24.31189238 ; 0.99999936
+238U LR ; 958563.78161156 ; 5670.88573003 ; 0.99999859
+27Al MR ; 18283.66577410 ; 20550.81528580 ; 0.99998521
+47Ti MR ; 1996.76248120 ; -38.57412694 ; 0.99998685
+51V MR ; 24619.58535769 ; -94.85864997 ; 0.99999808
+52Cr MR ; 21571.07490391 ; 324.07958436 ; 1.00000000
+55Mn MR ; 34671.78445760 ; 51.05269953 ; 0.99998958
+56Fe MR ; 30789.96782815 ; 3931.80093359 ; 0.99996446
+59Co MR ; 30876.23914862 ; -321.37510844 ; 0.99999571
+60Ni MR ; 6767.70081915 ; 403.44438193 ; 0.99999321
+63Cu MR ; 14372.28272394 ; 2208.44021695 ; 0.99999902
+66Zn MR ; 4142.30879807 ; 1666.80266626 ; 0.99990237
+75As HR ; 970.44154058 ; -18.45220087 ; 0.99997931
+77Se HR ; 89.48786513 ; -6.57849367 ; 0.99982292
+78Se HR ; 241.53416710 ; 184.05795032 ; 0.98052310
+*** process concentration ***
+*** process limits ***
+*** process QC control ***
+# QC not valid: 7 / 51
+*** end of processing ***
+
+*** 4 ***
+
+*** begin processing ***
+# uFREASI configuration:
+  Selected ICP instrument: HR-ICP-MS
+  No internal standard correction is applied
+  No blank correction is applied
+  Quality control validation is set
+# open QC-STD file
+# process calibration
+<- isotope -><- slope -><- y-intercept -><- r2 ->
+7Li LR ; 64568.14342601 ; 1085.61064445 ; 0.99996541
+11B LR ; 31669.38013673 ; 95412.58904134 ; 0.99712847
+85Rb LR ; 348305.78870777 ; -9434.41761718 ; 0.99997367
+95Mo LR ; 63178.08709234 ; -1275.17159380 ; 0.99997936
+111Cd LR ; 53409.06992309 ; -1541.14399920 ; 0.99998045
+118Sn LR ; 137210.93989845 ; 1844.01411735 ; 0.99998513
+121Sb LR ; 132338.85242912 ; -3764.91191022 ; 0.99997320
+137Ba LR ; 81820.43020956 ; -2219.69188379 ; 0.99995494
+208Pb LR ; 407440.12507156 ; -6035.28364802 ; 0.99998596
+235U LR ; 4103.34284576 ; -150.38943943 ; 0.99997799
+238U LR ; 994004.41995993 ; -25141.23520744 ; 0.99998117
+27Al MR ; 19382.64705211 ; 20033.70176465 ; 0.99994737
+47Ti MR ; 2103.70766639 ; -89.76364219 ; 0.99994390
+51V MR ; 25940.08799650 ; -731.13950923 ; 0.99997133
+52Cr MR ; 22730.23079286 ; -231.84346789 ; 0.99998394
+55Mn MR ; 36532.86067208 ; -839.00221783 ; 0.99994953
+56Fe MR ; 32465.55408672 ; 3130.89040166 ; 0.99990684
+59Co MR ; 32531.27666547 ; -1115.48216169 ; 0.99996390
+60Ni MR ; 7133.19268057 ; 227.22575024 ; 0.99995788
+63Cu MR ; 15155.94266781 ; 1834.11054155 ; 0.99999077
+66Zn MR ; 4374.34456787 ; 1555.76036721 ; 0.99982420
+75As HR ; 1032.86046860 ; -27.74011677 ; 0.99997458
+77Se HR ; 95.23480105 ; -7.65387868 ; 0.99981079
+78Se HR ; 258.41721487 ; 182.15569078 ; 0.98254870
+*** process concentration ***
+*** process limits ***
+*** process QC control ***
+# QC not valid: 10 / 51
+*** end of processing ***

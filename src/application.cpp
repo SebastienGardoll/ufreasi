@@ -70,7 +70,7 @@ Application::~Application(){
 
 void Application::about(){
     QMessageBox::about(this, tr("About uFREASI Application"),
-                       tr("<p>uFREASI : <b>user-FRiendly Elemental dAta procesSIng v1.31</b></p>"
+                       tr("<p>uFREASI : <b>user-FRiendly Elemental dAta procesSIng v1.32</b></p>"
                           "<p>Application to process ICP-MS data.</p>"
                           "<p><b>Designed by :</b></p>"
                           "<p> KHELIFI Oualid - Telecom ParisTech - khelifi@enst.fr</p>"
@@ -317,7 +317,7 @@ void Application::on_icpmsModel_currentIndexChanged(const QString &selection)
 
 void Application::run(){
 
-    if(Processing::DEBUG)
+    if(Processing::INFO)
     {
         cout << "*** begin processing ***" << endl ;
         cout << "# uFREASI configuration:" << endl ;
@@ -368,7 +368,7 @@ void Application::run(){
         }
     }
 
-    if(Processing::DEBUG)
+    if(Processing::INFO)
         cout << "# open QC-STD file" << endl ;
 
     QSettings settings("LGE", "uFREASI");
@@ -427,7 +427,7 @@ void Application::run(){
     // ALWAYS do first as average blank calulation is wrong if the internal standard reference is taken from a blank.
     if (ui->correctionIS->isChecked() == true)
     {
-        if(Processing::DEBUG)
+        if(Processing::INFO)
             cout << "# internal standard correction" << endl ;
 
         is_ref_id = ui->echantIS->currentIndex() ;
@@ -459,7 +459,7 @@ void Application::run(){
     //Substract Blank or not (not substract Internal standards)
     if (ui->subBlank->isChecked() == true)
     {
-        if(Processing::DEBUG)
+        if(Processing::INFO)
             cout << "# substract blank" << endl ;
 
         blank_id = dataOutput->mapBLK(ui->blankSelection->currentIndex()) ;
@@ -495,7 +495,7 @@ void Application::run(){
     
     if(ui->yIntercept->isChecked())
     {
-        if(Processing::DEBUG)
+        if(Processing::INFO)
             cout << "# y intercept" << endl ;
 
        // Blank solution are part of the linear regression.
@@ -513,13 +513,12 @@ void Application::run(){
        }
     }
     
-    if(Processing::DEBUG)
+    if(Processing::INFO)
         cout << "# process calibration" << endl ;
 
     //Process calibration
     processing->calibration(dataOutput,isoIS);
     
-    //DEBUG
     if(Processing::DEBUG)
     {
        cout << "blank_id = " << blank_id << ", is_ref_id = " << is_ref_id ;
@@ -528,13 +527,13 @@ void Application::run(){
        cout << endl ;
     }
     
-    if(Processing::DEBUG)
+    if(Processing::INFO)
         cout << "*** process concentration ***" << endl ;
 
     //Process concentrations
     processing->computeConcent(dataOutput, dataInput, blank_id, is_ref_id, is_elements) ;
     
-    if(Processing::DEBUG)
+    if(Processing::INFO)
         cout << "*** process limits ***" << endl ;
 
     processing->computeLimits(dataOutput,idBlkMoy);
@@ -542,7 +541,7 @@ void Application::run(){
     //Apply Quality control
     if (ui->controlQC->isChecked() == true)
     {
-        if(Processing::DEBUG)
+        if(Processing::INFO)
             cout << "*** process QC control ***" << endl ;
 
         QPair<int,QStringList> retour = processing->passQC(dataInput,dataOutput);
@@ -560,7 +559,10 @@ void Application::run(){
         // if(retour.first == 1)
         {
             QString debugTrace (QString::number(retour.second.size()) + " / " + QString::number(nbrQC)) ;
-            cout << "# QC not valid: " << debugTrace.toStdString() << endl ;
+
+            if(Processing::INFO)
+              cout << "# QC not valid: " << debugTrace.toStdString() << endl ;
+
             QCDialog * dialog =  new QCDialog(&retour.second,nbrQC,this);
             dialog->exec();
         }
@@ -592,7 +594,7 @@ void Application::run(){
          display->dispTableInput(dataInput,row);
     }
 
-    if(Processing::DEBUG)
+    if(Processing::INFO)
         cout << "*** end of processing ***" << endl ;
 }
 

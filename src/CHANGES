@@ -6,6 +6,18 @@ Changes
 
 Sébastien Gardoll
 
+1) Better format for standard output traces (Excel reporting, etc.)
+2) Make difference between debug and info traces.
+
+
+Release 1.31
+===================
+
+Changes
+-------
+
+Sébastien Gardoll
+
 1) Remove blank average from the IS reference combobox.
 2) Fix real number format: uFREASI understand french, english and C formats.
 3) Print uFREASI's configuration on the standard output.
