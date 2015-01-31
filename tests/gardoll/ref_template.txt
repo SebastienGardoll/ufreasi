@@ -1,6 +1,6 @@
 ************************ Output for uFREASI 1.xx *******************************
 
-Data input files: STD_QC_200612.csv and Caroline_260612.csv
+Data input files: STD_QC_200612.csv and caroline_260612_short
 Parsed element:
 Parsed solution:
 
