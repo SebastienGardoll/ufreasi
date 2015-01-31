@@ -66,7 +66,8 @@ public:
 
     static bool isValid(double value); ///< Tests the validit of a number
     
-    static bool DEBUG ; ///< Enable debug traces printing 
+    static bool DEBUG ; ///< Enable debug traces printing
+    static bool INFO ; ///< Enable info traces printing
 
 private:
     QList<Regline> lines ; ///< List of calibration lines
