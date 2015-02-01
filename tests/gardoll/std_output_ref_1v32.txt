@@ -1,7 +1,7 @@
 ************************ Output for uFREASI 1.32 *******************************
 
 Data input files: STD_QC_200612.csv and caroline_260612_short
-Parsed element: 47
+Parsed element: 29
 Parsed solution: 64
 
 *** 1 ***
