@@ -43,12 +43,8 @@ public:
 
     void computeConcent(Data *outputData, Data* inputData, int blank_id, int is_ref_id, int* is_elements); ///< Computes concentrations on data container
     void calibration(Data *data, QList<int> notEtal); ///< Computes calibration lines
-    void computeLimits(Data *data,QList<int> IdBlanc); ///< Computes limits - of detection (LOD), of Quantification (LOQ)
+    void computeLimits(Data *data,QList<int> IdBlanc, QList<int> isoIS); ///< Computes limits - of detection (LOD), of Quantification (LOQ)
 
-    
-    
-    
-  
     Regline getLine(int Id); ///< Gets calibration line corresponding to the Id element given
     double getSquareR(int Id); ///< Gets calibration line Error corresponding to the by Id element given
     double getLOD(int Id); ///< Gets LOD corresponding to the Id element given

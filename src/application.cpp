@@ -491,7 +491,7 @@ void Application::run(){
         i++;
     }
     
-    dataOutput->addBLKmoy(idBlkMoy,Data::FIRST_SEQ_AVG);
+    dataOutput->addBLKmoy(idBlkMoy, Data::FIRST_SEQ_AVG);
     
     if(ui->yIntercept->isChecked())
     {
@@ -534,9 +534,12 @@ void Application::run(){
     processing->computeConcent(dataOutput, dataInput, blank_id, is_ref_id, is_elements) ;
     
     if(Processing::INFO)
+    {
         cout << "*** process limits ***" << endl ;
+        cout << "<- isotope -><- LOD -><- LOQ ->" << endl ;
+    }
 
-    processing->computeLimits(dataOutput,idBlkMoy);
+    processing->computeLimits(dataOutput,idBlkMoy, isoIS);
 
     //Apply Quality control
     if (ui->controlQC->isChecked() == true)

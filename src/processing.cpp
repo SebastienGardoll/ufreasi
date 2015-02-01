@@ -477,7 +477,7 @@ void Processing::computeLine(Data *data,int Id){
   * - LOQ = 10 * standard deviation of the blanks list
   */
 
-void Processing::computeLimits(Data *data,QList<int> IdBlanc){
+void Processing::computeLimits(Data *data,QList<int> IdBlanc, QList<int> isoIS){
 
     if (IdBlanc.size() == 0) return;
 
@@ -496,6 +496,25 @@ void Processing::computeLimits(Data *data,QList<int> IdBlanc){
 
         LOD[j]=3*S;
         LOQ[j]=10*S;
+
+        if(Processing::INFO)
+        {
+            bool hadToPrint = true ;
+
+            // Remove IS isotopes.
+            for(int k=0 ; k < isoIS.size() ; k++)
+            {
+              if(isoIS.at(k) == j)
+              {
+                  hadToPrint = false ;
+              }
+            }
+
+            if(hadToPrint)
+            {
+              cout << data->getIso(j).getName().toStdString() << " ; " << LOD[j] << " ; " << LOQ[j] << endl ;
+            }
+        }
     }
 }
 
