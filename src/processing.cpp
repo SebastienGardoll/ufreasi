@@ -477,21 +477,27 @@ void Processing::computeLine(Data *data,int Id){
   * - LOQ = 10 * standard deviation of the blanks list
   */
 
-void Processing::computeLimits(Data *data,QList<int> IdBlanc, QList<int> isoIS){
+void Processing::computeLimits(Data *data, QList<int> IdBlanc, QList<int> isoIS){
 
     if (IdBlanc.size() == 0) return;
 
-    for(int j=0;j<data->isoSize();j++){
+    for(int j=0;j<data->isoSize();j++)
+    {
         QVector<double> x;
-        for(int i=0;i<IdBlanc.size();i++){
+        for(int i=0;i<IdBlanc.size();i++)
+        {
             x.push_back(data->getSolution(IdBlanc.at(i)).getConcent(j));
         }
 
         double S=0,moyX=0;
+
         moyX=avr(x);
-        for(int i=0;i<IdBlanc.size();i++){
+
+        for(int i=0;i<IdBlanc.size();i++)
+        {
             S=S+(x[i]-moyX)*(x[i]-moyX);
         }
+
         S=sqrt(S/IdBlanc.size());
 
         LOD[j]=3*S;
